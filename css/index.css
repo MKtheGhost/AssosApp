@@ -1,0 +1,52 @@
+
+body,html{
+    font-family: 'Helvetica',sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header {
+    height: 75vh;
+    width: 100%;
+    background-image: url(../images/Fond.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+img{
+    padding-top: 20%;
+    padding-bottom: 10%;
+}
+
+h1{
+    color: #ffffff;
+    padding-bottom: 15%;
+}
+
+button {
+    border: 1px solid #0d5e50; /* Bordure du bouton */
+    border-radius: 5px; /* Coins arrondis du bouton */
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    color: #2C2C2C;
+}
+
+.connect{
+    width: 60%;
+    background-color: #1AB99F; /* Couleur du bouton */
+}
+
+.connect:hover{
+    width: 60%;
+    background-color: #1ed7b8; /* Couleur du bouton */
+}
