@@ -5,6 +5,11 @@ body,html{
     padding: 0;
     overflow-x: hidden;
     background-color: #E1E9E9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1{
@@ -74,3 +79,14 @@ input{
     width: 47%;
 }
 
+.LoginPageLinkDiv{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    width: 80%;
+}
+
+.LoginPageLinkDiv p{
+    margin: 0;
+    font-style: italic;
+}
