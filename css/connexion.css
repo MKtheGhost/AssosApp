@@ -7,26 +7,8 @@ body,html{
     background-color: #E1E9E9;
 }
 
-.container {
-    width: 100%; /* Prend toute la largeur */
-    height: 75vh; /* Hauteur ajustable */
-    background: #1AB99F; /* Couleur du fond */
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%; 
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-img{
-    width: 65%;
-    margin: 10% 0 7% 0
-}
-
 h1{
-    color: #ffffff;
+    color: black;
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -35,6 +17,7 @@ h1{
 
 a:visited{
     color: inherit;
+
 }
 
 button {
@@ -57,11 +40,56 @@ button {
 }
 
 .ConnexionButton-RegisterLink>a{
+    color: #1AB99F;
     margin-left: 55%;
+}
+
+.connexionBody{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 90%;
+}
+
+.formItem{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3%;
+}
+
+input{
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.formItem label{
+    font-weight: bold;
+    padding-bottom: 3%;
 }
 
 .formButtonRegisterEtConnexion{
     display: flex;
     justify-content: center;
     margin-top: 5%;
+}
+
+.RegisterPageLinkDiv{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    width: 80%;
+}
+
+.RegisterPageLinkDiv p{
+    margin: 0;
+    font-style: italic;
 }

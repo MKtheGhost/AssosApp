@@ -7,34 +7,12 @@ body,html{
     background-color: #E1E9E9;
 }
 
-.container {
-    width: 100%; /* Prend toute la largeur */
-    height: 75vh; /* Hauteur ajustable */
-    background: #1AB99F; /* Couleur du fond */
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%; 
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-img{
-    width: 65%;
-    margin: 10% 0 7% 0
-}
-
 h1{
-    color: #ffffff;
+    color: black;
     font-size: 20px;
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
-}
-
-a:visited{
-    color: inherit;
 }
 
 button {
@@ -56,8 +34,28 @@ button {
     background-color: #1ed7b8; /* Couleur du bouton */
 }
 
-.ConnexionButton-RegisterLink>a{
-    margin-left: 55%;
+form{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 90%;
+}
+
+.formItem{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3%;
+}
+
+input{
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.formItem label{
+    font-weight: bold;
+    padding-bottom: 3%;
 }
 
 .formButtonRegisterEtConnexion{
@@ -65,3 +63,14 @@ button {
     justify-content: center;
     margin-top: 5%;
 }
+
+.formItemsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.formItemsContainer>.formItem{
+    width: 47%;
+}
+
