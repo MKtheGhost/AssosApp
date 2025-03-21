@@ -5,26 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AssosApp</title>
     <link rel="shortcut icon" href="./images/logo.png">
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/rechercher.css">
     <script src="./js/recherche.js" type="module"></script>
                 
 
 </head>
 <body>
-    <h1>Rechercher une association</h1>
-    <form id="searchForm">
-        <input type="text" placeholder="Rechercher par nom" id="searchInput"><br>
-        <label for="selectHandi">Affiner par handicap</label>
-        <select id="selectHandi">
-            <!--Ajout de liste par JS-->
-        </select>
-        <input type="submit" value="Chercher">
-    </form>
-    <div id="assos-container">
-        <!--Ajout par JS-->
-    </div>
-</body>
-<footer>
+    <div class="container">
+      <header><h1>Rechercher une association</h1></header>
 
-</footer>
+      <main>
+        <div class="search-container">
+          <form id="searchForm">
+           
+            <div class="search-input">
+              <input type="text" placeholder="Rechercher par nom" id="searchInput" class="search-i">
+            </div>
+
+            <label for="selectHandi">Affiner par handicap</label>
+            <div class="refine-search-container">
+                <select id="selectHandi">
+                    <!-- Options injected by JS -->
+                  </select>
+                  <input type="submit" value="Chercher" class="search-button">
+            </div>
+          </form>
+        </div>
+  
+        <div id="assos-container">
+          <!-- Assos injected by JS -->
+        </div>
+      </main>
+  
+      <footer>
+        <nav class="navbar">
+          <a href="#"><img src="./images/home.png" alt="Accueil"></a>
+          <a href="#"><img src="./images/search.png" alt="Recherche"></a>
+          <a href="#"><img src="./images/donate.png" alt="Don"></a>
+          <a href="#"><img src="./images/settings.png" alt="Paramètres"></a>
+        </nav>
+      </footer>
+    </div>
+  </body>
 </html>

@@ -10,11 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
     associations.forEach(asso => {
 
       const article = document.createElement("article");
-      article.classList.add("association");
+      article.classList.add("association-card");
 
       const img = document.createElement("img");
       img.src = "default-image.jpg"; // Remplacez par une vraie URL si disponible
       img.alt = asso.nom;
+
+      //create wrapper for text content
+      const infoDiv = document.createElement("div");
+      infoDiv.classList.add("association-info");
+
 
       const h2 = document.createElement("h2");
       h2.textContent = asso.nom;
@@ -23,8 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
       p.textContent = asso.description;
 
       article.appendChild(img);
-      article.appendChild(h2);
-      article.appendChild(p);
+      infoDiv.appendChild(h2);
+        infoDiv.appendChild(p);
+      article.appendChild(infoDiv);
 
       container.appendChild(article);
     });
@@ -33,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 searchInput.addEventListener("input",(e)=>{
     const searchedLetter = e.target.value.toLowerCase();
-    const card = document.querySelectorAll('.association');
+    const card = document.querySelectorAll('.association-card');
     console.log(card);
     filterElements(searchedLetter,card);
 })
@@ -43,11 +49,8 @@ function filterElements(letters,elements){
 
         for(let i=0;i<elements.length;i++){
             if(elements[i].textContent.toLowerCase().includes(letters))
-                elements[i].style.display="block";
+                elements[i].style.display="flex";
             else
                 elements[i].style.display="none";
-
-
-
     }
 }
