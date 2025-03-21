@@ -1,0 +1,132 @@
+/* RESET / BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* BODY LAYOUT */
+  body {
+    background-color: #1E1E1E;  /* Dark background behind container */
+    display: flex;
+    justify-content: center;    /* Centers the container horizontally */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* CONTAINER */
+  .container {
+    background-color: #DDEEEA;
+    width: 375px; /* Typical mobile width */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 15px;
+  }
+  
+  header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  /* MAIN CONTENT */
+  main {
+    flex: 1;
+    padding: 20px;
+    margin-bottom: 70px; /* Leave space for the fixed footer nav */
+  }
+  
+  /* INTRODUCTORY TEXT */
+  .intro p {
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* ACTUALITÉS SECTION */
+  .news-section h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+  }
+  
+  /* NEWS CARDS */
+  .news-card {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* IMAGE PLACEHOLDER */
+  .news-image img {
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    object-fit: cover; /* Ensures the image fills its container */
+  }
+  
+  /* DETAILS INSIDE THE CARD */
+  .news-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* TITLE */
+  .top-row h3 {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 5px;
+  }
+  
+  /* DATE */
+  .top-row span {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  /* DESCRIPTION */
+  .news-details p {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* FOOTER / NAVBAR */
+  footer {
+    background-color: #81D1C1;
+    position: fixed;
+    bottom: 0;
+    width: 375px; /* Match container width */
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .navbar img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  

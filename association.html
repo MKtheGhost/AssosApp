@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Page d'association</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="./css/association.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <header><h1>En savoir + sur l'association</h1></header>
+
+      <main>
+        <section class="top-circle">
+          <div class="image-wrapper">
+            <img id="asso-image" src="./images/placeholder.png" alt="Association Image"/>
+          </div>
+          <h2 id="asso-name">Association X</h2>
+          <p id="asso-desc">Description de l'association</p>
+          <!-- Link to the association's website (injected via JS) -->
+          <a id="asso-site" href="#" target="_blank">Site de l'association</a>
+        </section>
+
+        <section class="bottom-circle">
+          <button id="donation-button">Je donne !</button>
+        </section>
+      </main>
+
+      <footer>
+        <nav class="navbar">
+          <a href="#"><img src="./images/icon1.png" alt="Icon 1"></a>
+          <a href="#"><img src="./images/icon2.png" alt="Icon 2"></a>
+          <a href="#"><img src="./images/icon3.png" alt="Icon 3"></a>
+          <a href="#"><img src="./images/icon4.png" alt="Icon 4"></a>
+          <a href="#"><img src="./images/icon5.png" alt="Icon 5"></a>
+        </nav>
+      </footer>
+    </div>
+    
+    <!-- Link to the JS file (which imports dataAssociation.js) -->
+    <script src="./js/association.js" type="module"></script>
+  </body>
+</html>

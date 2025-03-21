@@ -1,0 +1,96 @@
+/* RESET / BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #1E1E1E;  /* Dark background behind container */
+    display: flex;
+    justify-content: center;    /* Centers the container horizontally */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* MAIN CONTAINER */
+  .container {
+    background-color: #DDEEEA;
+    width: 375px;         /* Typical mobile width */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 15px;
+  }
+  
+  header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  /* MAIN CONTENT */
+  main {
+    flex: 1;
+    padding: 20px;
+    margin-bottom: 70px; /* Space for the fixed footer */
+  }
+  
+  /* SECTION HEADINGS */
+  main h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+  }
+  
+  /* CARD LIST WRAPPER */
+  .card-list {
+    margin-bottom: 30px;
+  }
+  
+  /* INDIVIDUAL ROW CARDS */
+  .row-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* TEXT INSIDE EACH CARD */
+  .row-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #000;
+  }
+  
+  /* FOOTER NAVIGATION */
+  footer {
+    background-color: #81D1C1;
+    position: fixed;
+    bottom: 0;
+    width: 375px; /* Match container width */
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .navbar a img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,138 @@
+/* Reset / Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Layout */
+  body {
+    background-color: #1E1E1E; /* Dark background behind container */
+    display: flex;
+    justify-content: center;   /* Centers the container horizontally */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Main Container */
+  .container {
+    background-color: #DDEEEA;
+    width: 375px;         /* Typical mobile width */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    padding: 15px;
+  }
+  
+  header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  /* Main Section */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* Centers items horizontally */
+    padding: 20px;
+    margin-bottom: 70px;   /* Leave space for the fixed footer nav */
+  }
+  
+  /* Donation Title */
+  main h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  /* Checkbox & Label */
+  .donation-options {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .donation-options input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Slightly larger checkbox (optional) */
+  }
+  
+  .donation-options label {
+    font-size: 14px;
+    color: #000;
+  }
+  
+  /* Amount Label + Input */
+  .amount-label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  #amount {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  /* Payment Buttons */
+  .payment-method {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    border: none;
+  }
+  
+  .paypal-button {
+    background-color: #FFC439; /* PayPal gold */
+  }
+  
+  .card-button {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Powered by PayPal */
+  .powered-by {
+    font-size: 12px;
+    color: #555;
+    margin-top: 5px;
+    text-align: center;
+  }
+  
+  /* Footer Navigation */
+  footer {
+    background-color: #81D1C1;
+    position: fixed;
+    bottom: 0;
+    width: 375px; /* Match container width */
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .navbar img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  
