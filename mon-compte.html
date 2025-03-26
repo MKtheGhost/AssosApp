@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/mon-compte.css">
+    <title>Mon Compte</title>
+</head>
+<body>
+    <h2>Mon compte</h2>
+
+    <form action="post">
+        <div class="infos-compte">
+            <div class="double-div-container">
+                <p><strong>Prénom:</strong> <input type="text" id="prenom" name="prenom" value=""> </p>
+
+                <p><strong>Nom:</strong> <input type="text" id="nom" name="nom" value=""></p>
+            </div>
+
+            <div>
+                <p><strong>Adresse:</strong> <input type="text" id="adresse-post" name="adresse-post" value=""></p>
+            </div>
+
+            <div class="double-div-container">
+                <p><strong>Ville:</strong> <input type="text" id="ville" name="ville" value=""></p>
+
+                <p><strong>Code <br> Postal:</strong> <input type="text" id="code-post" name="code-post" value=""></p>
+            </div>
+
+            <div>
+                <p><strong>Mail:</strong> <input type="text" id="adresse-mail" name="adresse-mail" value=""></p>
+            </div>
+
+            <div>
+                <p><strong>Mot de passe:</strong> <input type="password" id="mdp" name="mdp" value=""></p>
+            </div>
+        </div>
+
+        <h2>Paramètres</h2>
+
+        <div class="checkbox-actu-container">
+            <input type="checkbox" name="newletter" id="newsletter">
+            <label for="newletter">Je souhaite recevoir des mails sur les actualités de l’application</label>
+        </div>
+
+        <div class="devise-container">
+            <label for="devise">Devise de mes dons</label>
+            <select name="devise" id="devise">
+                <option value="euro">€</option>
+                <option value="dollar">$</option>
+                <option value="livre">£</option>
+            </select>
+        </div>
+
+        <button type="submit">Modifier</button>
+    </form>
+</body>
+</html>
