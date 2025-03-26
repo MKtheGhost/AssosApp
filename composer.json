@@ -1,0 +1,10 @@
+{
+    "name": "pminh/assos-app",
+    "description": "pwa project for IUT Rives de seine",
+    "autoload": {
+        "psr-4": {
+            "Pminh\\AssosApp\\": "src/"
+        }
+    },
+    "require": {}
+}
