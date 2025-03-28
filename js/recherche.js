@@ -64,17 +64,7 @@ async function getAssos() {
           method: 'GET',
       });
       const data = await response.json();
-      console.log('Associations:', data);
-
-      // Display the data on the webpage
-      const assosList = document.getElementById('assos-list');
-      assosList.innerHTML = ''; // Clear existing list items
-      data.forEach(assos => {
-          const listItem = document.createElement('li');
-          listItem.textContent = `${assos.nom_assos} - ${assos.description}`;
-          listItem.dataset.id = assos.id_assos; // Store the ID for update/delete
-          assosList.appendChild(listItem);
-      });
+      return data;
   } catch (error) {
       console.error('Error fetching associations:', error);
   }
