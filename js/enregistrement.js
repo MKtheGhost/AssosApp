@@ -1,18 +1,21 @@
 document.getElementById('form-inscription').addEventListener('submit', function(e) {
   e.preventDefault();
 
+  const messageDiv = document.getElementById('message');
+
   const data = {
     user_mail: document.querySelector('[name="email"]').value,
     user_password: document.querySelector('[name="password"]').value,
-    user_firstname: document.querySelector('[name="firstName"]').value,
+    user_firstName: document.querySelector('[name="firstName"]').value,
     user_name: document.querySelector('[name="lastName"]').value,    
     user_address: document.querySelector('[name="address"]').value,
     user_city: document.querySelector('[name="city"]').value,
-    user_zipcode: document.querySelector('[name="zipCode"]').value
+    user_zipcode: document.querySelector('[name="zipCode"]').value,
+    user_grade: "utilisateur",
     
   };
 
-  fetch('http://localhost/SAE4/ASSOSAPP/API/users.php', {
+  fetch('http://localhost/SAE4/AssosApp/API/users.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -21,10 +24,14 @@ document.getElementById('form-inscription').addEventListener('submit', function(
   })
   .then(res => res.json())
   .then(response => {
-    document.getElementById('message').textContent = response.message;
-  })
+    
+    if (messageDiv) {
+        messageDiv.textContent = response.message;
+    }})
   .catch(error => {
-    document.getElementById('message').textContent = "Erreur lors de l'inscription";
+    if (messageDiv){
+        messageDiv.textContent = "Erreur lors de l'inscription";
+    }
     console.error(error);
   });
 });

@@ -56,16 +56,15 @@ function insertUser($data) {
     global $pdo;
 
     if (
-        isset($data->user_login) && isset($data->user_password) && isset($data->user_grade) &&
+        isset($data->user_password) &&
         isset($data->user_firstName) && isset($data->user_name) && isset($data->user_address) &&
         isset($data->user_mail) && isset($data->user_city) && isset($data->user_zipcode)
     ) {
         $sql = "INSERT INTO users 
-        (user_login, user_password, user_grade, user_firstName, user_name, user_address, user_mail, user_city, user_zipcode)
+        (user_password, user_grade, user_firstName, user_name, user_address, user_mail, user_city, user_zipcode)
         VALUES 
-        (:user_login, :user_password, :user_grade, :user_firstName, :user_name, :user_address, :user_mail, :user_city, :user_zipcode)";
+        (:user_password, :user_grade, :user_firstName, :user_name, :user_address, :user_mail, :user_city, :user_zipcode)";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':user_login', $data->user_login);
         $stmt->bindParam(':user_password', $data->user_password);
         $stmt->bindParam(':user_grade', $data->user_grade);
         $stmt->bindParam(':user_firstName', $data->user_firstName);
@@ -90,14 +89,12 @@ function updateUser($data) {
     global $pdo;
 
     if (
-        isset($data->user_login) && isset($data->user_password) && isset($data->user_grade) &&
-        isset($data->user_firstName) && isset($data->user_name) && isset($data->user_address) &&
+        isset($data->user_password) && isset($data->user_firstName) && isset($data->user_name) && isset($data->user_address) &&
         isset($data->user_mail) && isset($data->user_city) && isset($data->user_zipcode) && isset($data->newsletter)
     ) {
-        $sql = "UPDATE users SET user_login = :user_login, user_password = :user_password, user_grade = :user_grade WHERE user_id = :user_id";
+        $sql = "UPDATE users SET user_password = :user_password, user_grade = :user_grade WHERE user_id = :user_id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':user_id', $data->user_id);
-        $stmt->bindParam(':user_login', $data->user_login);
         $stmt->bindParam(':user_password', $data->user_password);
         $stmt->bindParam(':user_grade', $data->user_grade);
         $stmt->bindParam(':user_login', $data->user_login);
