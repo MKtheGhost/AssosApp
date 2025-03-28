@@ -1,76 +1,123 @@
 import { associations } from './dataAssociation.js';
 
-const associationsGet = getAssos();
-console.log(associationsGet);
-
-const form = document.getElementById('searchForm');
-const searchInput = document.getElementById('searchInput');
-
-// Fonction pour créer un article pour chaque association
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById("assos-container");
+    const searchInput = document.getElementById('searchInput');
+    const selectHandi = document.getElementById('selectHandi');
+    const searchForm = document.getElementById('searchForm');
 
-    associations.forEach(asso => {
+    // 1. Création des cartes d'associations
+    function createAssociationCards(assosList) {
+        container.innerHTML = ''; // Vide le conteneur
 
-      const article = document.createElement("article");
-      article.classList.add("association-card");
+        assosList.forEach(asso => {
+            const article = document.createElement("article");
+            article.classList.add("association-card");
+            article.dataset.categories = asso.handicaps ? asso.handicaps.join(' ') : '';
 
-      const img = document.createElement("img");
-      img.src = asso.image; // Remplacez par une vraie URL si disponible
-      img.alt = asso.nom;
-      img.onerror = () => { img.src = "images/assos/default-image.jpg"; };
+            const img = document.createElement("img");
+            img.src = asso.image;
+            img.alt = asso.nom;
+            img.onerror = () => { img.src = "images/assos/default-image.jpg"; };
 
-      //create wrapper for text content
-      const infoDiv = document.createElement("div");
-      infoDiv.classList.add("association-info");
+            const infoDiv = document.createElement("div");
+            infoDiv.classList.add("association-info");
 
+            const h2 = document.createElement("h2");
+            h2.textContent = asso.nom;
 
-      const h2 = document.createElement("h2");
-      h2.textContent = asso.nom;
+            const p = document.createElement("p");
+            p.textContent = asso.description;
 
-      const p = document.createElement("p");
-      p.textContent = asso.description;
+            article.appendChild(img);
+            infoDiv.appendChild(h2);
+            infoDiv.appendChild(p);
+            article.appendChild(infoDiv);
 
-      article.appendChild(img);
-      infoDiv.appendChild(h2);
-        infoDiv.appendChild(p);
-      article.appendChild(infoDiv);
-
-      container.appendChild(article);
-    });
-  });
-
-
-searchInput.addEventListener("input",(e)=>{
-    const searchedLetter = e.target.value.toLowerCase();
-    const card = document.querySelectorAll('.association-card');
-    console.log(card);
-    filterElements(searchedLetter,card);
-})
-
-function filterElements(letters,elements){
-    console.log(elements);
-
-        for(let i=0;i<elements.length;i++){
-            if(elements[i].textContent.toLowerCase().includes(letters))
-                elements[i].style.display="flex";
-            else
-                elements[i].style.display="none";
+            container.appendChild(article);
+        });
     }
-}
 
-async function fetchData() {
-    fetch("./API/assos.php")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        document.getElementById('output').innerText = JSON.stringify(data, null, 2);
-      })
-      .catch(error => {
-        document.getElementById('output').innerText = 'Error fetching data: ' + error;
-      });
-  }
+    // 2. Configuration du select des handicaps
+    const handicapsAssociations = {
+        'Handicap auditif': ['AFSA', 'UAFLMV'],
+        'Handicap visuel': ['A.M.I', 'FNATH', 'UNAPEI'],
+        'Handicap moteur': ['APF France handicap', 'FNATH', 'UNAFTC', 'ADEPA'],
+        'Handicap mental': ['UNAPEI', 'Unapei', 'Autisme France'],
+        'Troubles du spectre autistique': ['Autisme France', 'Fédération Française Sésame Autisme'],
+        'Handicap psychique': ['UNAFAM', 'FNAPSY', 'Schizo-oui'],
+        'Maladies neurologiques': [
+            'AFSEP',
+            'France Parkinson',
+            'France Alzheimer',
+            'ARSLA',
+            'AFM-Téléthon'
+        ],
+        'Déficience intellectuelle': ['UNAPEI', 'AFSA'],
+        'Polyhandicap': ['APF France handicap', 'UNAPEI'],
+        'Maladies rares': ['Alliance Maladies Rares', 'AMALYSTE'],
+        'Traumatisme crânien': ['UNAFTC'],
+        'Handicap invisible': ['FibromyalgieSOS', 'ASFC', 'E3M'],
+        'Troubles dys': ['HyperSupers – TDAH France'],
+        'Déficience viscérale': ['France Rein', 'FGCP', 'TRANSHÉPATE'],
+        'Cancer': ['La Ligue contre le cancer', 'UNAPECLE'],
+        'Addictions': [
+            'Addictions Alcool Vie Libre',
+            'Alcool Ecoute Joie & Santé',
+            'Entraid\'addict',
+            'La Croix Bleue'
+        ],
+        'Douleurs chroniques': ['AFVD', 'FibromyalgieSOS'],
+        'Maladies inflammatoires': ['AFA Crohn RCH France', 'ANDAR', 'AFPric']
+    };
+
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = '-- Tous les handicaps --';
+    defaultOption.selected = true;
+    selectHandi.appendChild(defaultOption);
+
+    Object.keys(handicapsAssociations).sort().forEach(handicap => {
+        const option = document.createElement('option');
+        option.value = handicap;
+        option.textContent = handicap;
+        selectHandi.appendChild(option);
+    });
+
+    // 3. Fonction de filtrage combinée
+    function filterAssociations() {
+        const searchText = searchInput.value.toLowerCase();
+        const selectedHandicap = selectHandi.value;
+
+        const filtered = associations.filter(asso => {
+            // Filtre par texte
+            const textMatch = asso.nom.toLowerCase().includes(searchText) ||
+                (asso.description && asso.description.toLowerCase().includes(searchText));
+
+            // Filtre par handicap si sélectionné
+            let handicapMatch = true;
+            if (selectedHandicap) {
+                const assosForHandicap = handicapsAssociations[selectedHandicap];
+                handicapMatch = assosForHandicap.includes(asso.nom);
+            }
+
+            return textMatch && handicapMatch;
+        });
+
+        createAssociationCards(filtered);
+    }
+
+    // 4. Écouteurs d'événements
+    searchInput.addEventListener('input', filterAssociations);
+    selectHandi.addEventListener('change', filterAssociations);
+    searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        filterAssociations();
+    });
+
+    // 5. Initialisation
+    createAssociationCards(associations);
+});
+
+// Note: Vous devrez ajouter un champ 'handicaps' à vos objets d'association
+// dans dataAssociation.js pour une correspondance parfaite, ou utiliser les noms comme clé
