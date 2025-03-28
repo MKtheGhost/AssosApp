@@ -1,6 +1,10 @@
 <?php
 
 header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
 include_once './../DBConnect/db_connect.php'; // Include the database connection
 
 // Get the HTTP method used (GET, POST, PUT, DELETE)
@@ -8,6 +12,11 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 // Fetch the input data from request
 $data = json_decode(file_get_contents("php://input"));
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
 // Handle API requests based on HTTP method
 switch ($method) {
