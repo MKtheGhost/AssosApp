@@ -16,6 +16,7 @@
 // }
 
 // Extract the connection parameters
+// DATABASE_URL variable does not exist in local environment so coded here instead
 $host = 'c7u1tn6bvvsodf.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com';
 $username ='u61jlgoi65rvmm';
 $password = 'p6e019cefd4ee5d6ea4fe45de6acf69946fe41f6dbdc9f8e7099b67f8d04cbbda';
