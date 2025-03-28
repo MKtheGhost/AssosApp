@@ -10,14 +10,54 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
     <script type="module" src="js/recherche.js" defer></script>
-                
+    <link rel="stylesheet" type="text/css" href="./css/settings.css">
+    <script src="./js/recherche.js" type="module"></script>
+    <script src="./js/settings.js" type="module"></script>
+
 
 </head>
 <body>
     <div class="container">
-      <header><h1>Rechercher une association</h1></header>
+      <header><h1>Rechercher une association</h1>
+          <div class="settings-icon" id="settingsButton">
+          <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
+          </div>
+      </header>
 
-      <main>
+        <!-- Popup de paramètres -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal"></span>
+                <h2>Paramètres d'Accessibilité</h2>
+
+                <!-- Taille du texte -->
+                <label for="textSize">Taille du texte :</label>
+                <select id="textSize">
+                    <option value="normal">Normal</option>
+                    <option value="large">Grand</option>
+                    <option value="xlarge">Très grand</option>
+                </select>
+
+                <!-- Mode Dyslexie -->
+                <label>
+                    <input type="checkbox" id="toggleDyslexia"> Police pour dyslexie
+                </label>
+
+                <!-- Taille des icônes -->
+                <label for="iconSize">Taille des icônes :</label>
+                <select id="iconSize">
+                    <option value="normal">Normal</option>
+                    <option value="large">Grand</option>
+                    <option value="xlarge">Très grand</option>
+                </select>
+
+
+
+            </div>
+        </div>
+
+
+        <main>
         <div class="search-container">
           <form id="searchForm">
            
@@ -39,15 +79,16 @@
           <!-- Assos injected by JS -->
         </div>
       </main>
-  
-      <footer>
-        <nav class="navbar">
-          <a href="#"><img src="./images/home.png" alt="Accueil"></a>
-          <a href="#"><img src="./images/search.png" alt="Recherche"></a>
-          <a href="#"><img src="./images/donate.png" alt="Don"></a>
-          <a href="#"><img src="./images/settings.png" alt="Paramètres"></a>
-        </nav>
-      </footer>
+
+        <footer>
+            <nav class="navbar icon-normal">
+                <a href="accueil.html"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
+                <a href="scanner.html"><img src="images/svg/scanner.svg" alt="Don"></a>
+                <a href="recherche.html"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
+                <a href="don-souscription.html"><img src="images/svg/donation.svg" alt="Don"></a>
+                <a href="mon-compte.html"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>
+            </nav>
+        </footer>
     </div>
   </body>
 </html>

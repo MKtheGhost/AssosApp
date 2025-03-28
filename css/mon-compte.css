@@ -7,21 +7,32 @@ body,html{
 }
 
 body{
-    background-color: #E1E9E9;
+    height: 100%;
+    background-color: #DDEEEA;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+/* Header */
+header {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 20px;
+}
 
-h2{
-    margin-bottom: 5%;
+header h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
 }
 
 p{
     margin: 0;
 }
 
-input{
+form input{
     background-color: #FFFFFF00;
     border-color:#FFFFFF00;
     width: 60%;
@@ -104,7 +115,39 @@ button {
     width: 50%;
     border-radius: 5px; /* Coins arrondis du bouton */
     padding: 10px 20px;
-    margin: 5px;
     cursor: pointer;
     color: #2C2C2C;
+    margin: 5px 5px 100px;
+}
+
+
+/* Footer (fixed at bottom) */
+footer {
+    background-color: #81D1C1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.refine-search-container {
+    display: flex;
+    gap : 10px;
 }

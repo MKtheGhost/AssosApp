@@ -10,13 +10,12 @@
     background-color: #1E1E1E;  /* Dark background behind container */
     display: flex;
     justify-content: center;    /* Centers the container horizontally */
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica',sans-serif;
   }
   
   /* CONTAINER */
   .container {
     background-color: #DDEEEA;
-    width: 375px; /* Typical mobile width */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -114,7 +113,7 @@
     background-color: #81D1C1;
     position: fixed;
     bottom: 0;
-    width: 375px; /* Match container width */
+    width: 100%; /* Match container width */
   }
   
   .navbar {
