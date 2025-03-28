@@ -1,5 +1,20 @@
 <?php
 
+// Allow requests from any origin (you can replace '*' with a specific domain)
+header("Access-Control-Allow-Origin: *");
+
+// Allow specific HTTP methods
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+
+// Allow specific headers (optional, adjust as needed)
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+// If the request is a preflight request (OPTIONS), send a successful response
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
 header("Content-Type: application/json");
 include_once './../DBConnect/db_connect.php'; // Include the database connection
 
