@@ -18,5 +18,13 @@ document.getElementById('form-inscription').addEventListener('submit', function(
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(response => {
+    document.getElementById('message').textContent = response.message;
+  })
+  .catch(error => {
+    document.getElementById('message').textContent = "Erreur lors de l'inscription";
+    console.error(error);
   });
 });
