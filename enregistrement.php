@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($prenom && $nom && $email && $password) {
         try {
             $sql = "INSERT INTO users 
-                (user_firstName, user_name, user_mail, user_password, user_address, user_city, user_zipcode, user_grade)
+                (user_firstname, user_name, user_mail, user_password, user_address, user_city, user_zipcode, user_grade)
                 VALUES 
                 (:prenom, :nom, :email, :password, :adresse, :ville, :codePostal, :grade)";
             
