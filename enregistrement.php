@@ -35,7 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute();
 
             // Redirection vers page de succès (ou retour au formulaire avec ?success)
-            header('Location: enregistrement.html?success=1');
+            echo "<script>
+                alert('✅ Enregistrement réussi !');
+                window.location.href = 'recherche.html';
+            </script>";
             exit;
         } catch (PDOException $e) {
             $message = "❌ Erreur lors de l'inscription : " . $e->getMessage();
