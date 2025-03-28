@@ -1,5 +1,8 @@
 import { associations } from './dataAssociation.js';
 
+const associationsGet = getAssos();
+console.log(associationsGet);
+
 const form = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 
@@ -53,4 +56,26 @@ function filterElements(letters,elements){
             else
                 elements[i].style.display="none";
     }
+}
+
+async function getAssos() {
+  try {
+      const response = await fetch('http://assosapp.netlify.app/API/assos.php', {
+          method: 'GET',
+      });
+      const data = await response.json();
+      console.log('Associations:', data);
+
+      // Display the data on the webpage
+      const assosList = document.getElementById('assos-list');
+      assosList.innerHTML = ''; // Clear existing list items
+      data.forEach(assos => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `${assos.nom_assos} - ${assos.description}`;
+          listItem.dataset.id = assos.id_assos; // Store the ID for update/delete
+          assosList.appendChild(listItem);
+      });
+  } catch (error) {
+      console.error('Error fetching associations:', error);
+  }
 }
