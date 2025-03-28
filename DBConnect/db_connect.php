@@ -15,6 +15,8 @@
 //     die("Error: Unable to parse DATABASE_URL. Missing components.\n");
 // }
 
+
+/*
 // Extract the connection parameters
 // DATABASE_URL variable does not exist in local environment so coded here instead
 $host = 'c7u1tn6bvvsodf.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com';
@@ -24,7 +26,7 @@ $dbname = ltrim('d6p9kqnbbnnd9h', '/');  // Remove leading '/' from database nam
 $port = isset($url["port"]) ? $url["port"] : 5432; // Default PostgreSQL port is 5432
 
 // Print connection details for debugging (comment out in production)
-//echo "Connecting to database at $host on port $port\n";
+echo "Connecting to database at $host on port $port\n";
 
 // Set the connection string for PDO with SSL enabled
 $connectionString = "pgsql:host=$host;port=$port;dbname=$dbname;user=$username;password=$password;sslmode=require";
@@ -38,4 +40,24 @@ try {
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
+
+*/
+
+
+$host = 'c7u1tn6bvvsodf.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com';
+$dbname = ltrim('d6p9kqnbbnnd9h', '/');
+$user = 'u61jlgoi65rvmm';
+$password = 'p6e019cefd4ee5d6ea4fe45de6acf69946fe41f6dbdc9f8e7099b67f8d04cbbda';
+$port = 5432; // ou autre si nécessaire
+
+try {
+    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;";
+    $pdo = new PDO($dsn, $user, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    http_response_code(500);
+    echo json_encode(["error" => "Erreur de connexion à la base de données."]);
+    exit;
+}
+
 ?>
