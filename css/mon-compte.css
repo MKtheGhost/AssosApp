@@ -1,0 +1,110 @@
+body,html{
+    font-family: 'Helvetica',sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-size: 12px; 
+}
+
+body{
+    background-color: #E1E9E9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2{
+    margin-bottom: 5%;
+}
+
+p{
+    margin: 0;
+}
+
+input{
+    background-color: #FFFFFF00;
+    border-color:#FFFFFF00;
+    width: 60%;
+    flex: 1;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infos-compte{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+.infos-compte div{
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 5%;
+}
+
+.infos-compte div p{
+    background-color:rgba(255, 255, 255, 50%);
+    padding: 5%;
+    width: 90%;
+    border-radius: 5px;
+    display: flex;
+}
+
+.infos-compte strong{
+    margin-right: 4%;
+}
+
+.double-div-container{
+    display: flex;
+    justify-content: space-around;
+    gap: 5%;
+    padding: 0;
+}
+
+.double-div-container p{
+    display: flex;
+    align-items: center;
+}
+
+
+/* Parametres */
+
+label{
+    margin-bottom: 2%;
+}
+
+.checkbox-actu-container{
+    width: 80%;
+    display: flex;   
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.devise-container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.devise-container select{
+    padding: 2%;
+    border-color: #00000050;
+    border-radius: 5px;
+}
+
+button {
+    border: 1px solid #0d5e50; /* Bordure du bouton */
+    background-color: #1ed7b8;
+    width: 50%;
+    border-radius: 5px; /* Coins arrondis du bouton */
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    color: #2C2C2C;
+}
