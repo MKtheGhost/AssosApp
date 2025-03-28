@@ -34,7 +34,7 @@ fetch('./getInfosCompte.php')
       password: document.getElementById('mdp').value.trim() // sera vide si non modifié
     };
   
-    fetch('./update-user.php', {
+    fetch('./updateInfosCompte.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
