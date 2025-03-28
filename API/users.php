@@ -29,7 +29,7 @@ switch ($method) {
 }
 
 // close connection
-include './../DBConnect/db_close.php';
+include_once './../DBConnect/db_close.php';
 
 // Function to retrieve all users
 function getUsers() {
