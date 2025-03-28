@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
       article.classList.add("association-card");
 
       const img = document.createElement("img");
-      img.src = "default-image.jpg"; // Remplacez par une vraie URL si disponible
+      img.src = asso.image; // Remplacez par une vraie URL si disponible
       img.alt = asso.nom;
+      img.onerror = () => { img.src = "images/assos/default-image.jpg"; };
 
       //create wrapper for text content
       const infoDiv = document.createElement("div");

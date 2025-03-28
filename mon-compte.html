@@ -4,11 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/mon-compte.css">
+    <link rel="stylesheet" type="text/css" href="./css/settings.css">
+    <script src="./js/settings.js" type="module"></script>
     <title>Mon Compte</title>
 </head>
 <body>
-    <h2>Mon compte</h2>
+<header>
+    <h1>Mon compte</h1>
+    <div class="settings-icon" id="settingsButton">
+        <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
+    </div>
+</header>
+<!-- Popup de paramètres -->
+<div id="settingsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal"></span>
+        <h2>Paramètres d'Accessibilité</h2>
 
+        <!-- Taille du texte -->
+        <label for="textSize">Taille du texte :</label>
+        <select id="textSize">
+            <option value="normal">Normal</option>
+            <option value="large">Grand</option>
+            <option value="xlarge">Très grand</option>
+        </select>
+
+        <!-- Mode Dyslexie -->
+        <label>
+            <input type="checkbox" id="toggleDyslexia"> Police pour dyslexie
+        </label>
+
+        <!-- Taille des icônes -->
+        <label for="iconSize">Taille des icônes :</label>
+        <select id="iconSize">
+            <option value="normal">Normal</option>
+            <option value="large">Grand</option>
+            <option value="xlarge">Très grand</option>
+        </select>
+
+
+
+    </div>
+</div>
     <form action="post">
         <div class="infos-compte">
             <div class="double-div-container">
@@ -36,7 +73,7 @@
             </div>
         </div>
 
-        <h2>Paramètres</h2>
+        <h2>Paramètres supplémentaires</h2>
 
         <div class="checkbox-actu-container">
             <input type="checkbox" name="newletter" id="newsletter">
@@ -55,4 +92,13 @@
         <button type="submit">Modifier</button>
     </form>
 </body>
+<footer>
+    <nav class="navbar icon-normal">
+        <a href="accueil.html"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
+        <a href="scanner.html"><img src="images/svg/scanner.svg" alt="Don"></a>
+        <a href="recherche.html"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
+        <a href="don-souscription.html"><img src="images/svg/donation.svg" alt="Don"></a>
+        <a href="mon-compte.html"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>
+    </nav>
+</footer>
 </html>
