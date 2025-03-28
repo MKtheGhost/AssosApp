@@ -58,14 +58,18 @@ function filterElements(letters,elements){
     }
 }
 
-async function getAssos() {
-  try {
-      const response = await fetch('http://assosapp.netlify.app/API/assos.php', {
-          method: 'GET',
+async function fetchData() {
+    fetch("./API/assos.php")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        document.getElementById('output').innerText = 'Error fetching data: ' + error;
       });
-      const data = await response.json();
-      return data;
-  } catch (error) {
-      console.error('Error fetching associations:', error);
   }
-}
