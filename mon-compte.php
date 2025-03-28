@@ -30,6 +30,7 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
 <header>
+    <div id="loader" class="loader" style="display: none;"></div>
     <h1>Mon compte</h1>
     <div class="settings-icon" id="settingsButton">
         <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
