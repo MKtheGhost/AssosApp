@@ -67,7 +67,7 @@ if (!isset($_SESSION['user_id'])) {
 
     </div>
 </div>
-    <form action="post">
+    <form action="updateInfosCompte.php" method="post">
         <div class="infos-compte">
             <div class="double-div-container">
                 <p><strong>Prénom:</strong> <input type="text" id="prenom" name="prenom" value=""> </p>
