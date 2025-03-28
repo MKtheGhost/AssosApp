@@ -11,7 +11,6 @@ fetch('./getInfosCompte.php')
     document.getElementById('ville').value = user.user_city || '';
     document.getElementById('code-post').value = user.user_zipcode || '';
     document.getElementById('adresse-mail').value = user.user_mail || '';
-    document.getElementById('mdp').value = user.user_password || '';
   })
   .catch(error => {
     console.error("Erreur de récupération :", error);
@@ -20,3 +19,33 @@ fetch('./getInfosCompte.php')
   .finally(() => {
     loader.style.display = 'none'; // Cache la roue quoi qu'il arrive
   });
+
+
+  document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+  
+    const data = {
+      firstname: document.getElementById('prenom').value,
+      lastname: document.getElementById('nom').value,
+      address: document.getElementById('adresse-post').value,
+      city: document.getElementById('ville').value,
+      zipcode: document.getElementById('code-post').value,
+      email: document.getElementById('adresse-mail').value,
+      password: document.getElementById('mdp').value.trim() // sera vide si non modifié
+    };
+  
+    fetch('./update-user.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(response => {
+        alert(response.message || response.error || "Réponse inconnue");
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Une erreur est survenue.");
+      });
+  });
+  

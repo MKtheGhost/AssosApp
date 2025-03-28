@@ -90,7 +90,7 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <div>
-                <p><strong>Mot de passe:</strong> <input type="password" id="mdp" name="mdp" value=""></p>
+                <p><strong>Mot de passe:</strong> <input type="password" id="mdp" name="mdp" placeholder="**********"></p>
             </div>
         </div>
 
