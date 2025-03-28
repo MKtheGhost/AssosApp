@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#1AB99F">
-        <title>Enregistrement</title>
-        <link rel="shortcut icon" href="./images/logo.png">
-        <link rel="stylesheet" type="text/css" href="./css/enregistrement.css">
-        <link rel="apple-touch-icon" href="images/logo.png">
-        <link rel="manifest" href="manifest.json">
-
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssosApp</title>
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link rel="stylesheet" type="text/css" href="./css/enregistrement.css">
+    <script src="js/enregistrement.js" defer></script>
+</head>
 <body class="enregistrementBody">
     <h1>M'enregistrer</h1>
-    <form action="post">
+    <form id="form-inscription" action="post">
         <div class="formItemsContainer">
             <div class="formItem">
                 <label for="firstName">Prénom:</label>
@@ -30,7 +27,7 @@
         </div>
         <div class="formItemsContainer">
             <div class="formItem">
-                <label for="City">Ville:</label>
+                <label for="city">Ville:</label>
                 <input name="city" type="text">
             </div>
             <div class="formItem">
@@ -51,12 +48,12 @@
             <input name="confirmPassword" type="Password">
         </div>
         <div class="formButtonRegisterEtConnexion">
-            <button class="buttonConnect">M'enregistrer</button>
+            <button id="buttonConnect" type="submit">M'enregistrer</button>
         </div>
     </form>
     <div class="LoginPageLinkDiv">
         <p>Déjà un compte?</p>
-        <a href="./enregistrement.html">Connectez-vous</a>
+        <a href="./connexion.html">Connectez-vous</a>
     </div>
 </body>
 </html>
