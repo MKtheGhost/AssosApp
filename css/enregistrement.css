@@ -29,7 +29,7 @@ button {
     color: #2C2C2C;
 }
 
-.buttonConnect{
+#buttonConnect{
     width: 85%;
     background-color: #1AB99F; /* Couleur du bouton */
 }
