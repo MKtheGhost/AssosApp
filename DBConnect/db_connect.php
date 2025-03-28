@@ -24,7 +24,7 @@ $dbname = ltrim('d6p9kqnbbnnd9h', '/');  // Remove leading '/' from database nam
 $port = isset($url["port"]) ? $url["port"] : 5432; // Default PostgreSQL port is 5432
 
 // Print connection details for debugging (comment out in production)
-echo "Connecting to database at $host on port $port\n";
+//echo "Connecting to database at $host on port $port\n";
 
 // Set the connection string for PDO with SSL enabled
 $connectionString = "pgsql:host=$host;port=$port;dbname=$dbname;user=$username;password=$password;sslmode=require";
