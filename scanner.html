@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner QR Code</title>
+    <!-- Intégration de la bibliothèque jsQR depuis un CDN -->
+    <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+    <script src="./js/scanner.js" type="module"></script>
+</head>
+<body>
+<h1>Scanner QR Code</h1>
+
+<!-- Zone vidéo pour afficher l'aperçu de la caméra -->
+<video id="preview" width="100%" height="auto" style="border: 1px solid #000;"></video>
+
+<!-- Affichage du résultat du scan -->
+<div id="result" style="text-align: center; margin-top: 20px;"></div>
+</body>
+</html>

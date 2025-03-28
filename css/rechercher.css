@@ -6,17 +6,11 @@
   }
   
   /* Body setup */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #1E1E1E;
-    display: flex;
-    justify-content: center; /* Centers the .container on the page */
-  }
-  
+
   /* Container holds the entire app */
   .container {
+    width: 100%;
     background-color: #DDEEEA;
-    width: 375px; /* Typical mobile width */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -25,6 +19,9 @@
   
   /* Header */
   header {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
     text-align: center;
     padding: 20px;
   }
@@ -34,6 +31,8 @@
     font-weight: bold;
     color: #000;
   }
+
+
   
   /* Main section */
   main {
@@ -138,7 +137,7 @@
     background-color: #81D1C1;
     position: fixed;
     bottom: 0;
-    width: 375px; /* Match container width */
+    width: 100%;
   }
   
   .navbar {
@@ -152,12 +151,7 @@
     text-decoration: none;
     color: #000;
   }
-  
-  .navbar img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
+
 
   .refine-search-container {
     display: flex;

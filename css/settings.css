@@ -1,0 +1,70 @@
+.settings-icon {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Helvetica',sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the .container on the page */
+}
+
+.dyslexia-mode {
+    font-family: 'OpenDyslexic', "Comic Sans MS", sans-serif;
+}
+
+
+/* Style du popup */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 25px;
+    font-size: 16px;
+}
+
+.modal-content select {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.icon-normal img {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-large img {
+    width: 40px;
+    height: 40px;
+}
+
+.icon-xlarge img {
+    width: 50px;
+    height: 50px;
+}

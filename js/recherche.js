@@ -1,5 +1,8 @@
 import { associations } from './dataAssociation.js';
 
+const associationsGet = getAssos();
+console.log(associationsGet);
+
 const form = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 
@@ -13,8 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
       article.classList.add("association-card");
 
       const img = document.createElement("img");
-      img.src = "default-image.jpg"; // Remplacez par une vraie URL si disponible
+      img.src = asso.image; // Remplacez par une vraie URL si disponible
       img.alt = asso.nom;
+      img.onerror = () => { img.src = "images/assos/default-image.jpg"; };
 
       //create wrapper for text content
       const infoDiv = document.createElement("div");
@@ -54,3 +58,19 @@ function filterElements(letters,elements){
                 elements[i].style.display="none";
     }
 }
+
+async function fetchData() {
+    fetch("./API/assos.php")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        document.getElementById('output').innerText = 'Error fetching data: ' + error;
+      });
+  }
