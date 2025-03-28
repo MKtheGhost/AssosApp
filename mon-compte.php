@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: connexion.html');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="./css/mon-compte.css">
         <link rel="apple-touch-icon" href="images/logo.png">
         <link rel="manifest" href="manifest.json">
-
+        <script src="js/infosCompte.js" defer></script>
 
     </head>
     <meta charset="UTF-8">
