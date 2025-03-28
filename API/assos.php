@@ -28,7 +28,6 @@ switch ($method) {
         break;
 }
 
-include_once './../DBConnect/db_close.php';
 
 // Function to retrieve all assos
 function getAssos() {
@@ -36,6 +35,9 @@ function getAssos() {
     $stmt = $pdo->query("SELECT * FROM assos");
     $assos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($assos);
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 // Function to insert a new association (assos)
@@ -56,6 +58,9 @@ function insertAssos($data) {
     } else {
         echo json_encode(["message" => "Missing parameters"]);
     }
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 // Function to update an association (assos)
@@ -77,6 +82,9 @@ function updateAssos($data) {
     } else {
         echo json_encode(["message" => "Missing parameters"]);
     }
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 // Function to delete an association (assos)
@@ -96,6 +104,9 @@ function deleteAssos($data) {
     } else {
         echo json_encode(["message" => "Missing parameters"]);
     }
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 ?>

@@ -37,6 +37,9 @@ function getUsers() {
     $stmt = $pdo->query("SELECT * FROM users");
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($users);
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 // Function to insert a new user
@@ -80,6 +83,9 @@ function updateUser($data) {
     } else {
         echo json_encode(["message" => "Missing parameters"]);
     }
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 // Function to delete a user
@@ -99,6 +105,9 @@ function deleteUser($data) {
     } else {
         echo json_encode(["message" => "Missing parameters"]);
     }
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 ?>

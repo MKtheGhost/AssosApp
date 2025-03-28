@@ -28,8 +28,6 @@ switch ($method) {
         break;
 }
 
-include_once './../DBConnect/db_close.php'; // Include the database close
-
 
 // Function to retrieve all donations (don)
 function getDon() {
@@ -37,6 +35,9 @@ function getDon() {
     $stmt = $pdo->query("SELECT * FROM don");
     $don = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($don);
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 // Function to insert a new donation (don)
@@ -59,6 +60,9 @@ function insertDon($data) {
     } else {
         echo json_encode(["message" => "Missing parameters"]);
     }
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 // Function to update a donation (don)
@@ -82,6 +86,9 @@ function updateDon($data) {
     } else {
         echo json_encode(["message" => "Missing parameters"]);
     }
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 // Function to delete a donation (don)
@@ -101,6 +108,9 @@ function deleteDon($data) {
     } else {
         echo json_encode(["message" => "Missing parameters"]);
     }
+
+    // close connection
+    include_once './../DBConnect/db_close.php';
 }
 
 ?>
