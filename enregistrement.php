@@ -40,10 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':grade', $grade);
             $stmt->execute();
 
-            echo "<script>
-                sessionStorage.setItem('registerSuccess', '✅ Enregistrement réussi !');
-                window.location.href = 'connexion.html';
-            </script>";
+            header("Location: connexion.html?register=1");
             exit;
         } catch (PDOException $e) {
             $message = "❌ Erreur lors de l'inscription : " . $e->getMessage();

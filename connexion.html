@@ -52,7 +52,16 @@
       <!-- Script pour récupérer et afficher le message stocké -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+
+      if (params.get('register') === '1') {
+      alert("✅ Enregistrement réussi !");
+      // Optionnel : on retire le paramètre de l'URL pour éviter que le message se réaffiche en cas de rafraîchissement
+      window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
       const error = sessionStorage.getItem('loginError');
+
       if (error) {
         document.getElementById('message').textContent = error;
         sessionStorage.removeItem('loginError');
