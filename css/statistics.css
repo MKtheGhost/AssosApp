@@ -31,22 +31,25 @@
   
   /* Header */
   header {
+      display: flex;
+      justify-content: space-between;
     text-align: center;
     margin-bottom: 2rem;
+      padding: 20px;
   }
-  
-  header h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #2E7D32; /* Primary green color */
-  }
+
+header h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
   
   /* Section Titles */
-  section h2 {
+.section h2 {
     font-size: 1.5rem;
     text-align: center;
-    color: #2E7D32;
-    margin-bottom: 1rem;
+    color: #373737;
+    padding: 1rem;
   }
   
   /* Top Associations Section */
@@ -78,11 +81,19 @@
     font-weight: 600;
     color: #2E7D32;
   }
-  
+
   /* Dropdown Container */
   .dropdown-container {
     text-align: center;
     margin-bottom: 1rem;
+  }
+  .dropdown{
+      display: flex;
+      justify-content: center;
+  }
+  .details{
+      padding: 1rem ;
+      text-align: center;
   }
   
   select {

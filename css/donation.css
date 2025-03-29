@@ -16,7 +16,7 @@
   /* Main Container */
   .container {
     background-color: #DDEEEA;
-    width: 375px;         /* Typical mobile width */
+    width: 100%;         /* Typical mobile width */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -120,7 +120,7 @@
     background-color: #81D1C1;
     position: fixed;
     bottom: 0;
-    width: 375px; /* Match container width */
+    width: 100%;
   }
   
   .navbar {

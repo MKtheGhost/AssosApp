@@ -1,149 +1,151 @@
 /* RESET / BASE STYLES */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #1E1E1E;
-    display: flex;
-    justify-content: center; /* Centers the container horizontally */
-    font-family: Arial, sans-serif;
-  }
-  
-  /* MAIN CONTAINER */
-  .container {
-    width: 375px; /* Typical mobile width */
-    min-height: 100vh;
-    background-color: #DDEEEA;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  
-  /* HEADER */
-  header {
-    text-align: center;
-    padding: 10px;
-  }
-  
-  header h1 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
-    margin-top: 10px;
-  }
-  
-  /* MAIN CONTENT */
-  main {
-    flex: 1;
-    position: relative;
-  }
-  
-  /* TOP CIRCLE SECTION */
-  .top-circle {
-    background-color: #2AB89F;
-    width: 100%;
-    height: 50vh; /* Occupies half the viewport height */
-    border-bottom-left-radius: 50% 40%;
-    border-bottom-right-radius: 50% 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  /* IMAGE WRAPPER - White circle with an image inside */
-  .image-wrapper {
-    width: 120px;
-    height: 120px;
-    background-color: #fff;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 15px;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Association Image inside the circle */
-  .image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Crop to fill the circle */
-  }
-  
-  /* Association Name */
-  #asso-name {
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  /* Association Description */
-  #asso-desc {
-    font-size: 14px;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 10px;
-    max-width: 300px;
-  }
-  
-  /* Association Website Link */
-  #asso-site {
-    color: #fff;
-    text-decoration: underline;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  /* BOTTOM CIRCLE SECTION (Donation) */
-  .bottom-circle {
-    background-color: #2AB89F;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin: 30px auto; /* Centers horizontally with auto left/right margin */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Donation Button */
-  #donation-button {
-    background-color: #fff;
-    color: #2AB89F;
-    border: none;
-    padding: 15px 30px;
-    font-size: 16px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  #donation-button:hover {
-    background-color: #eee;
-  }
-  
-  /* FOOTER NAVIGATION */
-  footer {
-    background-color: #81D1C1;
-    width: 100%;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
-  }
-  
-  .navbar a img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1E1E1E;
+  display: flex;
+  justify-content: center; /* Centers the container horizontally */
+  font-family: Arial, sans-serif;
+}
+
+/* MAIN CONTAINER */
+.container {
+  width: 100%; /* Typical mobile width */
+  min-height: 100vh;
+  background-color: #DDEEEA;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 10px;
+}
+
+header h1 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-top: 10px;
+}
+
+/* MAIN CONTENT */
+main {
+  flex: 1;
+  position: relative;
+}
+
+/* TOP CIRCLE SECTION */
+.top-circle {
+  background-color: #2AB89F;
+  width: 100%;
+  height: 50vh; /* Occupies half the viewport height */
+  border-bottom-left-radius: 50% 40%;
+  border-bottom-right-radius: 50% 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* IMAGE WRAPPER - White circle with an image inside */
+.image-wrapper {
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Association Image inside the circle */
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop to fill the circle */
+}
+
+/* Association Name */
+#asso-name {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Association Description */
+#asso-desc {
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  max-width: 300px;
+}
+
+/* Association Website Link */
+#asso-site {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* BOTTOM CIRCLE SECTION (Donation) */
+.bottom-circle {
+  background-color: #2AB89F;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 30px auto; /* Centers horizontally with auto left/right margin */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Donation Button */
+#donation-button {
+  background-color: #fff;
+  color: #2AB89F;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#donation-button:hover {
+  background-color: #eee;
+}
+
+/* FOOTER NAVIGATION */
+footer {
+  background-color: #81D1C1;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.navbar a img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
   
