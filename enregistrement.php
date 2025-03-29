@@ -23,6 +23,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($message)) {
         try {
+            $sql = "SELECT COUNT(*) FROM users WHERE user_mail = :email";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+            $count = $stmt->fetchColumn();
+
+            if ($count > 0) {
+                $message = "⚠️ Email déjà présent dans la base de données.";
+            }
+        } catch (PDOException $e) {
+            $message = "❌ Erreur lors de la vérification de l'email : " . $e->getMessage();
+        }
+    }
+    
+    if (empty($message)) {
+        try {
             $password = password_hash($mdp, PASSWORD_DEFAULT);
 
             $sql = "INSERT INTO users 
@@ -40,10 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':grade', $grade);
             $stmt->execute();
 
-            echo "<script>
-                sessionStorage.setItem('registerSuccess', '✅ Enregistrement réussi !');
-                window.location.href = 'connexion.html';
-            </script>";
+            header("Location: connexion.html?register=1");
             exit;
         } catch (PDOException $e) {
             $message = "❌ Erreur lors de l'inscription : " . $e->getMessage();
