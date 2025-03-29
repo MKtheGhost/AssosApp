@@ -5,3 +5,20 @@
     bottom: 0;
     width: 100%;
   }
+
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .icon-normal img {
+    width: 30px;
+    height: 30px;
+}
