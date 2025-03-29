@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($email && $password) {
         try {
-            $sql = "SELECT user_id, user_password FROM users WHERE user_mail = :email";
+            $sql = "SELECT user_id, user_password, user_grade FROM users WHERE user_mail = :email";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':email', $email);
             $stmt->execute();
@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($user && password_verify($password, $user['user_password'])) {
                 $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['user_grade'] = $user['user_grade'];
                 header("Location: recherche.html");
                 exit;
             } else {
