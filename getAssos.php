@@ -8,6 +8,6 @@ $sql = "SELECT * FROM assos";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 
-$assos = $stmt->fetch(PDO::FETCH_ASSOC);
+$assos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode($assos);
