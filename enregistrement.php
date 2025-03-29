@@ -1,4 +1,5 @@
 <?php
+session_start();
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -14,7 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cp = $_POST['zipCode'] ?? '';
     $grade = 'utilisateur';
 
-    if ($prenom && $nom && $email && $mdp && $confirm && $mdp === $confirm) {
+    if (!$prenom || !$nom || !$email || !$mdp || !$confirm || !$adresse || !$ville || !$cp) {
+        $message = "⚠️ Merci de remplir tous les champs.";
+    } elseif ($mdp !== $confirm) {
+        $message = "⚠️ Les mots de passe ne correspondent pas.";
+    }
+
+    if (empty($message)) {
         try {
             $password = password_hash($mdp, PASSWORD_DEFAULT);
 
@@ -33,19 +40,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':grade', $grade);
             $stmt->execute();
 
-            // Redirige avec un paramètre dans l'URL
-            header("Location: connexion.html?register=1");
+            echo "<script>
+                sessionStorage.setItem('registerSuccess', '✅ Enregistrement réussi !');
+                window.location.href = 'connexion.html';
+            </script>";
             exit;
         } catch (PDOException $e) {
             $message = "❌ Erreur lors de l'inscription : " . $e->getMessage();
         }
-    } else {
-        $message = "⚠️ Merci de remplir tous les champs obligatoires.";
     }
+
+    // En cas d'erreur
+    echo "<script>
+        sessionStorage.setItem('registerError', '" . addslashes($message) . "');
+        window.location.href = 'enregistrement.html';
+    </script>";
+    exit;
 }
 ?>
-
-
-<?php if (!empty($message)) : ?>
-    <div style="color: red;"><?= htmlspecialchars($message) ?></div>
-<?php endif; ?>

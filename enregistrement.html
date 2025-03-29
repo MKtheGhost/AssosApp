@@ -55,7 +55,17 @@
         <a href="./connexion.html">Connectez-vous</a>
     </div>
 
-    <div id="message" style="color: red;"></div>
-        
+    <div id="message" style="color:red;"></div>
+
+    <script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const error = sessionStorage.getItem('registerError');
+        if (error) {
+        document.getElementById('message').textContent = error;
+        sessionStorage.removeItem('registerError');
+        }
+    });
+    </script>
+
 </body>
 </html>
