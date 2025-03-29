@@ -1,0 +1,7 @@
+ /* Footer (fixed at bottom) */
+ footer {
+    background-color: #81D1C1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
