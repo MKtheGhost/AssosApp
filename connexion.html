@@ -33,5 +33,16 @@
         <p>Pas de compte?</p>
         <a href="./enregistrement.html">Créer un compte</a>
     </div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+          const msg = sessionStorage.getItem('registerSuccess');
+          if (msg) {
+            alert(msg);
+            sessionStorage.removeItem('registerSuccess');
+          }
+        });
+      </script>
+      
 </body>
 </html>

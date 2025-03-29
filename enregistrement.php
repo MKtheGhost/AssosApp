@@ -36,9 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Redirection vers page de succès (ou retour au formulaire avec ?success)
             echo "<script>
-                localStorage.setItem('registerSuccess', '✅ Enregistrement réussi !');
+                sessionStorage.setItem('registerSuccess', '✅ Enregistrement réussi !');
                 window.location.href = 'connexion.html';
             </script>";
+
             exit;
         } catch (PDOException $e) {
             $message = "❌ Erreur lors de l'inscription : " . $e->getMessage();
