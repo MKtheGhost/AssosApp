@@ -33,48 +33,70 @@ const prepareAssociationsData = () => {
 
 const associationsData = prepareAssociationsData();
 
-// Le reste du code reste inchangé
-// 1. Get Top 3 Associations based on total donations
+// 1. Get Top 3 Associations
 const topAssociations = associationsData
-    .slice() // copy array to avoid mutating original
+    .slice()
     .sort((a, b) => b.totalDonation - a.totalDonation)
     .slice(0, 3);
 
 // 2. Populate Top Associations Section as Cards
 const topAssociationsList = document.getElementById('topAssociationsList');
 topAssociations.forEach(asso => {
-  const card = document.createElement('div');
-  card.classList.add('association-card');
-  card.innerHTML = `
-    <div class="name">${asso.name}</div>
-    <div class="amount">${asso.totalDonation} €</div>
-  `;
-  topAssociationsList.appendChild(card);
+    const card = document.createElement('div');
+    card.classList.add('association-card');
+    card.innerHTML = `
+        <div class="name">${asso.name}</div>
+        <div class="amount">${asso.totalDonation} €</div>
+    `;
+    topAssociationsList.appendChild(card);
 });
 
-// 3. Populate Dropdown with All Associations
-const associationSelect = document.getElementById('associationSelect');
+// 3. Populate Datalist with All Associations
+const associationInput = document.getElementById('associationInput');
+const associationsList = document.getElementById('associations-list');
+const associationId = document.getElementById('associationId');
+const detailsCard = document.getElementById('associationDetails');
+
+// Vider et peupler le datalist
+associationsList.innerHTML = '';
 associationsData.forEach(asso => {
-  const option = document.createElement('option');
-  option.value = asso.id;
-  option.textContent = asso.name;
-  associationSelect.appendChild(option);
+    const option = document.createElement('option');
+    option.value = asso.name;
+    option.dataset.id = asso.id; // Stocker l'ID dans data-id
+    associationsList.appendChild(option);
 });
 
-// 4. Update Details Card on Dropdown Change
-associationSelect.addEventListener('change', (event) => {
-  const selectedId = parseInt(event.target.value);
-  const detailsCard = document.getElementById('associationDetails');
+// 4. Update Details Card on Input Change
+associationInput.addEventListener('change', (event) => {
+    const selectedName = event.target.value;
+    const selectedAssociation = associationsData.find(asso => asso.name === selectedName);
+    
+    if (!selectedAssociation) {
+        detailsCard.innerHTML = `<p>Sélectionnez une association valide pour voir les détails.</p>`;
+        associationId.value = '';
+        return;
+    }
+    
+    associationId.value = selectedAssociation.id;
+    detailsCard.innerHTML = `
+        <h3>${selectedAssociation.name}</h3>
+        <p>Total des dons: <strong>${selectedAssociation.totalDonation} €</strong></p>
+        <p>Dons récurrents: <strong>${selectedAssociation.recurringDonation} €</strong></p>
+    `;
+});
 
-  if (!selectedId) {
-    detailsCard.innerHTML = `<p>Sélectionnez une association pour voir les détails.</p>`;
-    return;
-  }
-
-  const selectedAssociation = associationsData.find(asso => asso.id === selectedId);
-  detailsCard.innerHTML = `
-    <h3>${selectedAssociation.name}</h3>
-    <p>Total des dons: <strong>${selectedAssociation.totalDonation} €</strong></p>
-    <p>Dons récurrents: <strong>${selectedAssociation.recurringDonation} €</strong></p>
-  `;
+// Optionnel: Gérer la sélection via clavier
+associationInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        const selectedName = event.target.value;
+        const selectedAssociation = associationsData.find(asso => asso.name === selectedName);
+        if (selectedAssociation) {
+            associationId.value = selectedAssociation.id;
+            detailsCard.innerHTML = `
+                <h3>${selectedAssociation.name}</h3>
+                <p>Total des dons: <strong>${selectedAssociation.totalDonation} €</strong></p>
+                <p>Dons récurrents: <strong>${selectedAssociation.recurringDonation} €</strong></p>
+            `;
+        }
+    }
 });
