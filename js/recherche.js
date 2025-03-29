@@ -60,17 +60,20 @@ function filterElements(letters,elements){
 }
 
 async function fetchData() {
-    fetch("./API/assos.php")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+    var response = [];
+    $.ajax({
+        url: './API/assos.php', // Relative path to your PHP file
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+          // Display the fetched JSON data in a formatted manner
+          response = JSON.parse(data);
+        },
+        error: function(xhr, status, error) {
+          $('#output').text('Error fetching data: ' + error);
         }
-        return response.json();
-      })
-      .then(data => {
-        document.getElementById('output').innerText = JSON.stringify(data, null, 2);
-      })
-      .catch(error => {
-        document.getElementById('output').innerText = 'Error fetching data: ' + error;
       });
+
+    return response;
+
   }
