@@ -1,8 +1,22 @@
 import { associations } from './dataAssociation.js';
 
-var assos = fetchAssos();
-  console.log("assos test");
-  console.log(assos);
+const loader = document.getElementById('loader');
+loader.style.display = 'block'; // Affiche la roue
+
+
+fetch('./getAssos.php')
+  .then(res => res.json())
+  .then(assos => {
+
+    console.log(assos);
+  })
+  .catch(error => {
+    console.error("Erreur de récupération :", error);
+    alert("Erreur lors du chargement des données.");
+  })
+  .finally(() => {
+    loader.style.display = 'none'; // Cache le loader
+  });
 
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById("assos-container");
@@ -122,41 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 5. Initialisation
     createAssociationCards(associations);
 });
-
-async function getAssos() {
-    console.log("get assos");
-    try {
-      const response = await fetch('./getAssos.php'); // Adjust the path as needed
-      if (!response.ok) {
-        throw new Error('Network response was not ok: ' + response.statusText);
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-        console.error('Error fetching file:', error);
-        return null;
-    }
-  }
-
-  function fetchAssos() {
-    $.ajax({
-      url: './API/assos.php', // Adjust the path if needed
-      type: 'GET',
-      dataType: 'json',
-      success: function(data) {
-        console.log('Data fetched successfully:', data);
-        // Process the data here
-      },
-      error: function(xhr, status, error) {
-        console.error('Error fetching data:', error);
-      }
-    });
-  }
   
-  // Call the function when ready
-  $(document).ready(function() {
-    fetchAssos();
-  });
 
 // Note: Vous devrez ajouter un champ 'handicaps' à vos objets d'association
 // dans dataAssociation.js pour une correspondance parfaite, ou utiliser les noms comme clé
