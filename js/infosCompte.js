@@ -32,7 +32,7 @@ fetch('./getInfosCompte.php')
       zipcode: document.getElementById('code-post').value,
       email: document.getElementById('adresse-mail').value,
       password: document.getElementById('mdp').value.trim(), // sera vide si non modifié
-      newletter: document.getElementById('newsletter').checked
+      newsletter: document.getElementById('newsletter').checked
 
     };
   
