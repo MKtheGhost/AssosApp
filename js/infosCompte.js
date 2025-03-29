@@ -11,6 +11,9 @@ fetch('./getInfosCompte.php')
     document.getElementById('ville').value = user.user_city || '';
     document.getElementById('code-post').value = user.user_zipcode || '';
     document.getElementById('adresse-mail').value = user.user_mail || '';
+    document.getElementById('newsletter').checked = (user.newletter == 1);
+
+    console.log(user.newletter)
   })
   .catch(error => {
     console.error("Erreur de récupération :", error);
