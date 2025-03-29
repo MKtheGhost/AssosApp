@@ -37,12 +37,15 @@
     <script>
         window.addEventListener("DOMContentLoaded", () => {
           const msg = sessionStorage.getItem('registerSuccess');
+      
           if (msg) {
-            alert(msg);
+            // Supprime AVANT l'affichage, pour éviter les rebonds
             sessionStorage.removeItem('registerSuccess');
+            alert(msg);
           }
         });
       </script>
+      
       
 </body>
 </html>

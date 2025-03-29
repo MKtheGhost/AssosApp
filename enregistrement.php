@@ -37,8 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Redirection vers page de succès (ou retour au formulaire avec ?success)
             echo "<script>
                 sessionStorage.setItem('registerSuccess', '✅ Enregistrement réussi !');
-                window.location.href = 'connexion.html';
+                setTimeout(() => {
+                    window.location.href = 'connexion.html';
+                }, 100); // 100ms pour laisser le temps
             </script>";
+
 
             exit;
         } catch (PDOException $e) {
