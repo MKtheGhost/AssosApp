@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#1AB99F">
-        <title>Enregistrement</title>
-        <link rel="shortcut icon" href="./images/logo.png">
-        <link rel="stylesheet" type="text/css" href="./css/enregistrement.css">
-        <link rel="apple-touch-icon" href="images/logo.png">
-        <link rel="manifest" href="manifest.json">
-
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssosApp</title>
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link rel="stylesheet" type="text/css" href="./css/enregistrement.css">
+</head>
 <body class="enregistrementBody">
     <h1>M'enregistrer</h1>
-    <form action="post">
+    <form id="form-inscription" action="./enregistrement.php" method="post">
         <div class="formItemsContainer">
             <div class="formItem">
                 <label for="firstName">Prénom:</label>
@@ -30,7 +26,7 @@
         </div>
         <div class="formItemsContainer">
             <div class="formItem">
-                <label for="City">Ville:</label>
+                <label for="city">Ville:</label>
                 <input name="city" type="text">
             </div>
             <div class="formItem">
@@ -40,7 +36,7 @@
         </div>
         <div class="formItem">
             <label for="email">Adresse Mail</label>
-            <input name="email" type="Mail">
+            <input name="email" type="email">
         </div>
         <div class="formItem">
             <label for="password">Mot de Passe:</label>
@@ -48,15 +44,28 @@
         </div>
         <div class="formItem">
             <label for="confimPassword">Confirmation du mot de Passe:</label>
-            <input name="confirmPassword" type="Password">
+            <input name="confirmPassword" type="password">
         </div>
         <div class="formButtonRegisterEtConnexion">
-            <button class="buttonConnect">M'enregistrer</button>
+            <button id="buttonConnect" type="submit">M'enregistrer</button>
         </div>
     </form>
     <div class="LoginPageLinkDiv">
         <p>Déjà un compte?</p>
-        <a href="./enregistrement.html">Connectez-vous</a>
+        <a href="./connexion.html">Connectez-vous</a>
     </div>
+
+    <div id="message" style="color:red;"></div>
+
+    <script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const error = sessionStorage.getItem('registerError');
+        if (error) {
+        document.getElementById('message').textContent = error;
+        sessionStorage.removeItem('registerError');
+        }
+    });
+    </script>
+
 </body>
 </html>

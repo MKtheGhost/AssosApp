@@ -15,7 +15,7 @@
 <body class="connexionBody">
     <h1>Me connecter</h1>
 
-    <form action="post">
+    <form action="connexion.php" method="post">
         <div class="formItem">
             <label for="email">Adresse E-Mail</label>
             <input name="email" type="Mail">
@@ -25,7 +25,7 @@
             <input name="password" type="Password">
         </div>
         <div class="formButtonRegisterEtConnexion">
-            <button class="buttonConnect">Me connecter</button>
+            <button class="buttonConnect" type="submit">Me connecter</button>
         </div>
     </form>
 
@@ -33,5 +33,31 @@
         <p>Pas de compte?</p>
         <a href="./enregistrement.html">Créer un compte</a>
     </div>
+
+    <div id="message"></div>
+    
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+          const params = new URLSearchParams(window.location.search);
+      
+          if (params.get('register') === '1') {
+            alert("✅ Enregistrement réussi !");
+            // optionnel : remove param pour éviter le rappel
+            window.history.replaceState({}, document.title, window.location.pathname);
+          }
+        });
+      </script>
+      
+      
+      <!-- Script pour récupérer et afficher le message stocké -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const error = sessionStorage.getItem('loginError');
+      if (error) {
+        document.getElementById('message').textContent = error;
+        sessionStorage.removeItem('loginError');
+      }
+    });
+  </script>
 </body>
 </html>

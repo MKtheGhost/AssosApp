@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: connexion.html');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="./css/mon-compte.css">
         <link rel="apple-touch-icon" href="images/logo.png">
         <link rel="manifest" href="manifest.json">
-
+        <script src="js/infosCompte.js" defer></script>
 
     </head>
     <meta charset="UTF-8">
@@ -22,6 +30,7 @@
 </head>
 <body>
 <header>
+    <div id="loader" class="loader" style="display: none;"></div>
     <h1>Mon compte</h1>
     <div class="settings-icon" id="settingsButton">
         <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
@@ -58,7 +67,7 @@
 
     </div>
 </div>
-    <form action="post">
+    <form action="updateInfosCompte.php" method="post">
         <div class="infos-compte">
             <div class="double-div-container">
                 <p><strong>Prénom:</strong> <input type="text" id="prenom" name="prenom" value=""> </p>
@@ -81,7 +90,7 @@
             </div>
 
             <div>
-                <p><strong>Mot de passe:</strong> <input type="password" id="mdp" name="mdp" value=""></p>
+                <p><strong>Mot de passe:</strong> <input type="password" id="mdp" name="mdp" placeholder="**********"></p>
             </div>
         </div>
 
