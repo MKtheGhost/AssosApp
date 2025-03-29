@@ -1,4 +1,10 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 session_start();
 header("Content-Type: application/json");
 
@@ -45,9 +51,7 @@ $stmt->bindParam(':address', $data->address);
 $stmt->bindParam(':city', $data->city);
 $stmt->bindParam(':zipcode', $data->zipcode);
 $stmt->bindParam(':email', $data->email);
-
-$newletter = (bool)$data->newletter;
-$stmt->bindValue(':newletter', $newletter, PDO::PARAM_BOOL);
+$stmt->bindParam(':newsletter', $data->newletter);
 
 if (!empty($data->password)) {
     $hashedPassword = password_hash($data->password, PASSWORD_DEFAULT);

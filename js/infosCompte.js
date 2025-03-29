@@ -11,7 +11,6 @@ fetch('./getInfosCompte.php')
     document.getElementById('ville').value = user.user_city || '';
     document.getElementById('code-post').value = user.user_zipcode || '';
     document.getElementById('adresse-mail').value = user.user_mail || '';
-    document.getElementById('newsletter').checked = (user.newletter == 1 || user.newletter === true);
   })
   .catch(error => {
     console.error("Erreur de récupération :", error);
@@ -31,8 +30,7 @@ fetch('./getInfosCompte.php')
       address: document.getElementById('adresse-post').value,
       city: document.getElementById('ville').value,
       zipcode: document.getElementById('code-post').value,
-      email: document.getElementById('adresse-mail').value, 
-      newsletter: document.getElementById('newsletter').checked,
+      email: document.getElementById('adresse-mail').value,
       password: document.getElementById('mdp').value.trim() // sera vide si non modifié
     };
   
