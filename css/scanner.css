@@ -1,24 +1,76 @@
- /* Footer (fixed at bottom) */
- footer {
+/* Reset/Normalization */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body setup */
+
+/* Container holds the entire app */
+.container {
+    width: 100%;
+    background-color: #DDEEEA;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Header */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+
+
+
+/* Main section */
+main {
+    flex: 1;
+    padding: 0 20px;
+    margin-bottom: 70px; /* Leave space for the fixed footer */
+}
+
+p{
+    text-align: center;
+}
+
+video{
+    height:100%;
+}
+
+/* Footer (fixed at bottom) */
+footer {
     background-color: #81D1C1;
     position: fixed;
     bottom: 0;
     width: 100%;
-  }
+}
 
-  .navbar {
+.navbar {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10px 0;
-  }
-  
-  .navbar a {
+}
+
+.navbar a {
     text-decoration: none;
     color: #000;
-  }
+}
 
-  .icon-normal img {
-    width: 30px;
-    height: 30px;
+
+.refine-search-container {
+    display: flex;
+    gap : 10px;
 }
