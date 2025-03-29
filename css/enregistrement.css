@@ -91,3 +91,7 @@ input{
     width: 85%;
     background-color: #1AB99F; /* Couleur du bouton */
 }
+
+#message{
+    text-align: center;
+}

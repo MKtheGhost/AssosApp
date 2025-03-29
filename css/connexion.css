@@ -49,10 +49,6 @@ button {
     margin-left: 55%;
 }
 
-#message{
-    display: flex;
-    justify-content: center;
-}
 
 form{
     display: flex;
@@ -94,4 +90,8 @@ input{
 .RegisterPageLinkDiv p{
     margin: 0;
     font-style: italic;
+}
+
+#message{
+    text-align: center;
 }
