@@ -13,7 +13,7 @@ fetch('./getInfosCompte.php')
     document.getElementById('adresse-mail').value = user.user_mail || '';
     document.getElementById('newsletter').checked = (user.newletter == 1);
 
-    console.log(user.newletter)
+    
   })
   .catch(error => {
     console.error("Erreur de récupération :", error);
@@ -23,6 +23,7 @@ fetch('./getInfosCompte.php')
     loader.style.display = 'none'; // Cache la roue quoi qu'il arrive
   });
 
+  console.log(res.json)
 
   document.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();
