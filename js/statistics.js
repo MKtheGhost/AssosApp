@@ -1,5 +1,5 @@
 // Import des données
-import { associations } from './dataAssociation';
+import { associations } from './dataAssociation.js';
 import { dataDons } from './dataDons.js';
 
 
