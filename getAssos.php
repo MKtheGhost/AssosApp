@@ -10,4 +10,6 @@ $stmt->execute();
 
 $assos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$pdo=null;
+
 echo json_encode($assos);
