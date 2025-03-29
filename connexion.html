@@ -36,15 +36,16 @@
 
     <script>
         window.addEventListener("DOMContentLoaded", () => {
-          const msg = sessionStorage.getItem('registerSuccess');
+          const params = new URLSearchParams(window.location.search);
       
-          if (msg) {
-            // Supprime AVANT l'affichage, pour éviter les rebonds
-            sessionStorage.removeItem('registerSuccess');
-            alert(msg);
+          if (params.get('register') === '1') {
+            alert("✅ Enregistrement réussi !");
+            // optionnel : remove param pour éviter le rappel
+            window.history.replaceState({}, document.title, window.location.pathname);
           }
         });
       </script>
+      
       
       
 </body>
