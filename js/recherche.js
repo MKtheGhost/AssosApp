@@ -1,22 +1,9 @@
-import { associations } from './dataAssociation.js';
+//import { associations } from './dataAssociation.js';
+var associations = [];
 
 const loader = document.getElementById('loader');
 loader.style.display = 'block'; // Affiche la roue
 
-
-fetch('./getAssos.php')
-  .then(res => res.json())
-  .then(assos => {
-
-    console.log(assos);
-  })
-  .catch(error => {
-    console.error("Erreur de récupération :", error);
-    alert("Erreur lors du chargement des données.");
-  })
-  .finally(() => {
-    loader.style.display = 'none'; // Cache le loader
-  });
 
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById("assos-container");
@@ -134,7 +121,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 5. Initialisation
-    createAssociationCards(associations);
+    fetch('./getAssos.php')
+    .then(res => res.json())
+    .then(assos => {
+        associations = assos;
+        createAssociationCards(assos);
+        
+    })
+    .catch(error => {
+        console.error("Erreur de récupération :", error);
+        alert("Erreur lors du chargement des données.");
+    })
+    .finally(() => {
+        loader.style.display = 'none'; // Cache le loader
+    });
 });
   
 
