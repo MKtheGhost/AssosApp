@@ -5,5 +5,5 @@
 // Set the PDO object to null to close the connection
 $pdo = null;
 
-echo "Database connection closed successfully!";
+//echo "Database connection closed successfully!";
 ?>

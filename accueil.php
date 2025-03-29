@@ -1,3 +1,9 @@
+<?php
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -115,10 +121,17 @@
 
       <footer>
         <nav class="navbar">
-          <a href="accueil.html"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
-          <a href="scanner.html"><img src="images/svg/scanner.svg" alt="Don"></a>
-          <a href="recherche.html"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
-          <a href="don-souscription.html"><img src="images/svg/donation.svg" alt="Don"></a>
+          <a href="accueil.php"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
+          <a href="scanner.php"><img src="images/svg/scanner.svg" alt="Don"></a>
+          <a href="recherche.php"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
+          <?php
+            if ($_SESSION["user_grade"] == "utilisateur") {
+              echo '<a href="don-souscription.php"><img src="images/svg/donation.svg" alt="Don"></a>';
+            } else if ($_SESSION["user_grade"] == "administrateur") {
+              echo '<a href="statistics.php"><img src="images/svg/donation.svg" alt="Don"></a>';
+            }
+          
+          ?>
           <a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>
         </nav>
       </footer>

@@ -1,102 +1,90 @@
 <?php
-include_once './DBConnect/db_connect.php';
-
-// Récupération du paramètre URL
-$assoName = isset($_GET['asso']) ? $_GET['asso'] : '';
-
-// Requête SQL préparée pour sécurité
-$stmt = $pdo->prepare("SELECT * FROM associations WHERE nom = :nom OR slug = :nom");
-$stmt->execute([':nom' => $assoName]);
-$association = $stmt->fetch(PDO::FETCH_ASSOC);
-
-// Si association non trouvée
-if (!$association) {
-    header("HTTP/1.0 404 Not Found");
-    $pageTitle = "Association non trouvée";
-} else {
-    $pageTitle = $association['nom'] . " - Détails";
-}
-
-// Récupération des handicaps liés (si table de relation)
-$handicaps = [];
-if ($association) {
-    $stmt = $pdo->prepare("
-        SELECT h.nom 
-        FROM handicaps h
-        JOIN association_handicap ah ON h.id = ah.handicap_id
-        WHERE ah.association_id = :id
-    ");
-    $stmt->execute([':id' => $association['id']]);
-    $handicaps = $stmt->fetchAll(PDO::FETCH_COLUMN);
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($pageTitle) ?></title>
-    <link rel="stylesheet" href="css/association.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Association</title>
+  <link rel="stylesheet" href="./css/association.css">
+  <link rel="stylesheet" href="./css/settings.css">
+  <script src="./js/association.js" type="module"></script>
 </head>
 <body>
-<a href="javascript:history.back()" class="back-button">← Retour aux associations</a>
+<div class="container">
+  <header><h1>En savoir + sur l'association</h1>
+    <div class="settings-icon" id="settingsButton">
+      <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
+    </div>
+  </header>
+  <!-- Popup de paramètres -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal"></span>
+      <h2>Paramètres d'Accessibilité</h2>
 
-<div class="association-container">
-    <?php if ($association): ?>
-        <div class="association-header">
-            <img src="<?= htmlspecialchars($association['logo_url']) ?>"
-                 alt="Logo <?= htmlspecialchars($association['nom']) ?>"
-                 class="association-logo"
-                 onerror="this.src='images/default-asso.jpg'">
-            <div class="association-info">
-                <h1><?= htmlspecialchars($association['nom']) ?></h1>
-                <p class="description"><?= nl2br(htmlspecialchars($association['description'])) ?></p>
-            </div>
-        </div>
+      <!-- Taille du texte -->
+      <label for="textSize">Taille du texte :</label>
+      <select id="textSize">
+        <option value="normal">Normal</option>
+        <option value="large">Grand</option>
+        <option value="xlarge">Très grand</option>
+      </select>
 
-        <div class="association-details">
-            <section>
-                <h2>Informations de contact</h2>
-                <ul class="contact-list">
-                    <?php if ($association['website']): ?>
-                        <li>Site web: <a href="<?= htmlspecialchars($association['website']) ?>" target="_blank">Visiter le site</a></li>
-                    <?php endif; ?>
-                    <?php if ($association['telephone']): ?>
-                        <li>Téléphone: <?= htmlspecialchars($association['telephone']) ?></li>
-                    <?php endif; ?>
-                    <?php if ($association['email']): ?>
-                        <li>Email: <a href="mailto:<?= htmlspecialchars($association['email']) ?>"><?= htmlspecialchars($association['email']) ?></a></li>
-                    <?php endif; ?>
-                    <?php if ($association['adresse']): ?>
-                        <li>Adresse: <?= nl2br(htmlspecialchars($association['adresse'])) ?></li>
-                    <?php endif; ?>
-                </ul>
-            </section>
+      <!-- Mode Dyslexie -->
+      <label>
+        <input type="checkbox" id="toggleDyslexia"> Police pour dyslexie
+      </label>
 
-            <?php if (!empty($handicaps)): ?>
-                <section>
-                    <h2>Handicaps concernés</h2>
-                    <ul class="handicaps-list">
-                        <?php foreach ($handicaps as $handicap): ?>
-                            <li><?= htmlspecialchars($handicap) ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </section>
-            <?php endif; ?>
+      <!-- Taille des icônes -->
+      <label for="iconSize">Taille des icônes :</label>
+      <select id="iconSize">
+        <option value="normal">Normal</option>
+        <option value="large">Grand</option>
+        <option value="xlarge">Très grand</option>
+      </select>
 
-            <?php if ($association['contenu']): ?>
-                <section class="additional-content">
-                    <?= $association['contenu'] ?>
-                </section>
-            <?php endif; ?>
-        </div>
-    <?php else: ?>
-        <div class="not-found">
-            <h1>Association non trouvée</h1>
-            <p>Désolé, l'association "<?= htmlspecialchars($assoName) ?>" n'existe pas dans notre annuaire.</p>
-            <a href="index.php" class="button">Retour à l'accueil</a>
-        </div>
-    <?php endif; ?>
+
+
+    </div>
+  </div>
+
+  <main>
+    <section class="top-circle">
+      <div class="image-wrapper">
+        <img id="asso-image" src="./images/assos/default-image.jpg" alt="Association Image"/>
+      </div>
+      <h2 id="asso-name">Chargement...</h2>
+      <p id="asso-desc"></p>
+      <a id="asso-site" href="#" target="_blank" style="display:none;">Site de l'association</a>
+    </section>
+
+    <section class="bottom-circle">
+      <button id="donation-button" onclick="location.href='./donation.html'">Je donne !</button>
+    </section>
+  </main>
+
+  <footer>
+    <nav class="navbar icon-normal">
+      <a href="accueil.php"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
+      <a href="scanner.php"><img src="images/svg/scanner.svg" alt="Don"></a>
+      <a href="recherche.php"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
+      <?php
+        if ($_SESSION["user_grade"] == "utilisateur") {
+          echo'<a href="don-souscription.php"><img src="images/svg/donation.svg" alt="Don"></a>';
+        } else if ($_SESSION["user_grade"] == "administrateur") {
+          echo '<a href="statistics.php"><img src="images/svg/donation.svg" alt="Don"></a>';
+        }
+      ?>
+      <a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>
+    </nav>
+  </footer>
 </div>
+
+
 </body>
 </html>
