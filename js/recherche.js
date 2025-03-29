@@ -1,6 +1,6 @@
 import { associations } from './dataAssociation.js';
 
-const associationsGet = getAssos();
+const associationsGet = fetchData();
 console.log(associationsGet);
 
 const form = document.getElementById('searchForm');
