@@ -1,10 +1,21 @@
 
-body{
+body {
     font-family: 'Helvetica',sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    display : block;
     background-color: #E1E9E9;
+
+}
+
+.container{
+    height: 100vh;
+    display : inline;
+    
+}
+
+.connexion-form {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -95,3 +106,10 @@ input{
 #message{
     text-align: center;
 }
+
+.return-btn {
+    position: absolute;
+    left: 5%;
+    top: 150px; /* Set the vertical distance here */
+}
+

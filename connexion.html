@@ -13,29 +13,35 @@
     
     </head>
 <body class="connexionBody">
-  <button onclick="location.href='./index.html'">Retour</button>
-    <h1>Me connecter</h1>
+  <div class="container">
+    <button onclick="location.href='./index.html'; " class="return-btn">Retour</button>
+    <div class="connexion-form">
+      <h1>Me connecter</h1>
 
-    <form action="connexion.php" method="post">
-        <div class="formItem">
-            <label for="email">Adresse E-Mail</label>
-            <input name="email" type="Mail">
-        </div>
-        <div class="formItem">
-            <label for="password">Mot de Passe</label>
-            <input name="password" type="Password">
-        </div>
-        <div class="formButtonRegisterEtConnexion">
-            <button class="buttonConnect" type="submit">Me connecter</button>
-        </div>
-    </form>
+      <form action="connexion.php" method="post">
+          <div class="formItem">
+              <label for="email">Adresse E-Mail</label>
+              <input name="email" type="Mail">
+          </div>
+          <div class="formItem">
+              <label for="password">Mot de Passe</label>
+              <input name="password" type="Password">
+          </div>
+          <div class="formButtonRegisterEtConnexion">
+              <button class="buttonConnect" type="submit">Me connecter</button>
+          </div>
+      </form>
 
-    <div class="RegisterPageLinkDiv">
-        <p>Pas de compte?</p>
-        <a href="./enregistrement.html">Créer un compte</a>
+      <div class="RegisterPageLinkDiv">
+          <p>Pas de compte?</p>
+          <a href="./enregistrement.html">Créer un compte</a>
+      </div>
+
+      <div id="message"></div>
     </div>
 
-    <div id="message"></div>
+    </div>
+    
     
     <script>
         window.addEventListener("DOMContentLoaded", () => {

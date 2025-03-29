@@ -8,55 +8,59 @@
     <link rel="stylesheet" type="text/css" href="./css/enregistrement.css">
 </head>
 <body class="enregistrementBody">
-    <button onclick="location.href='./index.html'">Retour</button>
-    <h1>M'enregistrer</h1>
-    <form id="form-inscription" action="./enregistrement.php" method="post">
-        <div class="formItemsContainer">
-            <div class="formItem">
-                <label for="firstName">Prénom:</label>
-                <input name="firstName" type="text">
+    <button onclick="location.href='./index.html'" class="return-btn">Retour</button>
+    <div class="form-container">
+        <h1>M'enregistrer</h1>
+        <form id="form-inscription" action="./enregistrement.php" method="post">
+            <div class="formItemsContainer">
+                <div class="formItem">
+                    <label for="firstName">Prénom:</label>
+                    <input name="firstName" type="text">
+                </div>
+                <div class="formItem">
+                    <label for="lastName">Nom:</label>
+                    <input name="lastName" type="text">
+                </div>
             </div>
             <div class="formItem">
-                <label for="lastName">Nom:</label>
-                <input name="lastName" type="text">
+                <label for="address">Adresse:</label>
+                <input name="address" type="text">
             </div>
-        </div>
-        <div class="formItem">
-            <label for="address">Adresse:</label>
-            <input name="address" type="text">
-        </div>
-        <div class="formItemsContainer">
+            <div class="formItemsContainer">
+                <div class="formItem">
+                    <label for="city">Ville:</label>
+                    <input name="city" type="text">
+                </div>
+                <div class="formItem">
+                    <label for="zipCode">Code Postal:</label>
+                    <input name="zipCode" type="text">
+                </div>
+            </div>
             <div class="formItem">
-                <label for="city">Ville:</label>
-                <input name="city" type="text">
+                <label for="email">Adresse Mail</label>
+                <input name="email" type="email">
             </div>
             <div class="formItem">
-                <label for="zipCode">Code Postal:</label>
-                <input name="zipCode" type="text">
+                <label for="password">Mot de Passe:</label>
+                <input name="password" type="Password">
             </div>
+            <div class="formItem">
+                <label for="confimPassword">Confirmation du mot de Passe:</label>
+                <input name="confirmPassword" type="password">
+            </div>
+            <div class="formButtonRegisterEtConnexion">
+                <button id="buttonConnect" type="submit">M'enregistrer</button>
+            </div>
+        </form>
+        <div class="LoginPageLinkDiv">
+            <p>Déjà un compte?</p>
+            <a href="./connexion.html">Connectez-vous</a>
         </div>
-        <div class="formItem">
-            <label for="email">Adresse Mail</label>
-            <input name="email" type="email">
-        </div>
-        <div class="formItem">
-            <label for="password">Mot de Passe:</label>
-            <input name="password" type="Password">
-        </div>
-        <div class="formItem">
-            <label for="confimPassword">Confirmation du mot de Passe:</label>
-            <input name="confirmPassword" type="password">
-        </div>
-        <div class="formButtonRegisterEtConnexion">
-            <button id="buttonConnect" type="submit">M'enregistrer</button>
-        </div>
-    </form>
-    <div class="LoginPageLinkDiv">
-        <p>Déjà un compte?</p>
-        <a href="./connexion.html">Connectez-vous</a>
-    </div>
 
-    <div id="message" style="color:red;"></div>
+        <div id="message" style="color:red;"></div>
+
+    </div>
+    
 
     <script>
     window.addEventListener("DOMContentLoaded", () => {
