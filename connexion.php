@@ -1,9 +1,8 @@
 <?php
+session_start();
+include_once './DBConnect/db_connect.php';
 
 $message = '';
-
-session_start();
-include_once './DBConnect/db_connect.php'; // adapte le chemin si besoin
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
@@ -18,23 +17,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user && password_verify($password, $user['user_password'])) {
-                // Mot de passe valide, démarrage de la session
                 $_SESSION['user_id'] = $user['user_id'];
-
-                echo "<script>
-                    window.location.href = 'recherche.html';
-                </script>";
+                header("Location: recherche.html");
                 exit;
-            }}
-         catch (PDOException $e) {
+            } else {
+                $message = "❌ Email ou mot de passe incorrect.";
+            }
+        } catch (PDOException $e) {
             $message = "❌ Erreur lors de la connexion : " . $e->getMessage();
         }
     } else {
         $message = "⚠️ Merci de remplir tous les champs obligatoires.";
     }
 }
-?>
 
-<?php if (!empty($message)) : ?>
-    <div style="color: red;"><?= htmlspecialchars($message) ?></div>
-<?php endif; ?>
+// S'il y a une erreur, on stocke le message dans sessionStorage via JS et on redirige vers connexion.html
+echo "<script>
+    sessionStorage.setItem('loginError', '" . addslashes($message) . "');
+    window.location.href = 'connexion.html';
+</script>";
+exit;
+?>
