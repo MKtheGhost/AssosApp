@@ -1,6 +1,5 @@
 <?php
 
-/*
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -59,8 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div style="color: red;"><?= htmlspecialchars($message) ?></div>
 <?php endif; ?>
 
-*/
-
+/*
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -111,3 +109,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php if (!empty($message)) : ?>
     <div style="color: red;"><?= htmlspecialchars($message) ?></div>
 <?php endif; ?>
+
+*/
