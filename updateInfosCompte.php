@@ -1,4 +1,10 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 session_start();
 header("Content-Type: application/json");
 
@@ -27,7 +33,9 @@ $sql = "UPDATE users SET
     user_address = :address, 
     user_city = :city, 
     user_zipcode = :zipcode, 
-    user_mail = :email";
+    user_mail = :email,
+    newsletter = :newsletter";
+    
 
 // On ne modifie le mot de passe que s’il est renseigné
 if (!empty($data->password)) {
@@ -43,6 +51,7 @@ $stmt->bindParam(':address', $data->address);
 $stmt->bindParam(':city', $data->city);
 $stmt->bindParam(':zipcode', $data->zipcode);
 $stmt->bindParam(':email', $data->email);
+$stmt->bindParam(':newsletter', $data->newletter);
 
 if (!empty($data->password)) {
     $hashedPassword = password_hash($data->password, PASSWORD_DEFAULT);
