@@ -31,7 +31,8 @@ fetch('./getInfosCompte.php')
       address: document.getElementById('adresse-post').value,
       city: document.getElementById('ville').value,
       zipcode: document.getElementById('code-post').value,
-      email: document.getElementById('adresse-mail').value,
+      email: document.getElementById('adresse-mail').value, 
+      newsletter: document.getElementById('newsletter').checked,
       password: document.getElementById('mdp').value.trim() // sera vide si non modifié
     };
   
