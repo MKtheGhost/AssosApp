@@ -97,7 +97,7 @@ if (!isset($_SESSION['user_id'])) {
         <h2>Paramètres supplémentaires</h2>
 
         <div class="checkbox-actu-container">
-            <input type="checkbox" name="newletter" id="newsletter">
+            <input type="checkbox" name="newsletter" id="newsletter">
             <label for="newletter">Je souhaite recevoir des mails sur les actualités de l’application</label>
         </div>
 
