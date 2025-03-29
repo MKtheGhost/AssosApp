@@ -60,6 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 */
+
+$message = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include_once './DBConnect/db_connect.php';
 
@@ -96,10 +99,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: connexion.html?register=1");
             exit;
         } catch (PDOException $e) {
-            echo "Erreur d'inscription : " . $e->getMessage();
+            $message = "❌ Erreur lors de l'inscription : " . $e->getMessage();
         }
     } else {
-        echo "Champs manquants ou mots de passe non identiques";
+        $message = "⚠️ Merci de remplir tous les champs obligatoires.";
     }
 }
 ?>
+
+
+<?php if (!empty($message)) : ?>
+    <div style="color: red;"><?= htmlspecialchars($message) ?></div>
+<?php endif; ?>

@@ -1,4 +1,7 @@
 <?php
+
+$message = '';
+
 session_start();
 include_once './DBConnect/db_connect.php'; // adapte le chemin si besoin
 
@@ -20,30 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 echo "<script>
                     window.location.href = 'recherche.html';
-                    alert('✅ Connexion réussie !');
                 </script>";
                 exit;
-            } else {
-                // Erreur de connexion
-                echo "<script>
-                    window.history.back();
-                    alert('❌ Email ou mot de passe incorrect.');
-                </script>";
-                exit;
-            }
-        } catch (PDOException $e) {
-            echo "<script>
-                alert('Erreur serveur : " . addslashes($e->getMessage()) . "');
-                window.history.back();
-            </script>";
-            exit;
+            }}
+         catch (PDOException $e) {
+            $message = "❌ Erreur lors de la connexion : " . $e->getMessage();
         }
     } else {
-        echo "<script>
-            alert('⚠️ Veuillez remplir tous les champs.');
-            window.history.back();
-        </script>";
-        exit;
+        $message = "⚠️ Merci de remplir tous les champs obligatoires.";
     }
 }
 ?>
+
+<?php if (!empty($message)) : ?>
+    <div style="color: red;"><?= htmlspecialchars($message) ?></div>
+<?php endif; ?>
