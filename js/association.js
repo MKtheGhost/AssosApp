@@ -1,29 +1,32 @@
 import { associations } from './dataAssociation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Parse the 'name' parameter from the URL
-  const params = new URLSearchParams(window.location.search);
-  const assoName = params.get('name'); // e.g., "AAAVAM"
+  // Récupère l'ID depuis l'URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const assoId = parseInt(urlParams.get('id'));
 
-  // 2. Find the association in the array
-  let currentAsso = associations.find(asso => asso.nom === assoName);
+  // Trouve l'association correspondante
+  const currentAsso = associations.find(asso => asso.id === assoId);
 
-  // Fallback if not found
-  if (!currentAsso) {
-    currentAsso = {
-      nom: "Association introuvable",
-      description: "Aucune description disponible",
-      site: "#" // or any fallback URL
-    };
+  // Éléments du DOM
+  const assoNameEl = document.getElementById('asso-name');
+  const assoDescEl = document.getElementById('asso-desc');
+  const assoImageEl = document.getElementById('asso-image');
+  const assoSiteEl = document.getElementById('asso-site');
+
+  if (currentAsso) {
+    // Met à jour les informations
+    assoNameEl.textContent = currentAsso.nom;
+    assoDescEl.textContent = currentAsso.description || "Pas de description disponible";
+    assoImageEl.src = currentAsso.image;
+    assoImageEl.alt = `Logo ${currentAsso.nom}`;
+
+
+    // Met à jour le titre de la page
+    document.title = `${currentAsso.nom} - Détails`;
+  } else {
+    // Association non trouvée
+    assoNameEl.textContent = "Association introuvable";
+    assoDescEl.textContent = "Aucune association ne correspond à cet ID";
   }
-
-  // 3. Fill the content
-  document.getElementById('asso-name').textContent = currentAsso.nom;
-  document.getElementById('asso-desc').textContent = 
-    currentAsso.description || "Description non disponible";
-
-  // If you have a real site URL, add it to the association object
-  // e.g. { nom: "AAAVAM", description: "...", site: "https://exemple.com" }
-  const siteLink = document.getElementById('asso-site');
-  siteLink.href = currentAsso.site || "#";
 });

@@ -1,50 +1,78 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#1AB99F">
-    <title>Association</title>
-    <link rel="shortcut icon" href="./images/logo.png">
-    <link rel="stylesheet" type="text/css" href="./css/association.css">
-    <link rel="apple-touch-icon" href="images/logo.png">
-    <link rel="manifest" href="manifest.json">
-    <script src="js/association.js" defer></script>
-                
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Association</title>
+  <link rel="stylesheet" href="./css/association.css">
+  <link rel="stylesheet" href="./css/settings.css">
+  <script src="./js/association.js" type="module"></script>
 </head>
-  <body>
-    <div class="container">
-      <header><h1>En savoir + sur l'association</h1></header>
-
-      <main>
-        <section class="top-circle">
-          <div class="image-wrapper">
-            <img id="asso-image" src="./images/placeholder.png" alt="Association Image"/>
-          </div>
-          <h2 id="asso-name">Association X</h2>
-          <p id="asso-desc">Description de l'association</p>
-          <!-- Link to the association's website (injected via JS) -->
-          <a id="asso-site" href="#" target="_blank">Site de l'association</a>
-        </section>
-
-        <section class="bottom-circle">
-          <button id="donation-button">Je donne !</button>
-        </section>
-      </main>
-
-      <footer>
-        <nav class="navbar icon-normal">
-            <a href="accueil.html"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
-            <a href="scanner.html"><img src="images/svg/scanner.svg" alt="Don"></a>
-            <a href="recherche.html"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
-            <a href="don-souscription.html"><img src="images/svg/donation.svg" alt="Don"></a>
-            <a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>
-        </nav>
-    </footer>
+<body>
+<div class="container">
+  <header><h1>En savoir + sur l'association</h1>
+    <div class="settings-icon" id="settingsButton">
+      <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
     </div>
-    
-    <!-- Link to the JS file (which imports dataAssociation.js) -->
-    <script src="./js/association.js" type="module"></script>
-  </body>
+  </header>
+  <!-- Popup de paramètres -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal"></span>
+      <h2>Paramètres d'Accessibilité</h2>
+
+      <!-- Taille du texte -->
+      <label for="textSize">Taille du texte :</label>
+      <select id="textSize">
+        <option value="normal">Normal</option>
+        <option value="large">Grand</option>
+        <option value="xlarge">Très grand</option>
+      </select>
+
+      <!-- Mode Dyslexie -->
+      <label>
+        <input type="checkbox" id="toggleDyslexia"> Police pour dyslexie
+      </label>
+
+      <!-- Taille des icônes -->
+      <label for="iconSize">Taille des icônes :</label>
+      <select id="iconSize">
+        <option value="normal">Normal</option>
+        <option value="large">Grand</option>
+        <option value="xlarge">Très grand</option>
+      </select>
+
+
+
+    </div>
+  </div>
+
+  <main>
+    <section class="top-circle">
+      <div class="image-wrapper">
+        <img id="asso-image" src="./images/assos/default-image.jpg" alt="Association Image"/>
+      </div>
+      <h2 id="asso-name">Chargement...</h2>
+      <p id="asso-desc"></p>
+      <a id="asso-site" href="#" target="_blank" style="display:none;">Site de l'association</a>
+    </section>
+
+    <section class="bottom-circle">
+      <button id="donation-button" onclick="location.href='./donation.html'">Je donne !</button>
+    </section>
+  </main>
+
+  <footer>
+    <nav class="navbar icon-normal">
+      <a href="accueil.html"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
+      <a href="scanner.html"><img src="images/svg/scanner.svg" alt="Don"></a>
+      <a href="recherche.html"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
+      <a href="don-souscription.html"><img src="images/svg/donation.svg" alt="Don"></a>
+      <a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>
+    </nav>
+  </footer>
+</div>
+
+
+</body>
 </html>

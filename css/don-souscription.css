@@ -24,6 +24,8 @@
   
   /* HEADER */
   header {
+    display: flex;
+    justify-content: space-between;
     text-align: center;
     padding: 15px;
   }
