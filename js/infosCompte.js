@@ -11,19 +11,15 @@ fetch('./getInfosCompte.php')
     document.getElementById('ville').value = user.user_city || '';
     document.getElementById('code-post').value = user.user_zipcode || '';
     document.getElementById('adresse-mail').value = user.user_mail || '';
-    document.getElementById('newsletter').checked = (user.newletter == 1);
-
-    
+    document.getElementById('newsletter').checked = (user.newsletter == 1);
   })
   .catch(error => {
     console.error("Erreur de récupération :", error);
     alert("Erreur lors du chargement des données.");
   })
   .finally(() => {
-    loader.style.display = 'none'; // Cache la roue quoi qu'il arrive
+    loader.style.display = 'none'; // Cache le loader
   });
-
-  console.log(res.json)
 
   document.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -36,7 +32,7 @@ fetch('./getInfosCompte.php')
       zipcode: document.getElementById('code-post').value,
       email: document.getElementById('adresse-mail').value,
       password: document.getElementById('mdp').value.trim(), // sera vide si non modifié
-      newletter: document.getElementById('newsletter').checked
+      newsletter: document.getElementById('newsletter').checked
 
     };
   
