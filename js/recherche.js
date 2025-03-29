@@ -6,10 +6,7 @@ loader.style.display = 'block'; // Affiche la roue
 
 fetch('./getAssos.php')
   .then(res => res.json())
-  .then(assos => {
-
-    console.log(assos);
-  })
+  .then( console.log(res))
   .catch(error => {
     console.error("Erreur de récupération :", error);
     alert("Erreur lors du chargement des données.");
