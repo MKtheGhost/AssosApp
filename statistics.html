@@ -23,35 +23,35 @@
         </div>
     </header>
 
-    <!-- Modal des paramètres -->
-    <div id="settingsModal" class="settings-modal">
+    <!-- Popup de paramètres -->
+    <div id="settingsModal" class="modal">
         <div class="modal-content">
-            <span class="close-button" id="closeModal" tabindex="0" aria-label="Fermer"></span>
+            <span class="close" id="closeModal"></span>
             <h2>Paramètres d'Accessibilité</h2>
 
-            <div class="form-group">
-                <label for="textSize">Taille du texte :</label>
-                <select id="textSize">
-                    <option value="normal">Normal</option>
-                    <option value="large">Grand</option>
-                    <option value="xlarge">Très grand</option>
-                </select>
-            </div>
+            <!-- Taille du texte -->
+            <label for="textSize">Taille du texte :</label>
+            <select id="textSize">
+                <option value="normal">Normal</option>
+                <option value="large">Grand</option>
+                <option value="xlarge">Très grand</option>
+            </select>
 
-            <div class="form-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" id="toggleDyslexia"> Police pour dyslexie
-                </label>
-            </div>
+            <!-- Mode Dyslexie -->
+            <label>
+                <input type="checkbox" id="toggleDyslexia"> Police pour dyslexie
+            </label>
 
-            <div class="form-group">
-                <label for="iconSize">Taille des icônes :</label>
-                <select id="iconSize">
-                    <option value="normal">Normal</option>
-                    <option value="large">Grand</option>
-                    <option value="xlarge">Très grand</option>
-                </select>
-            </div>
+            <!-- Taille des icônes -->
+            <label for="iconSize">Taille des icônes :</label>
+            <select id="iconSize">
+                <option value="normal">Normal</option>
+                <option value="large">Grand</option>
+                <option value="xlarge">Très grand</option>
+            </select>
+
+
+
         </div>
     </div>
 
@@ -64,36 +64,28 @@
     </section>
 
     <!-- Section Détails Association -->
-    <section class="association-details-section">
-        <h2>Détails par Association</h2>
-        <div class="association-selector">
-            <select id="associationSelect" aria-label="Sélectionner une association">
-                <option value="">Sélectionnez une association</option>
-                <!-- Les options seront insérées ici par JS -->
-            </select>
-        </div>
-        <article class="association-details-card" id="associationDetails">
-            <p>Sélectionnez une association pour voir les détails.</p>
-        </article>
-    </section>
+<section class="association-details-section">
+    <h2>Détails par Association</h2>
+    <div class="association-selector">
+        <input list="associations-list" id="associationInput" placeholder="Rechercher ou sélectionner une association...">
+        <datalist id="associations-list">
+            <!-- Les options seront insérées ici par JS -->
+        </datalist>
+        <!-- Champ caché pour conserver l'ID -->
+        <input type="hidden" id="associationId">
+    </div>
+    <article class="association-details-card" id="associationDetails">
+        <p>Sélectionnez une association pour voir les détails.</p>
+    </article>
+</section>  
 
-    <footer class="main-footer">
-        <nav class="bottom-navigation" aria-label="Navigation principale">
-            <a href="accueil.html" class="nav-link">
-                <img src="./images/svg/accueil.svg" alt="Accueil">
-            </a>
-            <a href="scanner.html" class="nav-link">
-                <img src="images/svg/scanner.svg" alt="Scanner">
-            </a>
-            <a href="recherche.html" class="nav-link">
-                <img src="images/svg/rechercher.svg" alt="Recherche">
-            </a>
-            <a href="don-souscription.html" class="nav-link">
-                <img src="images/svg/donation.svg" alt="Dons">
-            </a>
-            <a href="mon-compte.php" class="nav-link">
-                <img src="images/svg/moncompte.svg" alt="Mon compte">
-            </a>
+    <footer>
+        <nav class="navbar icon-normal">
+            <a href="accueil.html"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
+            <a href="scanner.html"><img src="images/svg/scanner.svg" alt="Don"></a>
+            <a href="recherche.html"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
+            <a href="don-souscription.html"><img src="images/svg/donation.svg" alt="Don"></a>
+            <a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>
         </nav>
     </footer>
 </div>
