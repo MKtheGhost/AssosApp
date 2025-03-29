@@ -49,8 +49,9 @@ button {
     margin-left: 55%;
 }
 
-.connexionBody{
-    
+#message{
+    display: flex;
+    justify-content: center;
 }
 
 form{
