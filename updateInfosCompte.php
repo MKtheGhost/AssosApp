@@ -51,9 +51,7 @@ $stmt->bindParam(':address', $data->address);
 $stmt->bindParam(':city', $data->city);
 $stmt->bindParam(':zipcode', $data->zipcode);
 $stmt->bindParam(':email', $data->email);
-
-$newletter = (bool)$data->newletter;
-$stmt->bindValue(':newletter', $newletter, PDO::PARAM_BOOL);
+$stmt->bindParam(':newsletter', $data->newletter);
 
 if (!empty($data->password)) {
     $hashedPassword = password_hash($data->password, PASSWORD_DEFAULT);
