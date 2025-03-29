@@ -19,15 +19,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_id'] = $user['user_id'];
 
                 echo "<script>
-                    alert('✅ Connexion réussie !');
                     window.location.href = 'recherche.html';
+                    alert('✅ Connexion réussie !');
                 </script>";
                 exit;
             } else {
                 // Erreur de connexion
                 echo "<script>
-                    alert('❌ Email ou mot de passe incorrect.');
                     window.history.back();
+                    alert('❌ Email ou mot de passe incorrect.');
                 </script>";
                 exit;
             }
