@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_grade'] = $user['user_grade'];
 
                 echo "<script> localStorage.setItem('user_id',".$user["user_id"].");
-                    localStorage.setItem('user_grade',".$user["user_grade"].");</script>";
-                    
+                    localStorage.setItem('user_grade','".$user["user_grade"]."');</script>";
+
                 header("Location: accueil.php");
                 exit;
             } else {
