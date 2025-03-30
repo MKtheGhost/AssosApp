@@ -29,7 +29,9 @@ $sql = "UPDATE users SET
     user_city = :city, 
     user_zipcode = :zipcode, 
     user_mail = :email,
-    newsletter = :newsletter";
+    newsletter = :newsletter,
+    currency = :currency";
+
     
 
 // On ne modifie le mot de passe que s’il est renseigné
@@ -49,6 +51,8 @@ $stmt->bindParam(':email', $data->email);
 
 $newsletter = !empty($data->newsletter) ? 1 : 0;
 $stmt->bindValue(':newsletter', $newsletter, PDO::PARAM_INT);
+
+$stmt->bindParam(':currency', $data->currency);
 
 if (!empty($data->password)) {
     $hashedPassword = password_hash($data->password, PASSWORD_DEFAULT);
