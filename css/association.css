@@ -131,6 +131,7 @@ main {
 }
 
 .retour {
+  padding-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,9 +148,11 @@ main {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-/* FOOTER NAVIGATION */
+/* Footer (fixed at bottom) */
 footer {
   background-color: #81D1C1;
+  position: fixed;
+  bottom: 0;
   width: 100%;
 }
 
@@ -160,9 +163,14 @@ footer {
   padding: 10px 0;
 }
 
-.navbar a img {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+.navbar a {
+  text-decoration: none;
+  color: #000;
+}
+
+
+.refine-search-container {
+  display: flex;
+  gap : 10px;
 }
   
