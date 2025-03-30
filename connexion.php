@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION = []; 
+unset($_SESSION["user_grade"]);
 include_once './DBConnect/db_connect.php';
 
 $message = '';

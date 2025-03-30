@@ -1,7 +1,7 @@
 <?php
     include_once "./destroySession.php";
     session_start();
-    $_SESSION = []; 
+    unset($_SESSION["user_grade"]);
 ?>
 
 <!DOCTYPE html>
