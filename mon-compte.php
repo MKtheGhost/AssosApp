@@ -99,7 +99,7 @@ if (!isset($_SESSION['user_id'])) {
 
         <div class="checkbox-actu-container">
             <input type="checkbox" name="newsletter" id="newsletter">
-            <label for="newletter">Je souhaite recevoir des mails sur les actualités de l’application</label>
+            <label for="newsletter">Je souhaite recevoir des mails sur les actualités de l’application</label>
         </div>
 
         <div class="devise-container">

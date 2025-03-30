@@ -4,6 +4,7 @@ loader.style.display = 'block'; // Affiche la roue
 fetch('./getInfosCompte.php')
   .then(res => res.json())
   .then(user => {
+    console.log("Valeur newsletter dans la DB :", user.newsletter);
     // Remplir les champs
     document.getElementById('prenom').value = user.user_firstname || '';
     document.getElementById('nom').value = user.user_name || '';
