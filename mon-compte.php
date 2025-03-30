@@ -105,9 +105,9 @@ if (!isset($_SESSION['user_id'])) {
         <div class="devise-container">
             <label for="currency">Devise de mes dons</label>
             <select name="devise" id="currency">
-                <option value="euro">€</option>
-                <option value="dollar">$</option>
-                <option value="livre">£</option>
+                <option value="€">€</option>
+                <option value="$">$</option>
+                <option value="£">£</option>
             </select>
         </div>
 
