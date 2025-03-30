@@ -34,7 +34,7 @@
     <!-- Popup de paramètres -->
     <div id="settingsModal" class="modal">
         <div class="modal-content">
-            <span class="close" id="closeModal"></span>
+
             <h2>Paramètres d'Accessibilité</h2>
 
             <!-- Taille du texte -->
@@ -57,20 +57,38 @@
                 <option value="large">Grand</option>
                 <option value="xlarge">Très grand</option>
             </select>
-
-
-
+            <label>
+                <button class="close" id="closeModal">Enregistrer</button>
+            </label>
         </div>
+
     </div>
 
 
-<main>
+    <main>
+        <div class="scan-instructions">
+        <p class="info-text">Chaque scan soutient directement l'association de votre choix.</p>
+        <!-- Zone vidéo pour afficher l'aperçu de la caméra -->
+        <video id="preview" width="100%" height="auto" style="border: 1px solid #000;"></video>
 
-    <!-- Zone vidéo pour afficher l'aperçu de la caméra -->
-    <video id="preview" width="100%" height="auto" style="border: 1px solid #000;"></video>
-    
-    <!-- Affichage du résultat du scan -->
-    <div id="result" style="text-align: center; margin-top: 20px;"></div>
+        <!-- Instructions de scan -->
+
+            <div class="instruction-steps">
+                <div class="step">
+                    <img src="./images/svg/scanner.svg" alt="Étape 1">
+                    <p>Scannez le QR code de l'association</p>
+                </div>
+                <div class="step">
+                    <img src="./images/svg/redirect-icon.svg" alt="Étape 2">
+                    <p>Soyez redirigé automatiquement</p>
+                </div>
+                <div class="step">
+                    <img src="./images/svg/donate-icon.svg" alt="Étape 3">
+                    <p>Faites votre don en quelques clics</p>
+                </div>
+            </div>
+
+        </div>
 
 
 </main>

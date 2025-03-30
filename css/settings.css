@@ -19,6 +19,13 @@ body {
 }
 
 
+
+.close{
+    justify-self: center;
+    height: 40px;
+    width: 60%;
+}
+
 /* Style du popup */
 .modal {
     display: none; /* Caché par défaut */
@@ -37,7 +44,10 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
     width: 300px;
+    justify-content: center;
     text-align: center;
 }
 

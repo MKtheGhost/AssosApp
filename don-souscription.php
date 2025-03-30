@@ -109,29 +109,35 @@
 
     <!-- Popup de paramètres -->
     <div id="settingsModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeModal"></span>
-        <h2>Paramètres d'Accessibilité</h2>
+        <div class="modal-content">
 
-        <!-- Taille du texte -->
-        <label for="textSize">Taille du texte :</label>
-        <select id="textSize">
-          <option value="normal">Normal</option>
-          <option value="large">Grand</option>
-          <option value="xlarge">Très grand</option>
-        </select>
+            <h2>Paramètres d'Accessibilité</h2>
 
-        <!-- Mode Dyslexie -->
-        <label>
-          <input type="checkbox" id="toggleDyslexia"> Police pour dyslexie
-        </label>
+            <!-- Taille du texte -->
+            <label for="textSize">Taille du texte :</label>
+            <select id="textSize">
+                <option value="normal">Normal</option>
+                <option value="large">Grand</option>
+                <option value="xlarge">Très grand</option>
+            </select>
 
-        <!-- Taille des icônes -->
-        <label for="iconSize">Taille des icônes :</label>
-        <select id="iconSize">
-          <option value="normal">Normal</option>
-          <option value="large">Grand</option>
-          <option value="xlarge">Très grand</option>
-        </select>
+            <!-- Mode Dyslexie -->
+            <label>
+                <input type="checkbox" id="toggleDyslexia"> Police pour dyslexie
+            </label>
+
+            <!-- Taille des icônes -->
+            <label for="iconSize">Taille des icônes :</label>
+            <select id="iconSize">
+                <option value="normal">Normal</option>
+                <option value="large">Grand</option>
+                <option value="xlarge">Très grand</option>
+            </select>
+            <label>
+                <button class="close" id="closeModal">Enregistrer</button>
+            </label>
+        </div>
+
+    </div>
   </body>
 </html>

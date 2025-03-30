@@ -39,7 +39,7 @@ if (!isset($_SESSION['user_id'])) {
 <!-- Popup de paramètres -->
 <div id="settingsModal" class="modal">
     <div class="modal-content">
-        <span class="close" id="closeModal"></span>
+
         <h2>Paramètres d'Accessibilité</h2>
 
         <!-- Taille du texte -->
@@ -62,10 +62,11 @@ if (!isset($_SESSION['user_id'])) {
             <option value="large">Grand</option>
             <option value="xlarge">Très grand</option>
         </select>
-
-
-
+        <label>
+            <button class="close" id="closeModal">Enregistrer</button>
+        </label>
     </div>
+
 </div>
     <form action="updateInfosCompte.php" method="post">
         <div class="infos-compte">

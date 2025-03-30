@@ -1,60 +1,163 @@
-/* Reset/Normalization */
+/* RESET / BASE STYLES */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* Body setup */
+/* BODY LAYOUT */
+body {
+    background-color: #1E1E1E;
+    display: flex;
+    justify-content: center;
+}
 
-/* Container holds the entire app */
+/* CONTAINER */
 .container {
-    width: 100%;
-    background-color: #DDEEEA;
+    background-color: #f9f9f9;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     position: relative;
+    max-width: 600px;
+    width: 100%;
 }
 
-/* Header */
+/* HEADER */
 header {
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    text-align: center;
+    align-items: center;
     padding: 20px;
+    color: #000000;
 }
 
 header h1 {
     font-size: 22px;
-    font-weight: bold;
-    color: #000;
+    font-weight: 700;
+    color: #000000;
 }
 
 
 
-/* Main section */
+/* MAIN CONTENT */
 main {
     flex: 1;
-    padding: 0 20px;
-    margin-bottom: 70px; /* Leave space for the fixed footer */
+    padding: 20px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-p{
+/* SCANNER AREA */
+#preview {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    background-color: #000; /* Fond noir pour mieux voir le cadre */
+    aspect-ratio: 1/1; /* Carré */
+    object-fit: cover;
+}
+
+/* RESULT DISPLAY */
+#result {
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    font-size: 16px;
+    color: #333;
 }
 
-video{
-    height:100%;
+/* SCANNER INSTRUCTIONS */
+.scanner-instructions {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 14px;
 }
 
-/* Footer (fixed at bottom) */
+.scanner-instructions p {
+    margin-bottom: 10px;
+}
+
+/* MODAL SETTINGS */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+    color: #1AB99F;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 14px;
+}
+
+.modal-content select,
+.modal-content input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.modal-content button.close {
+    background-color: #1AB99F;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.modal-content button.close:hover {
+    background-color: #148f77;
+}
+
+/* FOOTER / NAVBAR */
 footer {
     background-color: #81D1C1;
     position: fixed;
     bottom: 0;
     width: 100%;
+    max-width: 600px;
 }
 
 .navbar {
@@ -64,13 +167,101 @@ footer {
     padding: 10px 0;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #000;
+.navbar img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.navbar a:hover img {
+    transform: scale(1.1);
+}
+
+/* ACTIVE NAV ITEM */
+.navbar a[href="scanner.php"] img {
+    filter: brightness(0.7); /* Mettre en évidence l'onglet actif */
+}
+
+/* ACCESSIBILITY CLASSES */
+.text-large {
+    font-size: 18px !important;
+}
+
+.text-xlarge {
+    font-size: 20px !important;
+}
+
+.icon-large img {
+    width: 36px !important;
+    height: 36px !important;
+}
+
+.icon-xlarge img {
+    width: 42px !important;
+    height: 42px !important;
+}
+
+.dyslexia-mode {
+    font-family: 'OpenDyslexic', sans-serif !important;
 }
 
 
-.refine-search-container {
+
+/* SCAN INSTRUCTIONS */
+.scan-instructions {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+.scan-instructions h2 {
+    color: #1AB99F;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.instruction-steps {
     display: flex;
-    gap : 10px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.step {
+    flex: 1;
+    background: white;
+    padding: 15px 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.step img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+.step p {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.3;
+}
+
+.info-text {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .instruction-steps {
+        flex-direction: column;
+    }
+
+    .step {
+        margin-bottom: 10px;
+    }
 }

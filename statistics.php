@@ -32,7 +32,7 @@
     <!-- Popup de paramètres -->
     <div id="settingsModal" class="modal">
         <div class="modal-content">
-            <span class="close" id="closeModal"></span>
+
             <h2>Paramètres d'Accessibilité</h2>
 
             <!-- Taille du texte -->
@@ -55,10 +55,11 @@
                 <option value="large">Grand</option>
                 <option value="xlarge">Très grand</option>
             </select>
-
-
-
+            <label>
+                <button class="close" id="closeModal">Enregistrer</button>
+            </label>
         </div>
+
     </div>
 
     <!-- Section Top 3 Associations -->

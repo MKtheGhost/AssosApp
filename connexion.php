@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($user && password_verify($password, $user['user_password'])) {
                 $_SESSION['user_id'] = $user['user_id'];
                 $_SESSION['user_grade'] = $user['user_grade'];
-                header("Location: recherche.php");
+                header("Location: accueil.php");
                 exit;
             } else {
                 $message = "❌ Email ou mot de passe incorrect.";
