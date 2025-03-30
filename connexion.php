@@ -19,8 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user && password_verify($password, $user['user_password'])) {
-                $_SESSION['user_id'] = $user['user_id'];
-                $_SESSION['user_grade'] = $user['user_grade'];
 
                 echo "<script>
                     localStorage.setItem('user_id', '" . addslashes($user['user_id']) . "');

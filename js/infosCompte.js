@@ -14,6 +14,8 @@ fetch('./getInfosCompte.php')
     document.getElementById('adresse-mail').value = user.user_mail || '';
     document.getElementById('newsletter').checked = (user.newsletter == 1);
     document.getElementById('currency').value = user.currency || '';
+    document.getElementById('user_id').value = localStorage.getItem("user_id");
+    console.log(localStorage.getItem("user_id"));
   })
   .catch(error => {
     console.error("Erreur de récupération :", error);

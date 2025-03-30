@@ -1,9 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    header('Location: connexion.html');
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -71,6 +67,7 @@ if (!isset($_SESSION['user_id'])) {
     <form action="updateInfosCompte.php" method="post">
         <div class="infos-compte">
             <div class="double-div-container">
+                <input id="user_id" type="hidden" name="user_id" value="">
                 <p><strong>Prénom:</strong> <input type="text" id="prenom" name="prenom" value=""> </p>
 
                 <p><strong>Nom:</strong> <input type="text" id="nom" name="nom" value=""></p>
@@ -120,20 +117,24 @@ if (!isset($_SESSION['user_id'])) {
         <a href="accueil.php"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
         <a href="scanner.php"><img src="images/svg/scanner.svg" alt="Don"></a>
         <a href="recherche.php"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
-        <?php
-            if ($_SESSION["user_grade"] == "utilisateur") {
-                echo '<a href="don-souscription.php"><img src="images/svg/donation.svg" alt="Don"></a>';
-            } else if ($_SESSION["user_grade"] == "administrateur") {
-                echo '<a href="statistics.php"><img src="images/svg/donation.svg" alt="Don"></a>';
-            }
-        ?>
-<?php
-                  if ($_SESSION['user_grade'] == "utilisateur" || $_SESSION["user_grade"] == "administrateur") {
-                    echo '<a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>';
-                  } else  {
-                    echo '<a href="account-guest.php"><img src="images/svg/donation.svg" alt="Don"></a>';
-                  }
+        <script>
+            // Check if user_grade is stored in localStorage
+            const userGrade = localStorage.getItem('user_grade');
 
-                ?>    </nav>
+            // Show the donation link based on the user grade
+            if (userGrade === "utilisateur") {
+                document.write('<a href="don-souscription.php"><img src="images/svg/donation.svg" alt="Don"></a>');
+            } else if (userGrade === "administrateur") {
+                document.write('<a href="statistics.php"><img src="images/svg/donation.svg" alt="Don"></a>');
+            }
+
+            // Show account link based on user grade
+            if (userGrade === "utilisateur" || userGrade === "administrateur") {
+                document.write('<a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>');
+            } else {
+                document.write('<a href="account-guest.php"><img src="images/svg/donation.svg" alt="Don"></a>');
+            }
+        </script>
+    </nav>
 </footer>
 </html>

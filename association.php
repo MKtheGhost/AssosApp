@@ -79,21 +79,24 @@
       <a href="accueil.php"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
       <a href="scanner.php"><img src="images/svg/scanner.svg" alt="Don"></a>
       <a href="recherche.php"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
-      <?php
-        if ($_SESSION["user_grade"] == "utilisateur") {
-          echo'<a href="don-souscription.php"><img src="images/svg/donation.svg" alt="Don"></a>';
-        } else if ($_SESSION["user_grade"] == "administrateur") {
-          echo '<a href="statistics.php"><img src="images/svg/donation.svg" alt="Don"></a>';
-        }
-      ?>
-     <?php
-                  if ($_SESSION['user_grade'] == "utilisateur" || $_SESSION["user_grade"] == "administrateur") {
-                    echo '<a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>';
-                  } else  {
-                    echo '<a href="account-guest.php"><img src="images/svg/donation.svg" alt="Don"></a>';
-                  }
+      <script>
+            // Check if user_grade is stored in localStorage
+            const userGrade = localStorage.getItem('user_grade');
 
-                ?>
+            // Show the donation link based on the user grade
+            if (userGrade === "utilisateur") {
+                document.write('<a href="don-souscription.php"><img src="images/svg/donation.svg" alt="Don"></a>');
+            } else if (userGrade === "administrateur") {
+                document.write('<a href="statistics.php"><img src="images/svg/donation.svg" alt="Don"></a>');
+            }
+
+            // Show account link based on user grade
+            if (userGrade === "utilisateur" || userGrade === "administrateur") {
+                document.write('<a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>');
+            } else {
+                document.write('<a href="account-guest.php"><img src="images/svg/donation.svg" alt="Don"></a>');
+            }
+        </script>
     </nav>
   </footer>
 </div>
