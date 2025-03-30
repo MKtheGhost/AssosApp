@@ -99,28 +99,37 @@ if (!isset($_SESSION['user_id'])) {
 
         <div class="checkbox-actu-container">
             <input type="checkbox" name="newsletter" id="newsletter">
-            <label for="newletter">Je souhaite recevoir des mails sur les actualités de l’application</label>
+            <label for="newsletter">Je souhaite recevoir des mails sur les actualités de l’application</label>
         </div>
 
         <div class="devise-container">
-            <label for="devise">Devise de mes dons</label>
-            <select name="devise" id="devise">
-                <option value="euro">€</option>
-                <option value="dollar">$</option>
-                <option value="livre">£</option>
+            <label for="currency">Devise de mes dons</label>
+            <select name="devise" id="currency">
+                <option value="€">€</option>
+                <option value="$">$</option>
+                <option value="£">£</option>
             </select>
         </div>
 
         <button type="submit">Modifier</button>
     </form>
+    <form action="destroySession.php" method="post">
+        <button type="submit" class="logout-btn">Logout</button>
+    </form>
 </body>
 <footer>
     <nav class="navbar icon-normal">
-        <a href="accueil.html"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
-        <a href="scanner.html"><img src="images/svg/scanner.svg" alt="Don"></a>
-        <a href="recherche.html"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
-        <a href="don-souscription.html"><img src="images/svg/donation.svg" alt="Don"></a>
-        <a href="mon-compte.html"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>
+        <a href="accueil.php"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
+        <a href="scanner.php"><img src="images/svg/scanner.svg" alt="Don"></a>
+        <a href="recherche.php"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
+        <?php
+            if ($_SESSION["user_grade"] == "utilisateur") {
+                echo '<a href="don-souscription.php"><img src="images/svg/donation.svg" alt="Don"></a>';
+            } else if ($_SESSION["user_grade"] == "administrateur") {
+                echo '<a href="statistics.php"><img src="images/svg/donation.svg" alt="Don"></a>';
+            }
+        ?>
+        <a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>
     </nav>
 </footer>
 </html>

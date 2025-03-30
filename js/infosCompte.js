@@ -4,6 +4,7 @@ loader.style.display = 'block'; // Affiche la roue
 fetch('./getInfosCompte.php')
   .then(res => res.json())
   .then(user => {
+    console.log("Valeur currency dans la DB :", user.currency);
     // Remplir les champs
     document.getElementById('prenom').value = user.user_firstname || '';
     document.getElementById('nom').value = user.user_name || '';
@@ -12,6 +13,7 @@ fetch('./getInfosCompte.php')
     document.getElementById('code-post').value = user.user_zipcode || '';
     document.getElementById('adresse-mail').value = user.user_mail || '';
     document.getElementById('newsletter').checked = (user.newsletter == 1);
+    document.getElementById('currency').value = user.currency || '';
   })
   .catch(error => {
     console.error("Erreur de récupération :", error);
@@ -32,8 +34,8 @@ fetch('./getInfosCompte.php')
       zipcode: document.getElementById('code-post').value,
       email: document.getElementById('adresse-mail').value,
       password: document.getElementById('mdp').value.trim(), // sera vide si non modifié
-      newsletter: document.getElementById('newsletter').checked
-
+      newsletter: document.getElementById('newsletter').checked,
+      currency: document.getElementById('currency').value,
     };
   
     fetch('./updateInfosCompte.php', {

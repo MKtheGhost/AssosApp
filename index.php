@@ -1,3 +1,7 @@
+<?php
+    include "./destroySession.php";
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,6 +21,9 @@
 
 
         <div class="header">
+            <?php
+                echo session_status();
+            ?>
             
             <img src="./images/logo.png" alt="logo AssosApp">
             <h1>Bienvenue sur HandiDon</h1>

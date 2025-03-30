@@ -45,7 +45,7 @@ if (association) {
                 <div class="error">
                     <h1>Association non trouvée</h1>
                     <p>L'association "${assoParam}" n'a pas été trouvée dans notre base de données.</p>
-                    <a href="index.html">Retour à la liste des associations</a>
+                    <a href="index.php">Retour à la liste des associations</a>
                 </div>
             `;
 }
