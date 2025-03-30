@@ -44,6 +44,5 @@ document.addEventListener('DOMContentLoaded', () => {
     assoNameEl.textContent = "Association introuvable";
     assoDescEl.textContent = "Aucune association ne correspond à cet ID";
   }
-
 });
 
