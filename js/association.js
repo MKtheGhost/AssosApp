@@ -1,3 +1,4 @@
+import {associations} from './dataAssociation.js'
 //initialize assos list
 const tabAssociation = [];
 fetch('../getAssos.php')
