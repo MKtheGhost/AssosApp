@@ -34,14 +34,15 @@ if (!$montant_don || !$id_user || !$id_assos) {
 }
 
 try {
-    $sql = "INSERT INTO don (montant_don, recurrence, id_user, id_assos)
-            VALUES (:montant_don, :recurrence, :id_user, :id_assos)";
+    $sql = "INSERT INTO don (montant_don, recurrence, id_user, id_assos, currency)
+            VALUES (:montant_don, :recurrence, :id_user, :id_assos, :currency)";
     
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':montant_don', $montant_don);
     $stmt->bindParam(':recurrence', $recurrence);
     $stmt->bindParam(':id_user', $id_user);
     $stmt->bindParam(':id_assos', $id_assos);
+    $stmt->bindParam(':currency', $currency);
 
     $stmt->execute();
 

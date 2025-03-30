@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
           const dataToSend = {
             montant_don: montant,
             recurrence: recurrence,
-            id_assos: assoId
+            id_assos: assoId,
+            currency: user.currency
           };
 
           fetch(`./updateTableDon.php?user_id=${userId}`, {
