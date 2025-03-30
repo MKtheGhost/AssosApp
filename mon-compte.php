@@ -114,7 +114,7 @@ if (!isset($_SESSION['user_id'])) {
         <button type="submit">Modifier</button>
     </form>
     <form action="destroySession.php" method="post">
-        <button type="submit" class="logout-btn">Logout</button>
+        <button type="submit" class="logout-btn" onclick="location.href='index.php'">Logout</button>
     </form>
 </body>
 <footer>

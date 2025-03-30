@@ -22,6 +22,7 @@
       <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
     </div>
   </header>
+  <div id="loader" class="loader" style="display: none;"></div>
     <!-- Popup de paramètres -->
     <div id="settingsModal" class="modal">
         <div class="modal-content">
@@ -66,7 +67,7 @@
     </section>
 
     <section class="bottom-circle">
-      <button id="donation-button" onclick="location.href='./donation.html'">Je donne !</button>
+      <button id="donation-button" onclick="location.href='./donation.php'">Je donne !</button>
     </section>
       <section class="retour">
       <button id="recherche-button" onclick="location.href='./recherche.php'">Retourner à la recherche</button>
