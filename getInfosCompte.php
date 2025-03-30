@@ -18,5 +18,4 @@ $stmt->bindParam(':id', $userId);
 $stmt->execute();
 
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
 echo json_encode($user);
