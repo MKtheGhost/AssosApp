@@ -47,17 +47,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const donationButton = document.getElementById('donation-button');
-
-  donationButton.addEventListener('click', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const id_assos = urlParams.get('id');
-
-    if (id_assos) {
-      window.location.href = `./paiement-don.html?id_assos=${id_assos}`;
-    } else {
-      alert("Erreur : ID de l'association introuvable.");
-    }
-  });
-});
