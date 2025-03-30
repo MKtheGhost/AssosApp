@@ -28,7 +28,7 @@ function startScanner() {
 
             if (code) {
                 try {
-                    resultElement.innerText =code.data;
+                    resultElement.innerText = `${code.data}`;
                     new URL(code.data); // Valide l'URL
                     window.location.href = code.data;
                     return; // Arrête le scanner après redirection
