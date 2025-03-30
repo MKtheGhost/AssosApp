@@ -22,10 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_id'] = $user['user_id'];
                 $_SESSION['user_grade'] = $user['user_grade'];
 
-                echo "<script> localStorage.setItem('user_id','".$user["user_id"]."');
-                    localStorage.setItem('user_grade','".$user["user_grade"]."');</script>";
-
-                header("Location: accueil.php");
+                echo "<script>
+                    localStorage.setItem('user_id', '" . addslashes($user['user_id']) . "');
+                    localStorage.setItem('user_grade', '" . addslashes($user['user_grade']) . "');
+                    window.location.href = 'accueil.php'; // Ensure the redirect happens after setting localStorage
+                </script>";
                 exit;
             } else {
                 $message = "❌ Email ou mot de passe incorrect.";
