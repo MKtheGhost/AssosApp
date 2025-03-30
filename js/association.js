@@ -1,5 +1,21 @@
 import { associations } from './dataAssociation.js';
 
+//initialize assos list
+const associations = [];
+fetch('../getAssos.php')
+    .then(res => res.json())
+    .then(assos => {
+        associations = assos;
+        
+    })
+    .catch(error => {
+        console.error("Erreur de récupération :", error);
+        alert("Erreur lors du chargement des données.");
+    })
+    .finally(() => {
+        loader.style.display = 'none'; // Cache le loader
+    });
+
 document.addEventListener('DOMContentLoaded', () => {
   // Récupère l'ID depuis l'URL
   const urlParams = new URLSearchParams(window.location.search);
