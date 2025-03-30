@@ -67,7 +67,7 @@
 
     <main>
         <div class="scan-instructions">
-            <p id="result"></p>
+            <p id="result">test</p>
         <p class="info-text">Chaque scan soutient directement l'association de votre choix.</p>
         <!-- Zone vidéo pour afficher l'aperçu de la caméra -->
         <video id="preview" width="100%" height="auto" style="border: 1px solid #000;"></video>
