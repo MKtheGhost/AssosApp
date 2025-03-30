@@ -1,6 +1,7 @@
 function startScanner() {
     const videoElement = document.getElementById('preview');
     const resultElement = document.getElementById('result');
+    resultElement.innerText = "EN ATTENTE DE SCAN";
 
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
         .then(function(stream) {
