@@ -4,13 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputMontant = document.getElementById('montantPaiement');
   let montantPaiement = inputMontant.value;
   let currency;
+  const userId = localStorage.getItem("user_id");
 
   inputMontant.addEventListener('input', (e) => {
     montantPaiement = e.target.value;
     console.log('montant:', montantPaiement);
   });
 
-  fetch('./getInfosCompte.php?user_id='+localStorage.getItem("user_id"))
+  fetch(`./getInfosCompte.php?user_id=${userId}`)
     .then(res => res.json())
     .then(user => {
       document.getElementById('currencyDisplay').textContent = user.currency;
@@ -22,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
       paypal.Buttons({
         createOrder: function(data, actions) {
-          // Récupération des données simulées
           const recurrence = document.getElementById('mensuetude').checked ? 1 : 0;
           const montant = parseFloat(document.getElementById('montantPaiement').value);
 
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             id_assos: assoId
           };
 
-          fetch('./updateTableDon.php?user_id=${userId}', {
+          fetch(`./updateTableDon.php?user_id=${userId}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

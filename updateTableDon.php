@@ -1,8 +1,10 @@
 <?php
-session_start();
+
 header("Content-Type: application/json");
 
-if (!isset($_SESSION['user_id'])) {
+$userId = $_GET['user_id'] ?? null;
+
+if (!$userId) {
     http_response_code(403);
     echo json_encode(["error" => "Non autorisé"]);
     exit;
@@ -10,7 +12,6 @@ if (!isset($_SESSION['user_id'])) {
 
 include_once './DBConnect/db_connect.php';
 
-$userId = $_SESSION['user_id'];
 
 // Récupérer les données postées
 $data = json_decode(file_get_contents("php://input"));
@@ -23,7 +24,7 @@ if (!$data) {
 // Sécurisation des données reçues
 $montant_don = $data->montant_don ?? null;
 $recurrence = $data->recurrence ?? 0;
-$id_user = $userId; // on prend l'ID depuis la session
+$id_user = $userId;
 $id_assos = $data->id_assos ?? null;
 
 if (!$montant_don || !$id_user || !$id_assos) {
