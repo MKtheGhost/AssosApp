@@ -5,6 +5,7 @@ fetch('./getInfosCompte.php')
   .then(res => res.json())
   .then(user => {
     console.log("Valeur currency dans la DB :", user.currency);
+    console.log(user);
     // Remplir les champs
     document.getElementById('prenom').value = user.user_firstname || '';
     document.getElementById('nom').value = user.user_name || '';
