@@ -1,7 +1,4 @@
 <?php
-include_once "./destroySession.php";
-session_start();
-unset($_SESSION["user_grade"]);
 include_once './DBConnect/db_connect.php';
 
 $message = '';
