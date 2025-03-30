@@ -45,5 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
     assoDescEl.textContent = "Aucune association ne correspond à cet ID";
   }
 
+  donationButton.addEventListener('click', () => {
+    if (assoId) {
+      window.location.href = `./paiement-don.html?id_assos=${assoId}`;
+    } else {
+      alert("Erreur : ID de l'association introuvable.");
+    }
+  });
 });
 
