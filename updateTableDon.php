@@ -21,12 +21,11 @@ if (!$data) {
 }
 
 // Sécurisation des données reçues
-$montant_don = $data->montant_don;
+$montant_don = $data->montant_don ?? null;
 $recurrence = $data->recurrence ?? 0;
-$id_user = $data-> $userId; 
-$id_assos = $data->id_assos;
+$id_user = $userId; // on prend l'ID depuis la session
+$id_assos = $data->id_assos ?? null;
 
-// Vérification des données minimales requises
 if (!$montant_don || !$id_user || !$id_assos) {
     http_response_code(400);
     echo json_encode(["error" => "Données manquantes pour l'enregistrement."]);
