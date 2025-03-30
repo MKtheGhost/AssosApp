@@ -1,7 +1,6 @@
-import { associations } from './dataAssociation.js';
 
 //initialize assos list
-const associations = [];
+const tabAssociation = [];
 fetch('../getAssos.php')
     .then(res => res.json())
     .then(assos => {
@@ -45,5 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     assoNameEl.textContent = "Association introuvable";
     assoDescEl.textContent = "Aucune association ne correspond à cet ID";
   }
+
 });
 
