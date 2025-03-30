@@ -1,7 +1,7 @@
 const loader = document.getElementById('loader');
 loader.style.display = 'block'; // Affiche la roue
 
-const url = new URL('./getInfosCompte.php');
+const url = new URL('./getInfosCompte.php', window.location.href);
 const params = { user_id: localStorage.getItem("user_id")};
 url.search = new URLSearchParams(params).toString();
 
