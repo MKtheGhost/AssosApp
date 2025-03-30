@@ -61,8 +61,8 @@ if (session_status() == PHP_SESSION_NONE) {
             <div class="hero-content">
                 <h2>Votre aide change des vies</h2>
                 <p>Chaque don, même modeste, contribue à créer un monde meilleur. Ensemble, faisons la différence.</p>
-                <a href="don-souscription.php" class="cta-button">J'ai un QR Code</a>
-                <a href="don-souscription.php" class="cta-button">Rechercher une association</a>
+                <a href="scanner.php" class="cta-button">J'ai un QR Code</a>
+                <a href="recherche.php" class="cta-button">Rechercher une association</a>
             </div>
         </section>
 
