@@ -1,0 +1,54 @@
+body {
+    font-family: 'Helvetica',sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display : block;
+    background-color: #E1E9E9;
+    justify-content: center;
+    align-items: center;
+}
+
+.retour{
+    text-align: left;
+    margin: 2% 0 0 2%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkbox-mensuetude{
+    margin: 5% 0 5% 0;
+}
+
+.montant-container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 2% 0 2% 0;
+}
+
+.montant-currency-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+#montantPaiement{
+    height: 25px;
+    width: 95%;
+}
+
+#currencyDisplay{
+    margin: 0;
+    height: auto;
+}
+
+#paypal-btn-container{
+    width:80%;
+}
