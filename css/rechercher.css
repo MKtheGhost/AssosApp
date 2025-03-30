@@ -131,6 +131,23 @@
     font-size: 16px;
     font-weight: bold;
   }
+
+.association-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.association-link:hover .association-card {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.association-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
   
   /* Footer (fixed at bottom) */
   footer {

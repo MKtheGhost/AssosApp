@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./css/association.css">
   <link rel="stylesheet" href="./css/settings.css">
   <script src="./js/association.js" type="module"></script>
+    <script src="./js/settings.js" type="module"></script>
 </head>
 <body>
 <div class="container">
@@ -67,6 +68,9 @@
     <section class="bottom-circle">
       <button id="donation-button" onclick="location.href='./donation.html'">Je donne !</button>
     </section>
+      <section class="retour">
+      <button id="recherche-button" onclick="location.href='./recherche.php'">Retourner à la recherche</button>
+          </section>
   </main>
 
   <footer>

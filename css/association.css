@@ -130,6 +130,23 @@ main {
   background-color: #eee;
 }
 
+.retour {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#recherche-button{
+  align-items: center;
+  background-color: #2AB89F;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 /* FOOTER NAVIGATION */
 footer {
   background-color: #81D1C1;
