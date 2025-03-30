@@ -13,19 +13,63 @@ if (session_status() == PHP_SESSION_NONE) {
     <title>Gestion de compte</title>
     <link rel="shortcut icon" href="./images/logo.png">
     <link rel="stylesheet" type="text/css" href="./css/account-guest.css">
+    <link rel="stylesheet" type="text/css" href="./css/settings.css">
+    <script src="./js/settings.js" type="module"></script>
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
                 
 
 </head>
 <body class="container">
+<header>
     <h1>Connectez-vous pour plus d'options</h1>
-        
+    <div id="loader" class="loader" style="display: none;"></div>
+    <div class="settings-icon" id="settingsButton">
+        <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
+    </div>
+
+</header>
+
+<!-- Popup de paramètres -->
+<div id="settingsModal" class="modal">
+    <div class="modal-content">
+
+        <h2>Paramètres d'Accessibilité</h2>
+
+        <!-- Taille du texte -->
+        <label for="textSize">Taille du texte :</label>
+        <select id="textSize">
+            <option value="normal">Normal</option>
+            <option value="large">Grand</option>
+            <option value="xlarge">Très grand</option>
+        </select>
+
+        <!-- Mode Dyslexie -->
+        <label>
+            <input type="checkbox" id="toggleDyslexia"> Police pour dyslexie
+        </label>
+
+        <!-- Taille des icônes -->
+        <label for="iconSize">Taille des icônes :</label>
+        <select id="iconSize">
+            <option value="normal">Normal</option>
+            <option value="large">Grand</option>
+            <option value="xlarge">Très grand</option>
+        </select>
+        <label>
+            <button class="close" id="closeModal">Enregistrer</button>
+        </label>
+    </div>
+
+</div>
+
+
+<main>
         <button onclick="location.href='./connexion.html'" class="connect">Se connecter</button>
         <br>
         <p> Vous n'avez pas de compte ?</p>
         <button onclick="location.href='./enregistrement.html'">Créer un compte</button>
-
+</main>
         <footer>
             <nav class="navbar icon-normal">
                 <a href="accueil.php"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
