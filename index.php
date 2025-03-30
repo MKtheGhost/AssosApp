@@ -1,5 +1,7 @@
 <?php
     include_once "./destroySession.php";
+    session_start();
+    $_SESSION = []; 
 ?>
 
 <!DOCTYPE html>

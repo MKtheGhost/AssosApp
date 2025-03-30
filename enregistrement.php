@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION = []; 
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

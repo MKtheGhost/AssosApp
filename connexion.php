@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION = []; 
 include_once './DBConnect/db_connect.php';
 
 $message = '';
