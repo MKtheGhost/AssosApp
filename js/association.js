@@ -1,4 +1,4 @@
-
+import {associations} from './dataAssociation.js'
 //initialize assos list
 const tabAssociation = [];
 fetch('../getAssos.php')
@@ -44,16 +44,5 @@ document.addEventListener('DOMContentLoaded', () => {
     assoNameEl.textContent = "Association introuvable";
     assoDescEl.textContent = "Aucune association ne correspond à cet ID";
   }
-
-    const donationButton = document.getElementById('donation-button');
-
-    donationButton.addEventListener('click', () => {
-      
-      if (id_assos) {
-        window.location.href = `./paiement-don.html?id_assos=${id_assos}`;
-      } else {
-        alert("Erreur : ID de l'association introuvable.");
-      }
-    });
 });
 
