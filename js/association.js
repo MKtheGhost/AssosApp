@@ -1,7 +1,7 @@
 import { associations } from './dataAssociation.js';
 
 //initialize assos list
-const associations = [];
+const tabAssociation = [];
 fetch('../getAssos.php')
     .then(res => res.json())
     .then(assos => {
