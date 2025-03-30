@@ -26,6 +26,7 @@ $montant_don = $data->montant_don ?? null;
 $recurrence = $data->recurrence ?? 0;
 $id_user = $userId;
 $id_assos = $data->id_assos ?? null;
+$currency = $data->currency;
 
 if (!$montant_don || !$id_user || !$id_assos) {
     http_response_code(400);
