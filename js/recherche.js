@@ -1,6 +1,5 @@
 //import { associations } from './dataAssociation.js';
-var associations = [];
-
+let associations = [];
 const loader = document.getElementById('loader');
 loader.style.display = 'block'; // Affiche la roue
 
@@ -16,6 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
         container.innerHTML = ''; // Vide le conteneur
 
         assosList.forEach(asso => {
+            // Création du lien qui entoure toute la carte
+            const link = document.createElement("a");
+            link.href = `https://assos-app-315f0d174de7.herokuapp.com/association.php?id=${asso.id}`;
+            link.classList.add("association-link"); // Pour le style CSS si besoin
+
             const article = document.createElement("article");
             article.classList.add("association-card");
             article.dataset.categories = asso.handicaps ? asso.handicaps.join(' ') : '';
@@ -39,7 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
             infoDiv.appendChild(p);
             article.appendChild(infoDiv);
 
-            container.appendChild(article);
+            link.appendChild(article);
+            container.appendChild(link);
         });
     }
 
@@ -121,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 5. Initialisation
-    fetch('./getAssos.php')
+    fetch('../getAssos.php')
     .then(res => res.json())
     .then(assos => {
         associations = assos;
@@ -136,7 +141,4 @@ document.addEventListener('DOMContentLoaded', function() {
         loader.style.display = 'none'; // Cache le loader
     });
 });
-  
 
-// Note: Vous devrez ajouter un champ 'handicaps' à vos objets d'association
-// dans dataAssociation.js pour une correspondance parfaite, ou utiliser les noms comme clé
