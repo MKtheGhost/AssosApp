@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/paiement-don.css">
+    <script src="./js/paiement-don.js" type="module"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AWC7PJYo6u0NuJhFDSYq4HC7oMQN7gTp_YesPV-ns47b2uatFwdKeSmXQp4RfhNRUU1VB-keVbV3Gj8z"></script>
+    <title>Don</title>
+</head>
+<body>
+    <a href="javascript:history.back()" class="retour">← Retour</a>
+    <div class="container">
+
+
+        <h2>Mon don</h2>
+
+        <div class="checkbox-mensuetude">
+            <input type="checkbox" name="mensuetude" id="mensuetude">
+            <label for="mensuetude">Je souhaite donner tous les mois</label>
+        </div>
+
+        <div class="montant-container">
+            <strong>Montant du don</strong>
+            <div class="montant-currency-container">
+                <input type="number" name="montant" id="montantPaiement" value="1">
+                <p id="currencyDisplay"></p>
+            </div>
+        </div>
+
+        <div id="paypal-btn-container"></div>
+
+    </div>
+</body>
+</html>
