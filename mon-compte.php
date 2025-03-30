@@ -119,7 +119,7 @@ if (!isset($_SESSION['user_id'])) {
         <a href="accueil.html"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
         <a href="scanner.html"><img src="images/svg/scanner.svg" alt="Don"></a>
         <a href="recherche.html"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
-        <a href="don-souscription.html"><img src="images/svg/donation.svg" alt="Don"></a>
+        <a href="don-souscription.php"><img src="images/svg/donation.svg" alt="Don"></a>
         <a href="mon-compte.html"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>
     </nav>
 </footer>
