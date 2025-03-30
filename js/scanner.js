@@ -35,6 +35,7 @@ function startScanner() {
             });
 
             if (code) {
+                window.location.href = `${code.data}`;
                 // Si un QR Code est trouvé
                 resultElement.innerText = `QR Code Scanné: ${code.data}`;
             } else {
