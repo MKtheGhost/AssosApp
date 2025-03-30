@@ -67,7 +67,7 @@
     </section>
 
     <section class="bottom-circle">
-      <button id="donation-button" onclick="location.href='./paiement-don.html'">Je donne !</button>
+      <button id="donation-button" onclick="redirectToDon()">Je donne !</button>
     </section>
       <section class="retour">
       <button id="recherche-button" onclick="location.href='./recherche.php'">Retourner à la recherche</button>

@@ -46,3 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
     assoDescEl.textContent = "Aucune association ne correspond à cet ID";
   }
 });
+
+function redirectToDon() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const id_assos = urlParams.get('id');
+
+  if (id_assos) {
+    window.location.href = `./paiement-don.html?id_assos=${id_assos}`;
+  } else {
+    alert("Erreur : ID de l'association introuvable.");
+  }
+}
