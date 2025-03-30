@@ -7,7 +7,7 @@ session_start();
 <head>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
         <meta name="theme-color" content="#1AB99F">
         <title>Mon compte</title>
         <link rel="shortcut icon" href="./images/logo.png">

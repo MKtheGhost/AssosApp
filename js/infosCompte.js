@@ -1,11 +1,13 @@
 const loader = document.getElementById('loader');
 loader.style.display = 'block'; // Affiche la roue
 
-const url = new URL('./getInfosCompte.php', window.location.href);
-const params = { user_id: localStorage.getItem("user_id")};
-url.search = new URLSearchParams(params).toString();
 
-fetch(url)
+window.onload = function() {
+  // Avoid focusing on any input fields initially
+  document.activeElement.blur();  // Remove focus from any active element (if any)
+};
+
+fetch('./getInfosCompte.php?user_id='+localStorage.getItem("user_id"))
   .then(res => res.json())
   .then(user => {
     console.log("Valeur currency dans la DB :", user.currency);
