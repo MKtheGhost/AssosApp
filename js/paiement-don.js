@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             id_assos: assoId
           };
 
-          fetch('./UpdateTableDon.php', {
+          fetch('./updateTableDon.php', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
