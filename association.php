@@ -67,7 +67,7 @@
     </section>
 
     <section class="bottom-circle">
-      <a href="don.php?id_assos=<?= $_GET['id'] ?>" id="donation-button">Je donne</a>
+      <a href="paiement-don.html?id_assos=<?= $_GET['id'] ?>" id="donation-button">Je donne</a>
     </section>
       <section class="retour">
       <button id="recherche-button" onclick="location.href='./recherche.php'">Retourner à la recherche</button>
