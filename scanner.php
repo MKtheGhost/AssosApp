@@ -20,6 +20,7 @@
 
     <script src="./js/settings.js" type="module"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
     <script src="./js/scanner.js" type="module"></script>
 <body>
 <div class="container">
@@ -67,7 +68,6 @@
 
     <main>
         <div class="scan-instructions">
-            <p id="result">test</p>
         <p class="info-text">Chaque scan soutient directement l'association de votre choix.</p>
         <!-- Zone vidéo pour afficher l'aperçu de la caméra -->
         <video id="preview" width="100%" height="auto" style="border: 1px solid #000;"></video>
