@@ -105,14 +105,15 @@
                   }
 
                 ?>
-<?php
+                <?php
                   if ($_SESSION['user_grade'] == "utilisateur" || $_SESSION["user_grade"] == "administrateur") {
                     echo '<a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>';
                   } else  {
                     echo '<a href="account-guest.php"><img src="images/svg/donation.svg" alt="Don"></a>';
                   }
 
-                ?>            </nav>
+                ?>            
+            </nav>
         </footer>
     </div>
   </body>

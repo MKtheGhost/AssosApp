@@ -1,0 +1,58 @@
+/* Reset/Normalization */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body setup */
+
+  /* Container holds the entire app */
+  .container {
+    width: 100%;
+    background-color: #DDEEEA;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+   /* Footer (fixed at bottom) */
+   footer {
+    background-color: #81D1C1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  button {
+    border: 1px solid #0d5e50; /* Bordure du bouton */
+    border-radius: 5px; /* Coins arrondis du bouton */
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    color: #2C2C2C;
+}
+
+.connect{
+    width: 60%;
+    background-color: #1AB99F; /* Couleur du bouton */
+}
+
+.connect:hover{
+    width: 60%;
+    background-color: #1ed7b8; /* Couleur du bouton */
+}
+
