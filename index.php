@@ -1,5 +1,5 @@
 <?php
-    include "./destroySession.php";
+    include_once "./destroySession.php";
 ?>
 
 <!DOCTYPE html>
