@@ -6,7 +6,8 @@ header("Content-Type: application/json");
 
 include_once './DBConnect/db_connect.php';
 
-$userId = $_POST["user_id"];
+$userId = $_GET['user_id'];
+
 
 // Récupérer les données postées
 $data = json_decode(file_get_contents("php://input"));

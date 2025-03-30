@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('montant:', montantPaiement);
   });
 
-  fetch('./getInfosCompte.php')
+  fetch('./getInfosCompte.php?user_id='+localStorage.getItem("user_id"))
     .then(res => res.json())
     .then(user => {
       document.getElementById('currencyDisplay').textContent = user.currency;
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             id_assos: assoId
           };
 
-          fetch('./updateTableDon.php', {
+          fetch('./updateTableDon.php?user_id=${userId}', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

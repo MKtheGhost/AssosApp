@@ -43,7 +43,7 @@ fetch('./getInfosCompte.php?user_id='+localStorage.getItem("user_id"))
       currency: document.getElementById('currency').value,
     };
   
-    fetch('./updateInfosCompte.php', {
+    fetch('./updateInfosCompte.php?user_id='+localStorage.getItem("user_id"), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
