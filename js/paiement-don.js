@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let montantPaiement = inputMontant.value;
     let currency;
   
-
+    
     inputMontant.addEventListener('input', (e) => {
       montantPaiement = e.target.value;
       console.log('montant:', montantPaiement);
@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('./getInfosCompte.php')
       .then(res => res.json())
       .then(user => {
-        console.log("Valeur currency dans la DB :", user.currency);
         document.getElementById('currencyDisplay').textContent = user.currency;
 
   
@@ -50,3 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
   
+  const data = {
+    montantDon: document.getElementById('montantPaiement'),
+    reccurence: document.getElementById('mensuetude').checked ? 1 : 0,
+    id_assoc: null,
+    };
