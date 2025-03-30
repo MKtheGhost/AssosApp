@@ -5,6 +5,7 @@ fetch('./getInfosCompte.php')
   .then(res => res.json())
   .then(user => {
     console.log("Valeur currency dans la DB :", user.currency);
+    console.log(user);
     // Remplir les champs
     document.getElementById('prenom').value = user.user_firstname || '';
     document.getElementById('nom').value = user.user_name || '';
@@ -14,6 +15,8 @@ fetch('./getInfosCompte.php')
     document.getElementById('adresse-mail').value = user.user_mail || '';
     document.getElementById('newsletter').checked = (user.newsletter == 1);
     document.getElementById('currency').value = user.currency || '';
+    document.getElementById('user_id').value = localStorage.getItem("user_id");
+    console.log(localStorage.getItem("user_id"));
   })
   .catch(error => {
     console.error("Erreur de récupération :", error);

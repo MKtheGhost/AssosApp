@@ -1,8 +1,4 @@
-<?php
-    include_once "./destroySession.php";
-    session_start();
-    unset($_SESSION["user_grade"]);
-?>
+
 
 <!DOCTYPE html>
 <html lang="fr">

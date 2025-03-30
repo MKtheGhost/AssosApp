@@ -3,15 +3,10 @@
 session_start();
 header("Content-Type: application/json");
 
-if (!isset($_SESSION['user_id'])) {
-    http_response_code(403);
-    echo json_encode(["error" => "Non autorisé"]);
-    exit;
-}
 
 include_once './DBConnect/db_connect.php';
 
-$userId = $_SESSION['user_id'];
+$userId = $_POST["user_id"];
 
 // Récupérer les données postées
 $data = json_decode(file_get_contents("php://input"));
