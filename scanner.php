@@ -20,6 +20,7 @@
 
     <script src="./js/settings.js" type="module"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
     <script src="./js/scanner.js" type="module"></script>
 <body>
 <div class="container">
