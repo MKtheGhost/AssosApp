@@ -8,17 +8,12 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>Dons et souscription</title>
     <link rel="stylesheet" href="./css/don-souscription.css" />
     <link rel="stylesheet" href="./css/settings.css" />
     <script src="./js/settings.js" type="module"></script>
-
-  </head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1AB99F">
-    <title>don souscription</title>
     <link rel="shortcut icon" href="./images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
