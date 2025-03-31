@@ -10,7 +10,7 @@ if (isset($_GET["asso_id"])) {
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id_assos', $_GET["asso_id"]);
     $stmt->execute();
-    $don = $stmt->fetch(PDO::FETCH_ASSOC);
+    $assos = $stmt->fetch(PDO::FETCH_ASSOC);
 
 } else {
     $sql = "SELECT * FROM assos";
