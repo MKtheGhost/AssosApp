@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
         donList.innerHTML = "";
 
         console.log(donsUniques);
-        if (donsUniques) {
+        if (donsUniques.length === 0) {
             for (let i = 0; i< 4; i++) {
                 let currentDon = donsUniques[i];
                 let currentAsso = associations.find( assos => assos.id == currentDon._id_assos);
