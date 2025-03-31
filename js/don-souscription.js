@@ -128,11 +128,18 @@ function createDonRec() {
             donEditBtn.setAttribute("id", "don-edit-btn");
             donEditBtn.innerHTML = "edit";
 
+            //create delete button
+            let donDeleteBtn = document.createElement("button");
+            donDeleteBtn.classList.add("don-delete-btn");
+            donDeleteBtn.setAttribute("id", "don-edit-btn");
+            donDeleteBtn.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
+
             // Append elements to the donation container
             donDiv.appendChild(donName);
             donDiv.appendChild(donAmount);
             donDiv.appendChild(donDate);
             donDiv.appendChild(donEditBtn);
+            donDiv.appendChild(donDeleteBtn);
 
             donRecList.appendChild(donDiv);
         });

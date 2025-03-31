@@ -18,6 +18,7 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
     <script src="./js/don-souscription.js" type="module"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
 
 </head>
