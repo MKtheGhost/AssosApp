@@ -54,8 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   Promise.all([getAssociation()])
     .then(() => {
-        createDonUnique();  // Call this function after all data has been fetched
-        createDonRec();     // Call this function after all data has been fetched
+        fillPageWithAssosData();
     })
     .catch(error => {
         console.error("Erreur de récupération des données:", error);
