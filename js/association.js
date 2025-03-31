@@ -1,6 +1,6 @@
 
 //initialize assos list
-const tabAssociation = [];
+var associations = [];
 fetch('../getAssos.php')
     .then(res => res.json())
     .then(assos => {
