@@ -4,7 +4,7 @@ var associations = [];
 const assoId = parseInt(urlParams.get('id'));
 console.log(assoId);
 
-fetch('../getAssos.php?asso_id='+assoId);
+fetch('../getAssos.php?asso_id='+assoId)
     .then(res => res.json())
     .then(assos => {
         associations = assos;
