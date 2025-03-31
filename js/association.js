@@ -9,6 +9,7 @@ fetch('../getAssos.php?asso_id='+assoId)
     .then(res => res.json())
     .then(assos => {
         association = assos;
+        console.log(association);
         
     })
     .catch(error => {
@@ -18,7 +19,7 @@ fetch('../getAssos.php?asso_id='+assoId)
     .finally(() => {
         loader.style.display = 'none'; // Cache le loader
     });
-console.log(association);
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // Récupère l'ID depuis l'URL
