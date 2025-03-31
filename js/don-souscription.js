@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
         donList.innerHTML = "";
 
         console.log(donsUniques);
+        console.log(donsUniques.length);
+        console.log(donsUniques.length !== 0);
         if (donsUniques.length !== 0) {
             for (let i = 0; i< 4; i++) {
                 let currentDon = donsUniques[i];
@@ -74,8 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 //create don name text 
                 let donName = document.createElement("p");
                 donName.classList.add("asso-name");
-                console.log(currentAsso);
-                //donName.innerHTML = currentAsso.nom;
+                donName.innerHTML = currentAsso.nom;
     
                 //create don amount
                 let donAmount = document.createElement("p");
@@ -103,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
     }
 
+    console.log(donsReccurents);
     function createDonRec() {
         donRecList.innerHTML = "";
 
