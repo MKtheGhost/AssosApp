@@ -6,7 +6,7 @@ include_once './DBConnect/db_connect.php';
 
 // get an assos by it's id
 if (isset($_GET["asso_id"])) {
-    $sql = "SELECT id, nom, description, image  FROM assos WHERE id_assos = :id_assos";
+    $sql = "SELECT id, nom, description, image  FROM assos WHERE id = :id_assos";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id_assos', $_GET["asso_id"]);
     $stmt->execute();
