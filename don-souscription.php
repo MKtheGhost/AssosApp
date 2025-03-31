@@ -17,12 +17,14 @@
     <link rel="shortcut icon" href="./images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
+    <script src="./js/don-souscription.js" type="module"></script>
 
 
 </head>
   <body>
     <div class="container">
       <header><h1>Dons et souscription</h1>
+      <div id="loader" class="loader" style="display: none;"></div>
       <div class="settings-icon" id="settingsButton">
         <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
       </div>
@@ -30,57 +32,18 @@
 
       <main>
         <!-- Mes dons -->
-        <h2>Mes dons</h2>
-        <div class="card-list">
+        <h2>Mes derniers dons</h2>
+        <div class="card-list" id="don-unique">
           <!-- Example of multiple donation cards -->
 
         <!---------- Refactor into JS with real data ----------->
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">01/01/2000</p>
-          </div>
 
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">01/01/2000</p>
-          </div>
-
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">01/01/2000</p>
-          </div>
-
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">01/01/2000</p>
-          </div>
         </div>
 
         <!-- Mes souscriptions -->
         <h2>Mes souscriptions</h2>
-        <div class="card-list">
-          <!-- Example of multiple subscription cards -->
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">tous les mois</p>
-          </div>
-
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">tous les mois</p>
-          </div>
-
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">tous les mois</p>
-          </div>
+        <div class="card-list" id="don-rec">
+          <!-- filled with JS -->
         </div>
       </main>
 

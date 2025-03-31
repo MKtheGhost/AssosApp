@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($email && $password) {
         try {
-            $sql = "SELECT user_id, user_password, user_grade FROM users WHERE user_mail = :email";
+            $sql = "SELECT user_id, user_password, user_grade, currency FROM users WHERE user_mail = :email";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':email', $email);
             $stmt->execute();
@@ -20,8 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<script>
                     localStorage.setItem('user_id', '" . addslashes($user['user_id']) . "');
                     localStorage.setItem('user_grade', '" . addslashes($user['user_grade']) . "');
+                    localStorage.setItem('currency',".addslashes($user["currency"])."');
                     window.location.href = 'accueil.php'; // Ensure the redirect happens after setting localStorage
                 </script>";
+                $pdo = null;
                 exit;
             } else {
                 $message = "❌ Email ou mot de passe incorrect.";

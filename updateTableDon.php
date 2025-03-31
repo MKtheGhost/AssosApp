@@ -26,6 +26,8 @@ $montant_don = $data->montant_don ?? null;
 $recurrence = $data->recurrence ?? 0;
 $id_user = $userId;
 $id_assos = $data->id_assos ?? null;
+$date_don = null;
+$recurrence_interval = $data->reccurence_interval ?? null;
 $currency = $data->currency;
 
 if (!$montant_don || !$id_user || !$id_assos) {
@@ -35,14 +37,16 @@ if (!$montant_don || !$id_user || !$id_assos) {
 }
 
 try {
-    $sql = "INSERT INTO don (montant_don, recurrence, id_user, id_assos, currency)
-            VALUES (:montant_don, :recurrence, :id_user, :id_assos, :currency)";
+    $sql = "INSERT INTO don (montant_don, recurrence, id_user, id_assos, date_don, recurrence_interval, currency)
+            VALUES (:montant_don, :recurrence, :id_user, :id_assos, :date_don, :recurrence_interval, :currency)";
     
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':montant_don', $montant_don);
     $stmt->bindParam(':recurrence', $recurrence);
     $stmt->bindParam(':id_user', $id_user);
     $stmt->bindParam(':id_assos', $id_assos);
+    $stmt->bindParam(":date_don", $date_don);
+    $stmt->bindParam(':recurrence_interval', $recurrence_interval);
     $stmt->bindParam(':currency', $currency);
 
     $stmt->execute();
