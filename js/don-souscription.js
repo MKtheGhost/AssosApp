@@ -145,7 +145,7 @@ function initEditDonModal() {
     if (donsReccurents.length !== 0) {
         const editDonBtn = document.getElementById("don-edit-btn");
         const modal = document.getElementById("editDonModal");
-        const closeModal = document.getElementById("closeModal");  // You need to define closeModal (missing in your original code)
+        const closeModal = document.getElementById("closeeditModal");  
 
         editDonBtn.addEventListener("click", () => {
             modal.style.display = "flex";

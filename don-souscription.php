@@ -116,11 +116,11 @@
         <h2>Modifiez vos dons</h2>
 
         <!-- montant don -->
-        <label for="montant_don">Taille du texte :</label>
+        <label for="montant_don">Montant :</label>
         <input type="text" name="montant_don">
 
         <!-- Reccurence -->
-        <label for="recurrence_don">Taille du texte :</label>
+        <label for="recurrence_don">Reccurence :</label>
         <select id="recurrence_don_select" name="recurrence_interval">
             <option value="1">Tous les mois</option>
             <option value="2">Tous les 3 mois</option>
@@ -128,7 +128,7 @@
         </select>
 
         <label>
-            <button class="close" id="closeModal">Enregistrer</button>
+            <button class="close" id="closeeditModal">Enregistrer</button>
         </label>
     </div>
 
