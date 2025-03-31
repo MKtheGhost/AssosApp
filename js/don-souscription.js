@@ -12,7 +12,7 @@ loader.style.display = 'block'; // Affiche la roue
 const user_id = localStorage.getItem("user_id");
 
 // get all dons uniques with the user_id
-fetch('../getDonations.php?user_id='+user_id+"?recurrence=0")
+fetch('../getDonations.php?user_id='+user_id+"&recurrence=0")
     .then(res => res.json())
     .then(dons => {
         donsUniques = dons;      
@@ -26,7 +26,7 @@ fetch('../getDonations.php?user_id='+user_id+"?recurrence=0")
     });
 
 // get all dons reccurents with user id
-fetch('../getDonations.php?user_id='+user_id+"?reccurence=1")
+fetch('../getDonations.php?user_id='+user_id+"&reccurence=1")
 .then(res => res.json())
 .then(dons => {
     donsReccurents = dons; 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (donsUniques) {
             for (let i = 0; i< 4; i++) {
                 let currentDon = donsUniques[i];
-                let currentAsso = assos.find( assos => assos.id == currentDon._id_assos);
+                let currentAsso = associations.find( assos => assos.id == currentDon._id_assos);
     
                 //create don container
                 let donDiv = document.createElement("div");
