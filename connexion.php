@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<script>
                     localStorage.setItem('user_id', '" . addslashes($user['user_id']) . "');
                     localStorage.setItem('user_grade', '" . addslashes($user['user_grade']) . "');
-                    localStorage.setItem('currency',".addslashes($user["currency"])."');
+                    localStorage.setItem('currency','".addslashes($user["currency"])."');
                     window.location.href = 'accueil.php'; // Ensure the redirect happens after setting localStorage
                 </script>";
                 $pdo = null;
