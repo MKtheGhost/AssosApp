@@ -132,7 +132,7 @@ function createDonRec() {
             let donDeleteBtn = document.createElement("button");
             donDeleteBtn.classList.add("don-delete-btn");
             donDeleteBtn.setAttribute("id", "don-edit-btn");
-            donDeleteBtn.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
+            donDeleteBtn.innerHTML = 'delete';
 
             // Append elements to the donation container
             donDiv.appendChild(donName);
