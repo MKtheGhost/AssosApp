@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 donDiv.appendChild(donDate);
                 donDiv.appendChild(donEditBtn);
     
-                donList.appendChild(donDiv);
+                donRecList.appendChild(donDiv);
             
             })
 
