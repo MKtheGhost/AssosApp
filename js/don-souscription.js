@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function createDonUnique() {
         donList.innerHTML = "";
 
+        console.log(donsUniques);
         if (donsUniques) {
             for (let i = 0; i< 4; i++) {
                 let currentDon = donsUniques[i];
@@ -73,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 //create don name text 
                 let donName = document.createElement("p");
                 donName.classList.add("asso-name");
+                console.log(currentAsso);
                 donName.innerHTML = currentAsso.nom;
     
                 //create don amount
