@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 //create don name text 
                 let donName = document.createElement("p");
                 donName.classList.add("asso-name");
-                donName.innerHTML = currentAsso.nom_assos;
+                donName.innerHTML = currentAsso.nom;
     
                 //create don amount
                 let donAmount = document.createElement("p");
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 //create don name text 
                 let donName = document.createElement("p");
                 donName.classList.add("asso-name");
-                donName.innerHTML = currentAsso.nom_assos;
+                donName.innerHTML = currentAsso.nom;
     
                 //create don amount
                 let donAmount = document.createElement("p");
