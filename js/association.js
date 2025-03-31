@@ -6,8 +6,6 @@ const assoId = parseInt(urlParams.get('id'));
 console.log(assoId);
 
 
-document.addEventListener('DOMContentLoaded', () => {
-
   // Éléments du DOM
   const assoNameEl = document.getElementById('asso-name');
   const assoDescEl = document.getElementById('asso-desc');
@@ -63,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .finally(() => {
         loader.style.display = 'none'; // Cache le loader after all fetches
     });
-});
 
 
 
