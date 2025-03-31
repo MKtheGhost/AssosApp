@@ -89,6 +89,12 @@
     align-items: center;
     padding: 10px 0;
   }
+
+  .don-edit-btn {
+    border-radius: 5px;
+    padding : 10px;
+    background-color: #81D1C1;
+  }
   
 
   

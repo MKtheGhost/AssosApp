@@ -125,6 +125,7 @@ function createDonRec() {
             // Create edit button
             let donEditBtn = document.createElement("button");
             donEditBtn.classList.add("don-edit-btn");
+            donEditBtn.setAttribute("id", "don-edit-btn");
             donEditBtn.innerHTML = "edit";
 
             // Append elements to the donation container
@@ -140,9 +141,33 @@ function createDonRec() {
     }
 }
 
+function initEditDonModal() {
+    if (donsReccurents.length !== 0) {
+        const editDonBtn = document.getElementById("don-edit-btn");
+        const modal = document.getElementById("editDonModal");
+        const closeModal = document.getElementById("closeModal");  // You need to define closeModal (missing in your original code)
+
+        editDonBtn.addEventListener("click", () => {
+            modal.style.display = "flex";
+        });
+    
+        closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }  
+}
+
+
 // Ensure all data is fetched before calling the functions
 Promise.all([fetchDonsUniques(), fetchDonsReccurents(), fetchAssociations()])
     .then(() => {
+        initEditDonModal();
         createDonUnique();  // Call this function after all data has been fetched
         createDonRec();     // Call this function after all data has been fetched
     })
