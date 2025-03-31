@@ -8,7 +8,7 @@ console.log(assoId);
 fetch('../getAssos.php?asso_id='+assoId)
     .then(res => res.json())
     .then(assos => {
-        associations = assos;
+        association = assos;
         
     })
     .catch(error => {
