@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $message = "❌ Email ou mot de passe incorrect.";
             }
         } catch (PDOException $e) {
+            $pdo=null;
             $message = "❌ Erreur lors de la connexion : " . $e->getMessage();
         }
     } else {
@@ -37,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // S'il y a une erreur, on stocke le message dans sessionStorage via JS et on redirige vers connexion.html
+$pdo=null;
 echo "<script>
     sessionStorage.setItem('loginError', '" . addslashes($message) . "');
     window.location.href = 'connexion.html';

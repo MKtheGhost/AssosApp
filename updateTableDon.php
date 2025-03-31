@@ -32,6 +32,7 @@ $currency = $data->currency;
 
 if (!$montant_don || !$id_user || !$id_assos) {
     http_response_code(400);
+    $pdo = null;
     echo json_encode(["error" => "Données manquantes pour l'enregistrement."]);
     exit;
 }
@@ -51,8 +52,10 @@ try {
 
     $stmt->execute();
 
+    $pdo = null;
     echo json_encode(["success" => true, "message" => "Don enregistré avec succès."]);
 } catch (PDOException $e) {
     http_response_code(500);
+    $pdo = null;
     echo json_encode(["error" => "Erreur lors de l'enregistrement : " . $e->getMessage()]);
 }
