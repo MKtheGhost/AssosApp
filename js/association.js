@@ -1,6 +1,6 @@
 
 //initialize assos list
-var associations = [];
+var association;
 const urlParams = new URLSearchParams(window.location.search);
 const assoId = parseInt(urlParams.get('id'));
 console.log(assoId);
@@ -18,6 +18,7 @@ fetch('../getAssos.php?asso_id='+assoId)
     .finally(() => {
         loader.style.display = 'none'; // Cache le loader
     });
+console.log(association);
 
 document.addEventListener('DOMContentLoaded', () => {
   // Récupère l'ID depuis l'URL
