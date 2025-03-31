@@ -31,6 +31,7 @@ console.log(assoId);
   }
 
   function fillPageWithAssosData () {
+    console.log(association);
     
     if (association) {
       // Met à jour les informations
