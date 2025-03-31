@@ -167,9 +167,9 @@ function initEditDonModal() {
 // Ensure all data is fetched before calling the functions
 Promise.all([fetchDonsUniques(), fetchDonsReccurents(), fetchAssociations()])
     .then(() => {
-        initEditDonModal();
         createDonUnique();  // Call this function after all data has been fetched
         createDonRec();     // Call this function after all data has been fetched
+        initEditDonModal();
     })
     .catch(error => {
         console.error("Erreur de récupération des données:", error);
