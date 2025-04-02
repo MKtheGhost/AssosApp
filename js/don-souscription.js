@@ -102,7 +102,6 @@ function createDonUnique() {
     }
   }
   
-/*
 // Function to create and display unique donations
 function createDonUnique() {
     let donList = document.getElementById("don-unique");
@@ -143,7 +142,6 @@ function createDonUnique() {
         donList.innerHTML = "vous n'avez pas effectué de dons";
     }
 }
-*/
 // Function to create and display recurring donations
 function createDonRec() {
     let donRecList = document.getElementById("don-rec");
