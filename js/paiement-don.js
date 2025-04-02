@@ -4,6 +4,36 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputMontant = document.getElementById('montantPaiement');
   let montantPaiement = inputMontant.value;
   let currency;
+  const currencyScript = localStorage.getItem("currency");
+
+  function loadPaypalSDK(currencyScript) {
+    return new Promise((resolve, reject) => {
+      if (currencyScript === '€') currencyScript = 'EUR';
+      else if (currencyScript === '$') currencyScript = 'USD';
+      else if (currencyScript === '£') currencyScript = 'GBP';
+      else currencyScript = 'EUR';
+      
+      const existingScript = document.getElementById('paypal-sdk');
+      if (existingScript) {
+        existingScript.parentNode.removeChild(existingScript);
+      }
+    
+      const script = document.createElement('script');
+      script.id = 'paypal-sdk';
+      script.src = `https://www.paypal.com/sdk/js?client-id=AWC7PJYo6u0NuJhFDSYq4HC7oMQN7gTp_YesPV-ns47b2uatFwdKeSmXQp4RfhNRUU1VB-keVbV3Gj8z&currency=${currencyScript}`;
+      
+      script.onload = () => {
+        resolve();
+      };
+    
+      script.onerror = () => {
+        reject(new Error("Échec du chargement du SDK PayPal"));
+      };
+      
+      document.head.appendChild(script);
+    });
+  }
+
 
   if (localStorage.getItem("user_id") != null){
     const userId = localStorage.getItem("user_id");
@@ -23,6 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('montant:', montantPaiement);
       });
 
+      loadPaypalSDK(currencyScript)
+      .then(() => {
       paypal.Buttons({
         createOrder: function(data, actions) {
           const recurrence = document.getElementById('mensuetude').checked ? 1 : 0;
@@ -75,13 +107,15 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => {
       console.error("Erreur lors du chargement des infos utilisateur :", error);
       alert("Erreur lors du chargement des données.");
-    })
+    })});
   }else{
     const userId = 0;
-    const currency = 'EUR'
+    currency = 'EUR'
     document.getElementById('currencyDisplay').textContent = "€";
     document.getElementsByClassName('checkbox-mensuetude')[0].style.display = 'none';
 
+    loadPaypalSDK(currencyScript)
+      .then(() => {
     paypal.Buttons({ 
       createOrder: function(data, actions) {
         const recurrence = 0;
@@ -133,6 +167,6 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => {
       console.error("Erreur lors du chargement des infos utilisateur :", error);
       alert("Erreur lors du chargement des données.");
-    });
+    });})
   }
-});
+})
