@@ -37,18 +37,6 @@ function fetchDonsReccurents() {
 }
 
 
-// Function to fetch recurring donations
-function fetchDonsReccurents() {
-    return fetch('../getDonations.php?user_id=' + user_id + "&recurrence=1"), fetch('../getDonations.php?user_id=' + user_id + "&recurrence=2")
-        .then(res => res.json())
-        .then(dons => {
-            donsReccurents = dons;
-        })
-        .catch(error => {
-            console.error("Erreur de récupération dons récurrents:", error);
-            alert("Erreur lors du chargement des dons récurrents.");
-        });
-}
 
 // Function to fetch associations
 function fetchAssociations() {
