@@ -47,40 +47,87 @@ function fetchAssociations() {
         });
 }
 
+function createDonUnique() {
+    let donList = document.getElementById("don-unique");
+    donList.innerHTML = "";
+    let count = 0;
+    
+    donsUniques.forEach(currentDon => {
+      if (count < 4 && currentDon) {
+        let currentAsso = associations.find(assos => assos.id == currentDon.id_assos) || { nom: "Association inconnue" };
+  
+        let donDiv = document.createElement("div");
+        donDiv.classList.add("row-card");
+  
+        let donName = document.createElement("p");
+        donName.classList.add("asso-name");
+        donName.innerHTML = currentAsso.nom;
+  
+        let donAmount = document.createElement("p");
+        donAmount.classList.add("asso-amount");
+        donAmount.innerHTML = currentDon.montant_don + currency;
+  
+        let donDate = document.createElement("p");
+        donDate.classList.add("asso-date");
+        donDate.innerHTML = currentDon.date_don;
+  
+        donDiv.appendChild(donName);
+        donDiv.appendChild(donAmount);
+        donDiv.appendChild(donDate);
+  
+        donList.appendChild(donDiv);
+        
+        count++;
+      }
+    });
+    
+    if (count === 0) {
+      donList.innerHTML = "vous n'avez pas effectué de dons";
+    }
+  }
+  
+/*
 // Function to create and display unique donations
-let limit = Math.min(4, donsUniques.length);
-for (let i = 0; i < limit; i++) {
-    let currentDon = donsUniques[i];
-    let currentAsso = associations.find(assos => assos.id == currentDon.id_assos);
+function createDonUnique() {
+    let donList = document.getElementById("don-unique");
+    donList.innerHTML = "";
 
-    // Créer le conteneur du don
-    let donDiv = document.createElement("div");
-    donDiv.classList.add("row-card");
+    if (donsUniques.length !== 0) {
+        for (let i = 0; i < 4; i++) {
+            let currentDon = donsUniques[i];
+            let currentAsso = associations.find(assos => assos.id == currentDon.id_assos);
 
-    // Créer le texte du nom de l'association
-    let donName = document.createElement("p");
-    donName.classList.add("asso-name");
-    donName.innerHTML = currentAsso ? currentAsso.nom : "Association inconnue";
+            // Create donation container
+            let donDiv = document.createElement("div");
+            donDiv.classList.add("row-card");
 
-    // Créer le montant du don
-    let donAmount = document.createElement("p");
-    donAmount.classList.add("asso-amount");
-    donAmount.innerHTML = currentDon.montant_don + currency;
+            // Create donation name text
+            let donName = document.createElement("p");
+            donName.classList.add("asso-name");
+            donName.innerHTML = currentAsso.nom;
 
-    // Créer la date du don
-    let donDate = document.createElement("p");
-    donDate.classList.add("asso-date");
-    donDate.innerHTML = currentDon.date_don;
+            // Create donation amount
+            let donAmount = document.createElement("p");
+            donAmount.classList.add("asso-amount");
+            donAmount.innerHTML = currentDon.montant_don + currency;
 
-    // Append les éléments
-    donDiv.appendChild(donName);
-    donDiv.appendChild(donAmount);
-    donDiv.appendChild(donDate);
+            // Create donation date
+            let donDate = document.createElement("p");
+            donDate.classList.add("asso-date");
+            donDate.innerHTML = currentDon.date_don;
 
-    donList.appendChild(donDiv);
+            // Append elements to the donation container
+            donDiv.appendChild(donName);
+            donDiv.appendChild(donAmount);
+            donDiv.appendChild(donDate);
+
+            donList.appendChild(donDiv);
+        }
+    } else {
+        donList.innerHTML = "vous n'avez pas effectué de dons";
+    }
 }
-
-
+*/
 // Function to create and display recurring donations
 function createDonRec() {
     let donRecList = document.getElementById("don-rec");
