@@ -21,20 +21,21 @@ function fetchDonsUniques() {
         });
 }
 
-
-
 // Function to fetch recurring donations
 function fetchDonsReccurents() {
-    return fetch('../getDonations.php?user_id=' + user_id + "&recurrence=1"), fetch('../getDonations.php?user_id=' + user_id + "&recurrence=2")
-        .then(res => res.json())
-        .then(dons => {
-            donsReccurents = dons;
-        })
-        .catch(error => {
-            console.error("Erreur de récupération dons récurrents:", error);
-            alert("Erreur lors du chargement des dons récurrents.");
-        });
+  return Promise.all([
+    fetch('../getDonations.php?user_id=' + user_id + "&recurrence=1").then(res => res.json()),
+    fetch('../getDonations.php?user_id=' + user_id + "&recurrence=2").then(res => res.json())
+  ])
+  .then(([dons1, dons2]) => {
+    donsReccurents = dons1.concat(dons2); // Combine les deux tableaux
+  })
+  .catch(error => {
+    console.error("Erreur de récupération dons récurrents:", error);
+    alert("Erreur lors du chargement des dons récurrents.");
+  });
 }
+
 
 // Function to fetch associations
 function fetchAssociations() {
@@ -49,6 +50,7 @@ function fetchAssociations() {
         });
 }
 
+  
 // Function to create and display unique donations
 function createDonUnique() {
     let donList = document.getElementById("don-unique");
