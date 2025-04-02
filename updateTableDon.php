@@ -26,7 +26,7 @@ $montant_don = $data->montant_don ?? null;
 $recurrence = $data->recurrence ?? 0;
 $id_user = $userId;
 $id_assos = $data->id_assos ?? null;
-$date_don = null;
+$date_don = $data->date_don;
 $recurrence_interval = $data->reccurence_interval ?? null;
 $currency = $data->currency;
 

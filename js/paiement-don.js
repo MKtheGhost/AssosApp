@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-
+  
   if (localStorage.getItem("user_id") != null){
     const userId = localStorage.getItem("user_id");
     
@@ -58,12 +58,13 @@ document.addEventListener('DOMContentLoaded', function () {
       paypal.Buttons({
         createOrder: function(data, actions) {
           let recurrence;
+          let date = new Date();
 
           if(document.getElementById('recurrence').checked){
             recurrence = document.getElementById('recurrence-frequence').value
           }
           else{
-            recurrence = 0
+            recurrence = 0;
           }
 
           const montant = parseFloat(document.getElementById('montantPaiement').value);
@@ -72,7 +73,8 @@ document.addEventListener('DOMContentLoaded', function () {
             montant_don: montant,
             recurrence: recurrence,
             id_assos: assoId,
-            currency: user.currency
+            currency: user.currency,
+            date_don: date
           };
 
           fetch(`./updateTableDon.php?user_id=${userId}`, {
@@ -129,11 +131,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const recurrence = 0;
         const montant = parseFloat(document.getElementById('montantPaiement').value);
 
+        let date = new Date();
+
         const dataToSend = {
           montant_don: montant,
           recurrence: recurrence,
           id_assos: assoId,
-          currency: "€"
+          currency: "€",
+          date_don: date
         };
 
         fetch(`./updateTableDon.php?user_id=${userId}`, {
