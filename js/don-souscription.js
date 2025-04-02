@@ -93,11 +93,13 @@ function createDonRec() {
     let donRecList = document.getElementById("don-rec");
     donRecList.innerHTML = "";
 
+    console.log(donsReccurents);
+    
     if (donsReccurents.length !== 0) {
         donsReccurents.forEach(currentDon => {
             let currentAsso = associations.find(assos => assos.id == currentDon.id_assos);
 
-            console.log(donsReccurents);
+            
             // Create donation container
             let donDiv = document.createElement("div");
             donDiv.classList.add("row-card");
