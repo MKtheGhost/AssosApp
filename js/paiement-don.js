@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
           purchase_units: [{
             amount: {
               value: montant.toFixed(2),
-              currency_code: currency
+              currency_code: '€'
             }
           }]
         });
