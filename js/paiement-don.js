@@ -59,6 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
         createOrder: function(data, actions) {
           let recurrence;
           let date = new Date();
+          const day = String(date.getDate()).padStart(2, '0');
+          const month = String(date.getMonth() + 1).padStart(2, '0'); // car getMonth() retourne 0 à 11
+          const year = date.getFullYear();
+          const formattedDate = `${day}-${month}-${year}`;
 
           if(document.getElementById('recurrence').checked){
             recurrence = document.getElementById('recurrence-frequence').value
@@ -74,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
             recurrence: recurrence,
             id_assos: assoId,
             currency: user.currency,
-            date_don: date
+            date_don: formattedDate
           };
 
           fetch(`./updateTableDon.php?user_id=${userId}`, {
@@ -132,13 +136,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const montant = parseFloat(document.getElementById('montantPaiement').value);
 
         let date = new Date();
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // car getMonth() retourne 0 à 11
+        const year = date.getFullYear();
+        const formattedDate = `${day}-${month}-${year}`; 
+
 
         const dataToSend = {
           montant_don: montant,
           recurrence: recurrence,
           id_assos: assoId,
           currency: "€",
-          date_don: date
+          date_don: formattedDate
         };
 
         fetch(`./updateTableDon.php?user_id=${userId}`, {
