@@ -30,7 +30,7 @@ $date_don = null;
 $recurrence_interval = $data->reccurence_interval ?? null;
 $currency = $data->currency;
 
-if (!$montant_don || !$id_user || !$id_assos) {
+if (!$montant_don || !$id_assos) {
     http_response_code(400);
     $pdo = null;
     echo json_encode(["error" => "Données manquantes pour l'enregistrement."]);
