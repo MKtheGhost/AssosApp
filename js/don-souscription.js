@@ -2,12 +2,6 @@ let donsUniques = [];
 let donsReccurents = [];
 let associations = [];
 
-let reccurenceOption = [
-    {value: 1, name: 'tous les mois'},
-    {value: 1, name: 'tous les 3 mois'},
-    {value: 1, name: 'tous les ans'}
-];
-
 const currency = localStorage.getItem("currency");
 const loader = document.getElementById('loader');
 loader.style.display = 'block'; // Affiche la roue
@@ -29,7 +23,7 @@ function fetchDonsUniques() {
 
 // Function to fetch recurring donations
 function fetchDonsReccurents() {
-    return fetch('../getDonations.php?user_id=' + user_id + "&recurrence=1")
+    return fetch('../getDonations.php?user_id=' + user_id + "&recurrence=1"), fetch('../getDonations.php?user_id=' + user_id + "&recurrence=2")
         .then(res => res.json())
         .then(dons => {
             donsReccurents = dons;
