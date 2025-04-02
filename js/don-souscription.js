@@ -49,45 +49,6 @@ function fetchAssociations() {
         });
 }
 
-function createDonUnique() {
-    let donList = document.getElementById("don-unique");
-    donList.innerHTML = "";
-    let count = 0;
-    
-    donsUniques.forEach(currentDon => {
-      if (count < 4 && currentDon) {
-        let currentAsso = associations.find(assos => assos.id == currentDon.id_assos) || { nom: "Association inconnue" };
-  
-        let donDiv = document.createElement("div");
-        donDiv.classList.add("row-card");
-  
-        let donName = document.createElement("p");
-        donName.classList.add("asso-name");
-        donName.innerHTML = currentAsso.nom;
-  
-        let donAmount = document.createElement("p");
-        donAmount.classList.add("asso-amount");
-        donAmount.innerHTML = currentDon.montant_don + currency;
-  
-        let donDate = document.createElement("p");
-        donDate.classList.add("asso-date");
-        donDate.innerHTML = currentDon.date_don;
-  
-        donDiv.appendChild(donName);
-        donDiv.appendChild(donAmount);
-        donDiv.appendChild(donDate);
-  
-        donList.appendChild(donDiv);
-        
-        count++;
-      }
-    });
-    
-    if (count === 0) {
-      donList.innerHTML = "vous n'avez pas effectué de dons";
-    }
-  }
-  
 // Function to create and display unique donations
 function createDonUnique() {
     let donList = document.getElementById("don-unique");
