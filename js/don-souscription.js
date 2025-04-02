@@ -97,7 +97,6 @@ function createDonRec() {
         donsReccurents.forEach(currentDon => {
             let currentAsso = associations.find(assos => assos.id == currentDon.id_assos);
 
-            if (!currentDon) return;
             // Create donation container
             let donDiv = document.createElement("div");
             donDiv.classList.add("row-card");
