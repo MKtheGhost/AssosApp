@@ -135,7 +135,7 @@ function createDonRec() {
             // Append elements to the donation container
             donDiv.appendChild(donName);
             donDiv.appendChild(donAmount);
-            donDiv.appendChild(donDate);
+            donDiv.appendChild(donRecurr);
             donDiv.appendChild(donEditBtn);
             donDiv.appendChild(donDeleteBtn);
 
