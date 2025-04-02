@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (localStorage.getItem("user_id") != null){
     const userId = localStorage.getItem("user_id");}
   else{
-    const userId = null
+    const userId = 0;
   };
 
   inputMontant.addEventListener('input', (e) => {
