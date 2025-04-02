@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }else{
     const userId = 0;
+    const currency = 'EUR'
     document.getElementById('currencyDisplay').textContent = "€";
     document.getElementsByClassName('checkbox-mensuetude')[0].style.display = 'none';
 
@@ -112,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
           purchase_units: [{
             amount: {
               value: montant.toFixed(2),
-              currency_code: "EUR"
+              currency_code: currency
             }
           }]
         });
