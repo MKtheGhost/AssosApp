@@ -4,7 +4,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const inputMontant = document.getElementById('montantPaiement');
   let montantPaiement = inputMontant.value;
   let currency;
-  const userId = localStorage.getItem("user_id");
+
+  if (localStorage.getItem("user_id") =! null){
+    const userId = localStorage.getItem("user_id");}
+  else{
+    const userId = null
+  };
 
   inputMontant.addEventListener('input', (e) => {
     montantPaiement = e.target.value;
