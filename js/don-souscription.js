@@ -53,40 +53,34 @@ function createDonUnique() {
     donList.innerHTML = "";
 
     if (donsUniques.length !== 0) {
-        // Itère jusqu'au minimum entre 4 et la longueur du tableau
-        let limit = Math.min(4, donsUniques.length);
-        for (let i = 0; i < limit; i++) {
+        for (let i = 0; i < 4; i++) {
             let currentDon = donsUniques[i];
-            if (!currentDon) continue; // Sécurité
-
-            // Recherche l'association correspondante
             let currentAsso = associations.find(assos => assos.id == currentDon.id_assos);
 
-            // Créer le conteneur du don
+            // Create donation container
             let donDiv = document.createElement("div");
             donDiv.classList.add("row-card");
 
-            // Créer le texte du nom de l'association
+            // Create donation name text
             let donName = document.createElement("p");
             donName.classList.add("asso-name");
-            donName.innerHTML = currentAsso ? currentAsso.nom : "Association inconnue";
+            donName.innerHTML = currentAsso.nom;
 
-            // Créer le montant du don
+            // Create donation amount
             let donAmount = document.createElement("p");
             donAmount.classList.add("asso-amount");
             donAmount.innerHTML = currentDon.montant_don + currency;
 
-            // Créer la date du don
+            // Create donation date
             let donDate = document.createElement("p");
             donDate.classList.add("asso-date");
             donDate.innerHTML = currentDon.date_don;
 
-            // Ajouter les éléments au conteneur
+            // Append elements to the donation container
             donDiv.appendChild(donName);
             donDiv.appendChild(donAmount);
             donDiv.appendChild(donDate);
 
-            // Ajouter le conteneur à la liste
             donList.appendChild(donDiv);
         }
     } else {
