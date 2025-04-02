@@ -23,18 +23,21 @@ function fetchDonsUniques() {
 
 // Function to fetch recurring donations
 function fetchDonsReccurents() {
+    // Lance deux fetch en parallèle
     return Promise.all([
-      fetch('../getDonations.php?user_id=' + user_id + "&recurrence=1").then(res => res.json()),
-      fetch('../getDonations.php?user_id=' + user_id + "&recurrence=2").then(res => res.json())
+      fetch('../getDonations.php?user_id=' + user_id + "&recurrence=1").then(r => r.json()),
+      fetch('../getDonations.php?user_id=' + user_id + "&recurrence=2").then(r => r.json())
     ])
     .then(([dons1, dons2]) => {
-      donsReccurents = dons1.concat(dons2); // Combine les deux tableaux
+      // Combine les deux tableaux dans donsReccurents
+      donsReccurents = dons1.concat(dons2);
     })
     .catch(error => {
       console.error("Erreur de récupération dons récurrents:", error);
       alert("Erreur lors du chargement des dons récurrents.");
     });
   }
+  
 
 function fetchAssociations() {
     return fetch('../getAssos.php')
@@ -97,6 +100,7 @@ function createDonRec() {
         donsReccurents.forEach(currentDon => {
             let currentAsso = associations.find(assos => assos.id == currentDon.id_assos);
 
+            if (!currentDon) return;
             // Create donation container
             let donDiv = document.createElement("div");
             donDiv.classList.add("row-card");
