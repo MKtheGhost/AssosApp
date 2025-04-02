@@ -117,10 +117,8 @@ function createDonRec() {
             // Create donation recurrence interval
             let donRecurr = document.createElement("p");
             donRecurr.classList.add("asso-recurr");
-            if(currentDon.recurrence = 1){
-                donRecurr.innerHTML = "mois";}
-            else if (currentDon.recurrence = 2){
-                donRecurr.innerHTML = "année";}
+            currentDon.recurrence = 1 ? donRecurr.innerHTML = "mois" : donRecurr.innerHTML = "année";
+        
 
             // Create edit button
             let donEditBtn = document.createElement("button");
