@@ -57,7 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(() => {
       paypal.Buttons({
         createOrder: function(data, actions) {
-          const recurrence = document.getElementById('mensuetude').checked ? 1 : 0;
+
+          if(document.getElementById('recurrence').checked){
+            const recurrence = document.getElementById('recurrence-frequence').value
+          }
+          else{
+            const recurrence = 0
+          }
+
           const montant = parseFloat(document.getElementById('montantPaiement').value);
 
           const dataToSend = {
