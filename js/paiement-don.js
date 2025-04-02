@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }else{
     const userId = 0;
     document.getElementById('currencyDisplay').textContent = "€";
-    document.getElementsByClassName('checkbox-mensuetude').style.display = 'none';
+    document.getElementsByClassName('checkbox-mensuetude')[0].style.display = 'none';
 
     paypal.Buttons({ 
       createOrder: function(data, actions) {
