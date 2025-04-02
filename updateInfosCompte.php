@@ -13,6 +13,7 @@ $userId = $_GET['user_id'];
 $data = json_decode(file_get_contents("php://input"));
 
 if (!$data) {
+    $pdo=null;
     echo json_encode(["error" => "Aucune donnée reçue."]);
     exit;
 }
@@ -58,7 +59,9 @@ if (!empty($data->password)) {
 $stmt->bindParam(':user_id', $userId);
 
 if ($stmt->execute()) {
+    $pdo=null;
     echo json_encode(["message" => "Modifications enregistrées ✅"]);
 } else {
+    $pdo = null;
     echo json_encode(["error" => "Erreur lors de la mise à jour"]);
 }

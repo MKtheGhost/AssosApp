@@ -89,6 +89,24 @@
     align-items: center;
     padding: 10px 0;
   }
+
+  .don-edit-btn {
+    border-radius: 5px;
+    padding : 10px;
+    background-color: #81D1C1;
+    border: 0px; 
+    margin-right : 2px;
+    color:black;
+  }
+
+  .don-delete-btn {
+    border-radius: 5px;
+    padding : 10px;
+    background-color: #ea5050;
+    border: 0px; 
+    color: white;
+    margin-left : 2px;
+  }
   
 
   

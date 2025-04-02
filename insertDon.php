@@ -29,14 +29,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':id_assos', $id_assos);
             $stmt->execute();
 
+            $pdo=null;
+
             header("Location: donation.php");
             exit;
         } catch (PDOException $e) {
+            $pdo=null;
             $message = "❌ Erreur lors de l'enregistrement de don : " . $e->getMessage();
         }
     }
 
     // En cas d'erreur
+    $pdo = null;
     echo "<script>
         sessionStorage.setItem('DonationError', '" . addslashes($message) . "');
         window.location.href = 'donation.php';

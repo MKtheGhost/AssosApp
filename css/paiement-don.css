@@ -1,54 +1,166 @@
 body {
-    font-family: 'Helvetica',sans-serif;
+    font-family: 'Helvetica', sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    display : block;
     background-color: #E1E9E9;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.retour{
-    text-align: left;
-    margin: 2% 0 0 2%;
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #E1E9E9;
+    z-index: 10;
 }
 
-.container{
+.retour {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 10px;
+}
+
+.retour:hover {
+    color: #555;
+    text-decoration: underline;
+}
+
+
+/* Main Content */
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    flex-grow: 1;
 }
 
-.checkbox-mensuetude{
-    margin: 5% 0 5% 0;
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.montant-container{
+.checkbox-mensuetude {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-mensuetude input {
+    margin-right: 10px;
+}
+
+.montant-container {
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin: 2% 0 2% 0;
+    margin: 20px 0;
 }
 
-.montant-currency-container{
+.montant-container strong {
+    margin-bottom: 10px;
+}
+
+.montant-currency-container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 2%;
+    margin-bottom: 20px;
 }
 
-#montantPaiement{
-    height: 25px;
-    width: 95%;
+#montantPaiement {
+    height: 40px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
-#currencyDisplay{
-    margin: 0;
-    height: auto;
+#currencyDisplay {
+    margin-left: 10px;
+    font-size: 16px;
 }
 
-#paypal-btn-container{
-    width:80%;
+#paypal-btn-container {
+    width: 80%;
+    margin: 20px 0;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #81D1C1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+}
+
+/* Accessibility Classes */
+.text-large {
+    font-size: 1.2em;
+}
+
+.text-xlarge {
+    font-size: 1.4em;
+}
+
+.icon-large img {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.icon-xlarge img {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.dyslexia-font {
+    font-family: 'OpenDyslexic', sans-serif;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        width: 90%;
+    }
+
+    .montant-container,
+    #paypal-btn-container {
+        width: 90%;
+    }
+
+    .retour {
+        font-size: 1em;
+    }
 }

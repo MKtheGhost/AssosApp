@@ -12,6 +12,7 @@
   </component>
   <component name="PhpIncludePathManager">
     <include_path>
+      <path value="$USER_HOME$/Documents/php-8.4.5-nts-Win32-vs17-x64" />
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>

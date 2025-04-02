@@ -20,7 +20,6 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    max-width: 600px;
     width: 100%;
 }
 
@@ -157,7 +156,6 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    max-width: 600px;
 }
 
 .navbar {

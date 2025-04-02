@@ -5,11 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="./css/paiement-don.css">
     <script src="./js/paiement-don.js" type="module"></script>
+    <script src="./js/settings.js" type="module"></script>
+    <link rel="stylesheet" type="text/css" href="./css/settings.css">
     <script src="https://www.paypal.com/sdk/js?client-id=AWC7PJYo6u0NuJhFDSYq4HC7oMQN7gTp_YesPV-ns47b2uatFwdKeSmXQp4RfhNRUU1VB-keVbV3Gj8z"></script>
     <title>Don</title>
 </head>
 <body>
+<header>
     <a href="javascript:history.back()" class="retour">← Retour</a>
+    <div id="loader" class="loader" style="display: none;"></div>
+    <div class="settings-icon" id="settingsButton">
+        <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
+    </div>
+</header>
+<!-- Popup de paramètres -->
+<div id="settingsModal" class="modal">
+    <div class="modal-content">
+
+        <h2>Paramètres d'Accessibilité</h2>
+
+        <!-- Taille du texte -->
+        <label for="textSize">Taille du texte :</label>
+        <select id="textSize">
+            <option value="normal">Normal</option>
+            <option value="large">Grand</option>
+            <option value="xlarge">Très grand</option>
+        </select>
+
+        <!-- Mode Dyslexie -->
+        <label>
+            <input type="checkbox" id="toggleDyslexia"> Police pour dyslexie
+        </label>
+
+        <!-- Taille des icônes -->
+        <label for="iconSize">Taille des icônes :</label>
+        <select id="iconSize">
+            <option value="normal">Normal</option>
+            <option value="large">Grand</option>
+            <option value="xlarge">Très grand</option>
+        </select>
+        <label>
+            <button class="close" id="closeModal">Enregistrer</button>
+        </label>
+    </div>
+
+</div>
+
     <div class="container">
 
 
@@ -32,4 +73,29 @@
 
     </div>
 </body>
+<footer>
+    <nav class="navbar icon-normal">
+        <a href="accueil.php"><img src="./images/svg/accueil.svg" alt="Accueil"></a>
+        <a href="scanner.php"><img src="images/svg/scanner.svg" alt="Don"></a>
+        <a href="recherche.php"><img src="images/svg/rechercher.svg" alt="Recherche"></a>
+        <script>
+            // Check if user_grade is stored in localStorage
+            const userGrade = localStorage.getItem('user_grade');
+
+            // Show the donation link based on the user grade
+            if (userGrade === "utilisateur") {
+                document.write('<a href="don-souscription.php"><img src="images/svg/donation.svg" alt="Don"></a>');
+            } else if (userGrade === "administrateur") {
+                document.write('<a href="statistics.php"><img src="images/svg/donation.svg" alt="Don"></a>');
+            }
+
+            // Show account link based on user grade
+            if (userGrade === "utilisateur" || userGrade === "administrateur") {
+                document.write('<a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>');
+            } else {
+                document.write('<a href="account-guest.php"><img src="images/svg/moncompte.svg" alt="Don"></a>');
+            }
+        </script>
+    </nav>
+</footer>
 </html>

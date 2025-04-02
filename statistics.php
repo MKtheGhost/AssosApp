@@ -106,7 +106,7 @@
                 if (userGrade === "utilisateur" || userGrade === "administrateur") {
                     document.write('<a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>');
                 } else {
-                    document.write('<a href="account-guest.php"><img src="images/svg/donation.svg" alt="Don"></a>');
+                    document.write('<a href="account-guest.php"><img src="images/svg/moncompte.svg" alt="Don"></a>');
                 }
             </script>
         </nav>

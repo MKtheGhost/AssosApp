@@ -58,14 +58,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':grade', $grade);
             $stmt->execute();
 
+            $pdo=null;
+
             header("Location: connexion.html?register=1");
             exit;
         } catch (PDOException $e) {
+            $pdo=null;
             $message = "❌ Erreur lors de l'inscription : " . $e->getMessage();
         }
     }
 
     // En cas d'erreur
+    $pdo=null;
     echo "<script>
         sessionStorage.setItem('registerError', '" . addslashes($message) . "');
         window.location.href = 'enregistrement.html';

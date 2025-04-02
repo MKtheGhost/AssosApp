@@ -17,12 +17,14 @@
     <link rel="shortcut icon" href="./images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
+    <script src="./js/don-souscription.js" type="module"></script>
 
 
 </head>
   <body>
     <div class="container">
       <header><h1>Dons et souscription</h1>
+      <div id="loader" class="loader" style="display: none;"></div>
       <div class="settings-icon" id="settingsButton">
         <img src="./images/svg/settings-svgrepo-com.svg" alt="Paramètres" class="settings-icon">
       </div>
@@ -30,57 +32,18 @@
 
       <main>
         <!-- Mes dons -->
-        <h2>Mes dons</h2>
-        <div class="card-list">
+        <h2>Mes derniers dons</h2>
+        <div class="card-list" id="don-unique">
           <!-- Example of multiple donation cards -->
 
         <!---------- Refactor into JS with real data ----------->
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">01/01/2000</p>
-          </div>
 
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">01/01/2000</p>
-          </div>
-
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">01/01/2000</p>
-          </div>
-
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">01/01/2000</p>
-          </div>
         </div>
 
         <!-- Mes souscriptions -->
         <h2>Mes souscriptions</h2>
-        <div class="card-list">
-          <!-- Example of multiple subscription cards -->
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">tous les mois</p>
-          </div>
-
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">tous les mois</p>
-          </div>
-
-          <div class="row-card">
-            <p class="asso-name">Association X</p>
-            <p class="asso-amount">xx,xx €</p>
-            <p class="asso-date">tous les mois</p>
-          </div>
+        <div class="card-list" id="don-rec">
+          <!-- filled with JS -->
         </div>
       </main>
 
@@ -105,7 +68,7 @@
             if (userGrade === "utilisateur" || userGrade === "administrateur") {
                 document.write('<a href="mon-compte.php"><img src="images/svg/moncompte.svg" alt="Paramètres"></a>');
             } else {
-                document.write('<a href="account-guest.php"><img src="images/svg/donation.svg" alt="Don"></a>');
+                document.write('<a href="account-guest.php"><img src="images/svg/moncompte.svg" alt="Don"></a>');
             }
         </script>
         </nav>
@@ -145,4 +108,29 @@
 
     </div>
   </body>
+
+  <!-- Popup de edit don reccurents -->
+<div id="editDonModal" class="modal">
+    <div class="modal-content">
+
+        <h2>Modifiez vos dons</h2>
+
+        <!-- montant don -->
+        <label for="montant_don">Montant :</label>
+        <input type="text" name="montant_don">
+
+        <!-- Reccurence -->
+        <label for="recurrence_don">Reccurence :</label>
+        <select id="recurrence_don_select" name="recurrence_interval">
+            <option value="1">Tous les mois</option>
+            <option value="2">Tous les 3 mois</option>
+            <option value="3">Tous les ans</option>
+        </select>
+
+        <label>
+            <button class="close" id="closeeditModal">Enregistrer</button>
+        </label>
+    </div>
+
+</div>
 </html>

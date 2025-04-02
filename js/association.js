@@ -1,48 +1,55 @@
+var association;
+const urlParams = new URLSearchParams(window.location.search);
+const assoId = parseInt(urlParams.get('id'));
+console.log(assoId);
 
-//initialize assos list
-const tabAssociation = [];
-fetch('../getAssos.php')
-    .then(res => res.json())
-    .then(assos => {
-        associations = assos;
-        
-    })
-    .catch(error => {
+// Éléments du DOM
+const assoNameEl = document.getElementById('asso-name');
+const assoDescEl = document.getElementById('asso-desc');
+const assoImageEl = document.getElementById('asso-image');
+const assoSiteEl = document.getElementById('asso-site');
+
+// Fetch the association data from the server
+async function getAssociation() {
+    try {
+        const res = await fetch('../getAssos.php?asso_id=' + assoId);
+        if (!res.ok) throw new Error('Failed to fetch association data');
+        const assos = await res.json();
+        association = assos;
+        console.log(association);
+    } catch (error) {
         console.error("Erreur de récupération :", error);
         alert("Erreur lors du chargement des données.");
-    })
-    .finally(() => {
+    } finally {
         loader.style.display = 'none'; // Cache le loader
-    });
+    }
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Récupère l'ID depuis l'URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const assoId = parseInt(urlParams.get('id'));
+// Fill the page with the association data
+function fillPageWithAssosData() {
+    console.log(association);
 
-  // Trouve l'association correspondante
-  const currentAsso = associations.find(asso => asso.id === assoId);
+    if (association) {
+        // Update the DOM elements with association data
+        assoNameEl.textContent = association.nom;
+        assoDescEl.textContent = association.description || "Pas de description disponible";
+        assoImageEl.src = association.image;
+        assoImageEl.alt = `Logo ${association.nom}`;
 
-  // Éléments du DOM
-  const assoNameEl = document.getElementById('asso-name');
-  const assoDescEl = document.getElementById('asso-desc');
-  const assoImageEl = document.getElementById('asso-image');
-  const assoSiteEl = document.getElementById('asso-site');
+        // Update the page title
+        document.title = `${association.nom} - Détails`;
+    } else {
+        // Handle the case where the association was not found
+        assoNameEl.textContent = "Association introuvable";
+        assoDescEl.textContent = "Aucune association ne correspond à cet ID";
+    }
+}
 
-  if (currentAsso) {
-    // Met à jour les informations
-    assoNameEl.textContent = currentAsso.nom;
-    assoDescEl.textContent = currentAsso.description || "Pas de description disponible";
-    assoImageEl.src = currentAsso.image;
-    assoImageEl.alt = `Logo ${currentAsso.nom}`;
+// Run everything
+async function init() {
+    await getAssociation(); // Wait for the association data to be fetched
+    fillPageWithAssosData(); // Fill the page with the fetched data
+}
 
-
-    // Met à jour le titre de la page
-    document.title = `${currentAsso.nom} - Détails`;
-  } else {
-    // Association non trouvée
-    assoNameEl.textContent = "Association introuvable";
-    assoDescEl.textContent = "Aucune association ne correspond à cet ID";
-  }
-});
-
+// Initialize the page
+init();
