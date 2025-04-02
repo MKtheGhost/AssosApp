@@ -48,45 +48,38 @@ function fetchAssociations() {
 }
 
 // Function to create and display unique donations
-function createDonUnique() {
-    let donList = document.getElementById("don-unique");
-    donList.innerHTML = "";
+let limit = Math.min(4, donsUniques.length);
+for (let i = 0; i < limit; i++) {
+    let currentDon = donsUniques[i];
+    let currentAsso = associations.find(assos => assos.id == currentDon.id_assos);
 
-    if (donsUniques.length !== 0) {
-        for (let i = 0; i < 4; i++) {
-            let currentDon = donsUniques[i];
-            let currentAsso = associations.find(assos => assos.id == currentDon.id_assos);
+    // Créer le conteneur du don
+    let donDiv = document.createElement("div");
+    donDiv.classList.add("row-card");
 
-            // Create donation container
-            let donDiv = document.createElement("div");
-            donDiv.classList.add("row-card");
+    // Créer le texte du nom de l'association
+    let donName = document.createElement("p");
+    donName.classList.add("asso-name");
+    donName.innerHTML = currentAsso ? currentAsso.nom : "Association inconnue";
 
-            // Create donation name text
-            let donName = document.createElement("p");
-            donName.classList.add("asso-name");
-            donName.innerHTML = currentAsso.nom;
+    // Créer le montant du don
+    let donAmount = document.createElement("p");
+    donAmount.classList.add("asso-amount");
+    donAmount.innerHTML = currentDon.montant_don + currency;
 
-            // Create donation amount
-            let donAmount = document.createElement("p");
-            donAmount.classList.add("asso-amount");
-            donAmount.innerHTML = currentDon.montant_don + currency;
+    // Créer la date du don
+    let donDate = document.createElement("p");
+    donDate.classList.add("asso-date");
+    donDate.innerHTML = currentDon.date_don;
 
-            // Create donation date
-            let donDate = document.createElement("p");
-            donDate.classList.add("asso-date");
-            donDate.innerHTML = currentDon.date_don;
+    // Append les éléments
+    donDiv.appendChild(donName);
+    donDiv.appendChild(donAmount);
+    donDiv.appendChild(donDate);
 
-            // Append elements to the donation container
-            donDiv.appendChild(donName);
-            donDiv.appendChild(donAmount);
-            donDiv.appendChild(donDate);
-
-            donList.appendChild(donDiv);
-        }
-    } else {
-        donList.innerHTML = "vous n'avez pas effectué de dons";
-    }
+    donList.appendChild(donDiv);
 }
+
 
 // Function to create and display recurring donations
 function createDonRec() {
