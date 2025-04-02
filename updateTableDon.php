@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 
 $userId = $_GET['user_id'] ?? null;
 
-if (!$userId) {
+if ($userId == null) {
     http_response_code(403);
     echo json_encode(["error" => "Non autorisé"]);
     exit;
