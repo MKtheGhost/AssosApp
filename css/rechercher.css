@@ -84,7 +84,7 @@
   
   /* Submit button */
   .search-button {
-    background-color: #2AB89F;
+    background-color: #12816F;
     color: #fff;
     border: none;
     padding: 10px;
@@ -95,7 +95,7 @@
   }
   
   .search-button:hover {
-    background-color: #249885;
+    background-color: #0f6c5c;
   }
   
   /* Associations container (cards injected by JS) */
@@ -151,7 +151,7 @@
   
   /* Footer (fixed at bottom) */
   footer {
-    background-color: #81D1C1;
+    background-color: #12816F;
     position: fixed;
     bottom: 0;
     width: 100%;
