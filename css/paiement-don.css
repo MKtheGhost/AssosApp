@@ -121,6 +121,7 @@ h2 {
 
 /* Footer Styles */
 footer {
+    z-index: 1000;
     background-color: #12816F;
     position: fixed;
     bottom: 0;
@@ -169,6 +170,28 @@ footer {
 
 .dyslexia-font {
     font-family: 'OpenDyslexic', sans-serif;
+}
+
+
+/* Conteneur du bouton PayPal */
+#paypal-btn-container {
+    position: relative;
+    z-index: 1; /* Valeur inférieure au footer */
+    margin-bottom: 80px; /* Espace pour le footer */
+}
+
+/* Overlay de PayPal */
+.paypal-checkout-sandbox {
+    z-index: 10 !important; /* Contrôle l'overlay */
+}
+
+/* Fenêtre modale de PayPal */
+.paypal-checkout-sandbox iframe {
+    z-index: 11 !important; /* Contrôle le formulaire */
+    position: fixed;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
 }
 
 /* Responsive Adjustments */
