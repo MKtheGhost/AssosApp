@@ -130,7 +130,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#1AB99F">
-    <title>Solidarité Ensemble</title>
+    <title>HandiDon</title>
     <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" type="text/css" href="./css/settings.css">
     <script src="./js/settings.js" type="module"></script>
