@@ -8,7 +8,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#1AB99F">
     <title>Solidarité Ensemble</title>
     <link rel="stylesheet" href="./css/home.css" />
