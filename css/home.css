@@ -49,7 +49,7 @@ main {
 .hero {
   display: flex;
   flex-direction: column;
-  background-color: #1AB99F;
+  background-color: #12816F;
   color: white;
   padding: 20px;
   border-radius: 12px;
@@ -81,7 +81,7 @@ main {
   justify-self: center;
   display: inline-block;
   background-color: white;
-  color: #1AB99F;
+  color: #12816F;
   padding: 12px 25px;
   border-radius: 25px;
   text-decoration: none;
@@ -128,7 +128,7 @@ main {
   display: block;
   font-size: 24px;
   font-weight: 700;
-  color: #1AB99F;
+  color: #12816F;
   margin-bottom: 5px;
 }
 
@@ -169,14 +169,14 @@ main {
 }
 
 .cta-button.primary {
-  background-color: #1AB99F;
+  background-color: #12816F;
   color: white;
 }
 
 .cta-button.secondary {
   background-color: white;
-  color: #1AB99F;
-  border: 2px solid #1AB99F;
+  color: #12816F;
+  border: 2px solid #12816F;
 }
 
 /* Footer (fixed at bottom) */

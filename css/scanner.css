@@ -112,7 +112,7 @@ main {
 }
 
 .modal-content h2 {
-    color: #1AB99F;
+    color: #12816F;
     margin-bottom: 20px;
     font-size: 20px;
 }
@@ -134,7 +134,7 @@ main {
 }
 
 .modal-content button.close {
-    background-color: #1AB99F;
+    background-color: #12816F;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -213,7 +213,7 @@ footer {
 }
 
 .scan-instructions h2 {
-    color: #1AB99F;
+    color: #12816F;
     font-size: 20px;
     margin-bottom: 20px;
     font-weight: 600;
