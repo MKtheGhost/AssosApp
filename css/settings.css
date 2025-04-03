@@ -1,3 +1,21 @@
+/* Police normale (Regular) */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexic/OpenDyslexic-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Améliore le chargement */
+}
+
+/* Police en gras (Bold) */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../font/OpenDyslexic/OpenDyslexic-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 .settings-icon {
     position: absolute;
     top: 5px;
@@ -15,7 +33,7 @@ body {
 }
 
 .dyslexia-mode {
-    font-family: 'OpenDyslexic', "Comic Sans MS", sans-serif;
+    font-family: 'OpenDyslexic', sans-serif !important;
 }
 
 
