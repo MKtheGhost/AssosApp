@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -68,6 +69,81 @@
         if (error) {
         document.getElementById('message').textContent = error;
         sessionStorage.removeItem('registerError');
+        }
+    });
+    </script>
+
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>AssosApp</title>
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link rel="stylesheet" type="text/css" href="./css/enregistrement.css">
+</head>
+<body class="enregistrementBody" role="main">
+    <button onclick="location.href='./index.php'" class="return-btn" aria-label="Retour à la page d'accueil">Retour</button>
+    <div class="form-container" role="form" aria-labelledby="form-title">
+        <h1 id="form-title" tabindex="0">M'enregistrer</h1>
+        <form id="form-inscription" action="./enregistrement.php" method="post">
+            <div class="formItemsContainer">
+                <div class="formItem">
+                    <label for="firstName">Prénom:</label>
+                    <input name="firstName" type="text" aria-label="Prénom">
+                </div>
+                <div class="formItem">
+                    <label for="lastName">Nom:</label>
+                    <input name="lastName" type="text" aria-label="Nom">
+                </div>
+            </div>
+            <div class="formItem">
+                <label for="address">Adresse:</label>
+                <input name="address" type="text" aria-label="Adresse">
+            </div>
+            <div class="formItemsContainer">
+                <div class="formItem">
+                    <label for="city">Ville:</label>
+                    <input name="city" type="text" aria-label="Ville">
+                </div>
+                <div class="formItem">
+                    <label for="zipCode">Code Postal:</label>
+                    <input name="zipCode" type="text" aria-label="Code Postal">
+                </div>
+            </div>
+            <div class="formItem">
+                <label for="email">Adresse Mail</label>
+                <input name="email" type="email" aria-label="Adresse Mail">
+            </div>
+            <div class="formItem">
+                <label for="password">Mot de Passe:</label>
+                <input name="password" type="password" aria-label="Mot de Passe">
+            </div>
+            <div class="formItem">
+                <label for="confimPassword">Confirmation du mot de Passe:</label>
+                <input name="confirmPassword" type="password" aria-label="Confirmation du mot de Passe">
+            </div>
+            <div class="formButtonRegisterEtConnexion">
+                <button id="buttonConnect" type="submit" aria-label="S'enregistrer">M'enregistrer</button>
+            </div>
+        </form>
+        <div class="LoginPageLinkDiv" role="complementary" aria-label="Option de connexion">
+            <p tabindex="0">Déjà un compte?</p>
+            <a href="./connexion.html" aria-label="Se connecter">Connectez-vous</a>
+        </div>
+
+        <div id="message" style="color:red;" role="alert" aria-live="assertive"></div>
+    </div>
+    
+    <script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const error = sessionStorage.getItem('registerError');
+        if (error) {
+            document.getElementById('message').textContent = error;
+            sessionStorage.removeItem('registerError');
         }
     });
     </script>
