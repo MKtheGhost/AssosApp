@@ -2,12 +2,6 @@ let donsUniques = [];
 let donsReccurents = [];
 let associations = [];
 
-let reccurenceOption = [
-    {value: 1, name: 'tous les mois'},
-    {value: 1, name: 'tous les 3 mois'},
-    {value: 1, name: 'tous les ans'}
-];
-
 const currency = localStorage.getItem("currency");
 const loader = document.getElementById('loader');
 loader.style.display = 'block'; // Affiche la roue
@@ -29,16 +23,20 @@ function fetchDonsUniques() {
 
 // Function to fetch recurring donations
 function fetchDonsReccurents() {
-    return fetch('../getDonations.php?user_id=' + user_id + "&recurrence=1")
-        .then(res => res.json())
-        .then(dons => {
-            donsReccurents = dons;
-        })
-        .catch(error => {
-            console.error("Erreur de récupération dons récurrents:", error);
-            alert("Erreur lors du chargement des dons récurrents.");
-        });
+  return Promise.all([
+    fetch('../getDonations.php?user_id=' + user_id + "&recurrence=1").then(res => res.json()),
+    fetch('../getDonations.php?user_id=' + user_id + "&recurrence=2").then(res => res.json())
+  ])
+  .then(([dons1, dons2]) => {
+    donsReccurents = dons1.concat(dons2); // Combine les deux tableaux
+  })
+  .catch(error => {
+    console.error("Erreur de récupération dons récurrents:", error);
+    alert("Erreur lors du chargement des dons récurrents.");
+  });
 }
+
+
 
 // Function to fetch associations
 function fetchAssociations() {
@@ -53,6 +51,45 @@ function fetchAssociations() {
         });
 }
 
+function createDonUnique() {
+    let donList = document.getElementById("don-unique");
+    donList.innerHTML = "";
+    let count = 0;
+    
+    donsUniques.forEach(currentDon => {
+      if (count < 4 && currentDon) {
+        let currentAsso = associations.find(assos => assos.id == currentDon.id_assos) || { nom: "Association inconnue" };
+  
+        let donDiv = document.createElement("div");
+        donDiv.classList.add("row-card");
+  
+        let donName = document.createElement("p");
+        donName.classList.add("asso-name");
+        donName.innerHTML = currentAsso.nom;
+  
+        let donAmount = document.createElement("p");
+        donAmount.classList.add("asso-amount");
+        donAmount.innerHTML = currentDon.montant_don + currency;
+  
+        let donDate = document.createElement("p");
+        donDate.classList.add("asso-date");
+        donDate.innerHTML = currentDon.date_don;
+  
+        donDiv.appendChild(donName);
+        donDiv.appendChild(donAmount);
+        donDiv.appendChild(donDate);
+  
+        donList.appendChild(donDiv);
+        
+        count++;
+      }
+    });
+    
+    if (count === 0) {
+      donList.innerHTML = "vous n'avez pas effectué de dons";
+    }
+  }
+  
 // Function to create and display unique donations
 function createDonUnique() {
     let donList = document.getElementById("don-unique");
@@ -93,16 +130,18 @@ function createDonUnique() {
         donList.innerHTML = "vous n'avez pas effectué de dons";
     }
 }
-
 // Function to create and display recurring donations
 function createDonRec() {
     let donRecList = document.getElementById("don-rec");
     donRecList.innerHTML = "";
 
+    console.log(donsReccurents);
+    
     if (donsReccurents.length !== 0) {
         donsReccurents.forEach(currentDon => {
             let currentAsso = associations.find(assos => assos.id == currentDon.id_assos);
 
+            
             // Create donation container
             let donDiv = document.createElement("div");
             donDiv.classList.add("row-card");
@@ -118,9 +157,10 @@ function createDonRec() {
             donAmount.innerHTML = currentDon.montant_don + currency;
 
             // Create donation recurrence interval
-            let donDate = document.createElement("p");
-            donDate.classList.add("asso-date");
-            donDate.innerHTML = currentDon.recurrence_interval;
+            let donRecurr = document.createElement("p");
+            donRecurr.classList.add("asso-recurr");
+            currentDon.recurrence = 1 ? donRecurr.innerHTML = "mois" : donRecurr.innerHTML = "année";
+        
 
             // Create edit button
             let donEditBtn = document.createElement("button");
@@ -137,7 +177,7 @@ function createDonRec() {
             // Append elements to the donation container
             donDiv.appendChild(donName);
             donDiv.appendChild(donAmount);
-            donDiv.appendChild(donDate);
+            donDiv.appendChild(donRecurr);
             donDiv.appendChild(donEditBtn);
             donDiv.appendChild(donDeleteBtn);
 

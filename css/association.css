@@ -116,6 +116,7 @@ main {
 
 /* Donation Button */
 #donation-button {
+  text-decoration: none;
   background-color: #fff;
   color: #2AB89F;
   border: none;

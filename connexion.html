@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
@@ -55,8 +55,6 @@
         });
       </script>
       
-      
-      <!-- Script pour récupérer et afficher le message stocké -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
@@ -72,6 +70,83 @@
       if (error) {
         document.getElementById('message').textContent = error;
         sessionStorage.removeItem('loginError');
+      }
+    });
+  </script>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#1AB99F">
+  <title>Connexion</title>
+  <link rel="shortcut icon" href="./images/logo.png">
+  <link rel="stylesheet" type="text/css" href="./css/connexion.css">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body class="connexionBody">
+  <div class="container" role="main">
+    <!-- Bouton de retour avec aria-label pour expliquer son action -->
+    <button onclick="location.href='./index.php';" class="return-btn" aria-label="Retour à la page d'accueil">Retour</button>
+    
+    <div class="connexion-form" role="form" aria-labelledby="connexion-title">
+      <h1 id="connexion-title" tabindex="0">Me connecter</h1>
+
+      <form action="connexion.php" method="post">
+        <div class="formItem">
+          <label for="email">Adresse E-Mail</label>
+          <!-- Ajout de aria-label pour décrire l'input -->
+          <input name="email" type="email" id="email" aria-label="Adresse E-Mail" label="mail">
+        </div>
+        <div class="formItem">
+          <label for="password">Mot de Passe</label>
+          <input name="password" type="password" id="password" aria-label="Mot de passe">
+        </div>
+        <div class="formButtonRegisterEtConnexion">
+          <button class="buttonConnect" type="submit" aria-label="Se connecter">Me connecter</button>
+        </div>
+      </form>
+
+      <div class="RegisterPageLinkDiv">
+        <p tabindex="0">Pas de compte?</p>
+        <a href="./enregistrement.html" aria-label="Créer un compte">Créer un compte</a>
+      </div>
+
+      <div id="message" role="alert" aria-live="assertive"></div>
+    </div>
+  </div>
+  
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+  
+      if (params.get('register') === '1') {
+        alert("✅ Enregistrement réussi !");
+        // Optionnel : on retire le paramètre pour éviter le rappel
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+  
+      const error = sessionStorage.getItem('loginError');
+  
+      if (error) {
+        document.getElementById('message').textContent = error;
+        sessionStorage.removeItem('loginError');
+      }
+    });
+  </script>
+  
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+  
+      if (params.get('register') === '1') {
+        alert("✅ Enregistrement réussi !");
+        window.history.replaceState({}, document.title, window.location.pathname);
       }
     });
   </script>

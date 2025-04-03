@@ -2,12 +2,12 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <link rel="stylesheet" type="text/css" href="./css/paiement-don.css">
     <script src="./js/paiement-don.js" type="module"></script>
     <script src="./js/settings.js" type="module"></script>
     <link rel="stylesheet" type="text/css" href="./css/settings.css">
-    <script src="https://www.paypal.com/sdk/js?client-id=AWC7PJYo6u0NuJhFDSYq4HC7oMQN7gTp_YesPV-ns47b2uatFwdKeSmXQp4RfhNRUU1VB-keVbV3Gj8z"></script>
+    <script id="paypal-sdk" src="https://www.paypal.com/sdk/js?client-id=AWC7PJYo6u0NuJhFDSYq4HC7oMQN7gTp_YesPV-ns47b2uatFwdKeSmXQp4RfhNRUU1VB-keVbV3Gj8z"></script>
     <title>Don</title>
 </head>
 <body>
@@ -57,8 +57,11 @@
         <h2>Mon don</h2>
 
         <div class="checkbox-mensuetude">
-            <input type="checkbox" name="mensuetude" id="mensuetude">
-            <label for="mensuetude">Je souhaite donner tous les mois</label>
+            <input type="checkbox" name="recurrence" id="recurrence">
+            <select id="recurrence-frequence" name="recurrence-frequence">
+                <option value="1">Je souhaite donner tous les mois</option>
+                <option value="2">Je souhaite donner tous les ans</option>
+            </select>
         </div>
 
         <div class="montant-container">
